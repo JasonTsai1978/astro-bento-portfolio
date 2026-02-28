@@ -1,15 +1,42 @@
 ---
 import Card from "./Card/index.astro";
 ---
-
-<Card colSpan="md:col-span-2" rowSpan="md:row-span-1" title="My Stack">
-  <p class="text-sm font-light">
-    Here's a snapshot of the primary tools and technologies I work with:
+<Card colSpan="md:col-span-2" rowSpan="md:row-span-1" title="The Council — My AI Stack">
+  <p class="text-sm font-light mb-2">
+    A personal multi-LLM operations setup. Cloud reasoning meets on-prem control.
   </p>
-  <ul class="text-sm font-light pl-5 list-disc">
-    <li ><strong>Solidjs</strong></li>
-    <li><strong>JavaScript</strong></li>
-    <li><strong>Node.js</strong></li>
-    <li><strong>React.js</strong></li>
-  </ul>
+  <div class="flex flex-col gap-2 text-sm font-light">
+    <div>
+      <p class="text-xs text-gray-500 mb-1">☁️ Cloud Layer</p>
+      <ul class="pl-4 list-disc">
+        <li><strong>Claude</strong> — reasoning & writing</li>
+        <li><strong>GPT-4o</strong> — general tasks</li>
+        <li><strong>Gemini Pro</strong> — research & multimodal</li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs text-gray-500 mb-1">🖥️ On-Prem Layer</p>
+      <ul class="pl-4 list-disc">
+        <li><strong>Ollama</strong> — local model runner</li>
+        <li><strong>LM Studio</strong> — model management</li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs text-gray-500 mb-1">⚙️ Automation Layer</p>
+      <ul class="pl-4 list-disc">
+        <li><strong>n8n</strong> — workflow orchestration</li>
+        <li><strong>Telegram Bot</strong> — on-demand intelligence</li>
+        <li><strong>OpenClaw</strong> — web crawling</li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs text-gray-500 mb-1">🗄️ Enterprise Stack</p>
+      <ul class="pl-4 list-disc">
+        <li><strong>C# / .NET</strong> — since 2003</li>
+        <li><strong>MS SQL / T-SQL</strong></li>
+        <li><strong>webMethods</strong> — B2B integration</li>
+        <li><strong>SAP</strong> — 20+ implementations</li>
+      </ul>
+    </div>
+  </div>
 </Card>
