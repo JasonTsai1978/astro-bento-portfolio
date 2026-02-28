@@ -1,33 +1,38 @@
 ---
 import Card from "./Card/index.astro";
 ---
-
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="About me">
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-4">
     <div class="text-sm font-light">
       <p>
-        Hi, I'm Gianmarco, a front-end software developer from Italy.
-        <br />
-        My primary tools of choice includes:
+        I've spent 20 years inside semiconductor manufacturing — from writing C# on the factory floor to leading the systems that move <b class="font-semibold">$2B+ in annual revenue</b>. I've seen what happens when integration fails at scale, and I've built the infrastructure to make sure it doesn't.
       </p>
+    </div>
+
+    <div class="text-sm font-light">
+      <p class="mb-2">My core stack:</p>
       <ul class="list-disc list-inside">
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>Solidjs</li>
-        <li>Astro</li>
-        <li>svelte</li>
-        <li>Nodejs</li>
+        <li>C# / .NET — since 2003</li>
+        <li>MS SQL / T-SQL</li>
+        <li>webMethods (Software AG)</li>
+        <li>SAP — 20+ implementations</li>
+        <li>B2B / EDI Integration</li>
+        <li>MES Systems</li>
       </ul>
     </div>
+
+    <div class="text-sm font-light">
+      <p class="mb-2">Now exploring:</p>
+      <ul class="list-disc list-inside">
+        <li>Multi-LLM orchestration</li>
+        <li>n8n workflow automation</li>
+        <li>AI-powered knowledge systems</li>
+        <li>Local LLM deployment (Ollama / LM Studio)</li>
+      </ul>
+    </div>
+
     <p class="text-sm font-light">
-      Beyond coding, I'm passionate about design, illustration, animation and 3D modelling and traveling.
-      An unusual hobby of mine is collecting vintage passports, they're
-      interesting pieces of history to me.
-    </p>
-    <p class="text-sm font-light">
-      While I have some preferred tools, I always choose the best one for the
-      job, even if it's not on my usual list. My goal is to find the right
-      solution for each project.
+      Lately, I've been rebuilding how I think. Not just how I work.
     </p>
   </div>
 </Card>
