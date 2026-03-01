@@ -20,24 +20,24 @@ const schema =
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
-        url: Astro.url.origin,
-        sameAs: [LINKS.linkedin, LINKS.github],
-        image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
-        worksFor: {
-          "@type": "Organization",
-          name: "Self-Employed",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
-          },
-        },
-        nationality: {
-          "@type": "Country",
-          name: "Italy",
-        },
+        name: "Jason Tsai",
+url: Astro.url.origin,
+sameAs: [LINKS.linkedin, LINKS.github],
+image: `${Astro.url.origin}/og-image.png`,
+jobTitle: "IT Manager",
+worksFor: {
+  "@type": "Organization",
+  name: "Tier-1 Semiconductor Company",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Hsinchu",
+    addressCountry: "TW",
+  },
+},
+nationality: {
+  "@type": "Country",
+  name: "Taiwan",
+},
       }
     : {
         "@context": "http://schema.org",
@@ -51,13 +51,13 @@ const schema =
         image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
+          name: "Jason Tsai",
           url: Astro.url.origin,
           sameAs: [LINKS.linkedin, LINKS.github],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "Jason Tsai",
           logo: {
             "@type": "ImageObject",
             url: `${Astro.url.origin}/og-image.png`,
