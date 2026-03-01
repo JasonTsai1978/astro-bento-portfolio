@@ -31,7 +31,7 @@ const visitedCountries = [
       .geoOrthographic()
       .scale(250)
       .center([0, 0])
-      .rotate([0, -30])
+      .rotate([-105, -25])
       .translate([width / 2, height / 2]);
 
     const initialScale = projection.scale();
