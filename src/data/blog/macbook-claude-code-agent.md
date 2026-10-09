@@ -4,9 +4,9 @@ description: "How my wife's old rose gold MacBook became a 24/7 Claude Code agen
 pubDate: 2026-10-10
 ---
 
-![A 12-inch MacBook, the same design as mine](/blog/macbook-12-inch.jpg)
+![The rose gold 12-inch MacBook, fresh out of the box](/blog/macbook-rose-gold-lid.jpg)
 
-*The 12-inch MacBook. Mine is the Early 2016 model in Rose Gold; this one is a 2015 Gold unit with the same design. Photo: [Maurizio Pesce](https://commons.wikimedia.org/wiki/File:MacBook_with_Retina_Display.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).*
+*Unboxing day, January 2017.*
 
 This laptop has a story. The 12-inch MacBook was, in Apple's words, "the thinnest and lightest Mac we have ever made": 13.1 mm thin and just 2 pounds. The 2016 update added a new finish, rose gold, the first time Apple offered it on a Mac. I bought one in Rose Gold as a birthday gift for my wife.
 
@@ -15,6 +15,10 @@ Years later it was sitting unused. This week it became the most useful computer 
 ## Why this machine
 
 I wanted an AI agent that is always on and reachable from anywhere, not a chat window I have to open. My desktop PC isn't on all the time and Windows updates restart it. The MacBook was a better fit: fanless, low power, and already ours. Its Core m3 and 8 GB of RAM are modest, but that doesn't matter. The model runs in the cloud; the machine only needs to keep a terminal running.
+
+<img src="/blog/macbook-rose-gold-open.jpg" alt="The MacBook opened for the first time, with a Traditional Chinese Zhuyin keyboard" style="max-height:520px;margin:0 auto;display:block;border-radius:6px" />
+
+*Opened for the first time in 2017. Nearly ten years later, this keyboard only answers to Enter.
 
 ## Four installs to get one working
 
