@@ -10,3 +10,4 @@
 2026-10-09（驗收）：正式站已更新，首頁無原作者字樣；Globe 國家清單經本人確認無誤，不需改。
 2026-10-09（About me 草稿）：分支 about-refresh——About me 加入帶 10 人團隊導入 AI（資安合規優先）、改列近期實作（Claude Code 常駐 agent、半導體早報、Obsidian）；移除 Ollama/LM Studio、The Council、未使用的 MyStack；Intro/Now/meta description/README 同步。本人確認後已合併 master 上線。
 2026-10-09（Now 草稿）：分支 now-refresh——Now 卡片加 Updated October 2026，改為 At work / On the side / Off the clock 三句（不寫私人行程）。待本人確認預覽後合併。
+2026-10-09（字級）：now-refresh 分支加入字級統一——卡片標題 text-xl bold（Now 原本無樣式）、內文 text-sm（Now 原 xs、Contacts 原 base、Blog 列表與頁尾原 xs）。桌機 1440 截圖確認平衡；手機截圖受 headless Edge 最小視窗寬度限制，未能可靠驗證。待本人確認後合併。
