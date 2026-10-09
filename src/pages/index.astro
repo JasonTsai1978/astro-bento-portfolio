@@ -76,12 +76,12 @@ description="IT Manager with 20 years in semiconductor manufacturing, leading a 
             //   href={`/blog/${post.id}`}
             // >
             <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
-              <p class="inline-block whitespace-nowrap text-xs">
+              <p class="inline-block whitespace-nowrap text-sm">
                 {post.data.title}
               </p>
               {post.data.pubDate && (
                 <time
-                  class="text-right tabular-nums text-xs"
+                  class="text-right tabular-nums text-sm"
                   data-date={post.data.pubDate.toISOString()}
                   datetime={post.data.pubDate.toISOString()}
                 >
@@ -95,7 +95,7 @@ description="IT Manager with 20 years in semiconductor manufacturing, leading a 
       </div>
     </Card>
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-xs">
+      <p class="text-sm font-light">
         © 2025 · Crafted with ♥️ using <a
           class="text-red-500"
           href="https://astro.build/"
