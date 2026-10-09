@@ -15,3 +15,4 @@
 2026-10-10（上線）：now-refresh（Now 改版、字級統一、版面高度修正）本人確認後 fast-forward 合併 master 上線。
 2026-10-10（自訂網域）：已購買 jasontsai.dev（Cloudflare Registrar，首年 US$8.20、續約 US$12.20、自動續約、WHOIS 遮蔽）。分支 custom-domain 已把 site/sitemap/README 改為 https://jasontsai.dev/，等本人在 Pages → Custom domains 綁定、網域可連線後再合併 master。
 2026-10-10（自訂網域上線）：jasontsai.dev 與 www 已綁定（Let's Encrypt 憑證含 *.jasontsai.dev，http 自動 301 到 https），custom-domain 合併 master。www 目前直接回 200 未導向主網域（canonical 指向 jasontsai.dev，可選擇加 Redirect Rule）。
+2026-10-10（手機版照片）：分支 mobile-photo——手機版自我介紹卡照片原為半透明背景疊在文字下（模板為卡通頭像設計），改為上方 96px 圓形頭像；md 以上維持原樣。待本人確認預覽後合併。
