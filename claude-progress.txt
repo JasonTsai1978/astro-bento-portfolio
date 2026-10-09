@@ -7,3 +7,4 @@
 遺留：GitHub repo homepage 欄位仍是模板作者的 netlify demo，待改；README 仍為模板內容。
 2026-10-09（移除模板作者資訊）：og-image 改用本人照片重製；travel/blog/文章/RSS 標題改 Jason Tsai，RSS 連結 post.slug→post.id；刪範例文章（顯示 coming soon）、playground、rive 動畫、作者 memoji/preview/globe_preview 圖、FUNDING.yml、義大利時區函式；README 改寫；LICENSE 保留原作者版權並加本人一行（MIT 要求保留）。預覽分支 cleanup-template 驗證通過後 fast-forward 到 master。
 遺留：repo 仍是 Ladvace 的 fork（可在 GitHub detach）；GitHub repo homepage 欄位待改；@astrojs/netlify、@rive-app 依賴未移除（本機無 pnpm 無法更新 lockfile）；Globe 造訪國家清單請本人確認。
+2026-10-09（驗收）：正式站已更新，首頁無原作者字樣；Globe 國家清單經本人確認無誤，不需改。
