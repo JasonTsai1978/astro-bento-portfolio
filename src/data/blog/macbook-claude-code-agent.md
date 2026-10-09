@@ -4,6 +4,8 @@ description: "How my wife's old rose gold MacBook became a 24/7 Claude Code agen
 pubDate: 2026-10-10
 ---
 
+[中文版](/blog/macbook-claude-code-agent-zh/)
+
 ![The rose gold 12-inch MacBook, fresh out of the box](/blog/macbook-rose-gold-lid.jpg)
 
 *Unboxing day, January 2017.*
@@ -18,7 +20,7 @@ I wanted an AI agent that is always on and reachable from anywhere, not a chat w
 
 <img src="/blog/macbook-rose-gold-open.jpg" alt="The MacBook opened for the first time, with a Traditional Chinese Zhuyin keyboard" style="max-height:520px;margin:0 auto;display:block;border-radius:6px" />
 
-*Opened for the first time in 2017. Nearly ten years later, this keyboard only answers to Enter.
+*Opened for the first time in 2017. Nearly ten years later, this keyboard only answers to Enter.*
 
 ## Four installs to get one working
 

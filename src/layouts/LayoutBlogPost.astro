@@ -8,12 +8,13 @@ type Props = {
   pubDate: Date;
   minutesRead: string;
   url: string;
+  lang?: string;
 };
 
-const { title, description, pubDate, minutesRead, url } = Astro.props;
+const { title, description, pubDate, minutesRead, url, lang } = Astro.props;
 ---
 
-<BasicLayout description={description} page="blog" slug={url} title={`${title} | Jason Tsai`}>
+<BasicLayout description={description} lang={lang} page="blog" slug={url} title={`${title} | Jason Tsai`}>
   <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
     <a
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"       href="/blog"
