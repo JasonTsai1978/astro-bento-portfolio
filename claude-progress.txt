@@ -18,3 +18,4 @@
 2026-10-10（手機版照片）：分支 mobile-photo——手機版自我介紹卡照片原為半透明背景疊在文字下（模板為卡通頭像設計），改為上方 96px 圓形頭像；md 以上維持原樣。待本人確認預覽後合併。
 2026-10-10（第一篇部落格）：mobile-photo 分支加入 src/data/blog/macbook-claude-code-agent.md（英文，依 PersonalAgentSetup 紀錄撰寫，不含 IP/MAC/帳號/SSID/bot 名稱）；文章頁改深色配色（原模板淺色設定：連結深藍、程式碼淺底）、清單顯示圓點、h1 不帶站名、手機標題縮小；首頁 Blog 卡片與 /blog 列表標題可換行。手機與桌機截圖已確認。待本人審稿與確認預覽後合併。
 2026-10-10（部落格改版）：文章縮短至約 650 字；加入「Rose Gold 款、送太太的生日禮物」與機型背景（引用 Apple 2016-04-19 新聞稿：thinnest and lightest Mac、首款 rose gold Mac）；附圖 public/blog/macbook-12-inch.jpg 為 Wikimedia Commons Maurizio Pesce 2015 Gold 款（CC BY 2.0，已標示作者與授權），Commons 無 rose gold 自由授權照片，建議日後換成本人實機照。
+2026-10-10（部落格配圖）：改用本人 2017-01 開箱照（相機相簿/2017/01 的 20170126_150104469、20170126_150150286），輸出 1400px 並去除 EXIF/GPS；移除 Commons 金色款圖片。
