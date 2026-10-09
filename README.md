@@ -2,7 +2,7 @@
 
 ![Jason Tsai — IT Manager & AI Builder](public/og-image.png)
 
-**Live:** https://jasontsai-portfolio.pages.dev/
+**Live:** https://jasontsai.dev/
 
 IT Manager with 20 years in semiconductor manufacturing, based in Hsinchu, Taiwan. By day I keep Tier-1 semiconductor operations online — C# / .NET, MS SQL, webMethods, SAP and MES integration. I lead a 10-person development team and am bringing AI into how we work — security and compliance first. On my own time I build with Claude Code, Claude, Gemini and ChatGPT: an always-on agent on a recycled MacBook, an automated semiconductor news brief, and an Obsidian knowledge system.
 

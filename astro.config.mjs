@@ -8,13 +8,13 @@ import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 import svelte from "@astrojs/svelte";
 
 export default defineConfig({
-  site: "https://jasontsai-portfolio.pages.dev/",
+  site: "https://jasontsai.dev/",
   integrations: [
     sitemap(),
     robotsTxt({
       sitemap: [
-        "https://jasontsai-portfolio.pages.dev/sitemap-index.xml",
-        "https://jasontsai-portfolio.pages.dev/sitemap-0.xml",
+        "https://jasontsai.dev/sitemap-index.xml",
+        "https://jasontsai.dev/sitemap-0.xml",
       ],
     }),
     solidJs(),
