@@ -20,3 +20,4 @@
 2026-10-10（部落格改版）：文章縮短至約 650 字；加入「Rose Gold 款、送太太的生日禮物」與機型背景（引用 Apple 2016-04-19 新聞稿：thinnest and lightest Mac、首款 rose gold Mac）；附圖 public/blog/macbook-12-inch.jpg 為 Wikimedia Commons Maurizio Pesce 2015 Gold 款（CC BY 2.0，已標示作者與授權），Commons 無 rose gold 自由授權照片，建議日後換成本人實機照。
 2026-10-10（部落格配圖）：改用本人 2017-01 開箱照（相機相簿/2017/01 的 20170126_150104469、20170126_150150286），輸出 1400px 並去除 EXIF/GPS；移除 Commons 金色款圖片。
 2026-10-10（中文版）：新增 src/data/blog/macbook-claude-code-agent-zh.md（本人語氣，結論先行、技術名詞保留英文）；英中互連；檔名 -zh 結尾的文章 html lang=zh-Hant。
+2026-10-10（部落格修訂）：每日工作改為兩件（新聞摘要：半導體＋規劃中的 NBA/MLB/中職/F1；健康檢查），移除 Obsidian 筆記段落，email/行事曆改為「還不放心，考慮用獨立帳號試」。待辦：mbook 排程新增運動新聞來源。
