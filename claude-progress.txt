@@ -22,3 +22,5 @@
 2026-10-10（中文版）：新增 src/data/blog/macbook-claude-code-agent-zh.md（本人語氣，結論先行、技術名詞保留英文）；英中互連；檔名 -zh 結尾的文章 html lang=zh-Hant。
 2026-10-10（部落格修訂）：每日工作改為兩件（新聞摘要：半導體＋規劃中的 NBA/MLB/中職/F1；健康檢查），移除 Obsidian 筆記段落，email/行事曆改為「還不放心，考慮用獨立帳號試」。待辦：mbook 排程新增運動新聞來源。
 2026-10-10（文章頁留白）：LayoutBlogPost 的 main 由 h-screen 改 min-h-screen、加 pb-24，文章結尾下方保留空白。
+2026-10-10（上線）：mobile-photo 合併 master——手機版圓形頭像、第一篇部落格（中英文、實拍照片）、文章頁深色配色與留白。
+下次從：①mbook 排程加入運動新聞（NBA/MLB/中職/F1）來源；②中文文章的日期與閱讀時間改中文格式（選做）；③GitHub repo Website 欄位改 jasontsai.dev（本人手動）。
