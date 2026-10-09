@@ -13,3 +13,4 @@
 2026-10-09（字級）：now-refresh 分支加入字級統一——卡片標題 text-xl bold（Now 原本無樣式）、內文 text-sm（Now 原 xs、Contacts 原 base、Blog 列表與頁尾原 xs）。桌機 1440 截圖確認平衡；手機截圖受 headless Edge 最小視窗寬度限制，未能可靠驗證。待本人確認後合併。
 2026-10-09（版面）：發現版面綁死視窗高度（body md:h-screen + grid lg:min-h-screen、8 等分列）——矮視窗切字（正式站 1440x900 About me 末行被切）、高視窗卡片空白。改 body md:min-h-screen、grid 移除 lg:min-h-screen，卡片高度改由內容決定。1440x900、1920x1500 截圖確認無切字、無多餘空白。中途試過的自我介紹卡調整已還原。待本人確認後合併。
 2026-10-10（上線）：now-refresh（Now 改版、字級統一、版面高度修正）本人確認後 fast-forward 合併 master 上線。
+2026-10-10（自訂網域）：已購買 jasontsai.dev（Cloudflare Registrar，首年 US$8.20、續約 US$12.20、自動續約、WHOIS 遮蔽）。分支 custom-domain 已把 site/sitemap/README 改為 https://jasontsai.dev/，等本人在 Pages → Custom domains 綁定、網域可連線後再合併 master。
