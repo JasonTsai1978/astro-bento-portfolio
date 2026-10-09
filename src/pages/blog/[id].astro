@@ -27,7 +27,7 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 ---
 
 <LayoutBlogPost
-  description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   title={`${entry.data.title} | Jason Tsai`}   url={`blog/${entry.id}`}
+  description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   title={entry.data.title}   url={`blog/${entry.id}`}
 >
   <Content />
 </LayoutBlogPost>
@@ -85,6 +85,19 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
   ol {
     margin-left: 20px;
     margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    margin-bottom: 6px;
   }
 
   blockquote {
