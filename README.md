@@ -1,75 +1,42 @@
-# ⚡️astro-bento-portfolio
+# Jason Tsai — Personal Site
 
-## A personal portfolio website made using `Astro`.
+![Jason Tsai — IT Manager & AI Builder](public/og-image.png)
 
-![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
+**Live:** https://jasontsai-portfolio.pages.dev/
 
-To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
+IT Manager with 20 years in semiconductor manufacturing, based in Hsinchu, Taiwan. By day I keep Tier-1 semiconductor operations online — C# / .NET, MS SQL, webMethods, SAP and MES integration. By night I build personal AI infrastructure: Claude, GPT and Gemini in the cloud, Ollama and LM Studio on-prem, stitched together with n8n workflows.
 
-or my portfolio **[click here](https://gianmarcocavallo.com)**
+This repo is the source of my personal site: a single-page bento layout with an about card, a "now" card, a live Taipei clock, a 3D globe of countries I've visited, and a blog.
 
-## Features
+## Tech stack
 
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-- Performances and SEO optimizations
-- Ready to be deployed on [Netlify](https://www.netlify.com/)
-- Blog
-- RSS support (your-domain/rss.xml)
-- Cool 3d globe
+- [Astro](https://astro.build) (static output)
+- [UnoCSS](https://unocss.dev/), [motion](https://motion.dev/), [d3](https://d3js.org/) (globe)
+- Hosted on [Cloudflare Pages](https://pages.cloudflare.com/) — every push to `master` deploys automatically
 
-## Tech Stack
-
-- [Astro](https://astro.build)
-- [unocss](https://unocss.dev/)
-- [motion](https://motion.dev/)
-- [d3](https://d3js.org/)
-
-# Steps ▶️
+## Run locally
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/Ladvace/astro-bento-portfolio
+pnpm install
+pnpm dev      # http://localhost:4321
+pnpm build    # outputs to dist/
 ```
 
-```bash
-# Go into the repository
-$ cd astro-bento-portfolio
-```
+## Where to edit
 
-```bash
-# Install dependencies
-$ pnpm install
-or
-$ npm install
-```
+| What | File |
+| --- | --- |
+| Name, intro, links | `src/components/IntroCard.astro`, `src/lib/constants.ts` |
+| About / Now / Contacts | `src/components/AboutMe.astro`, `Now.astro`, `ContactsCard.astro` |
+| Visited countries | `src/components/Globe.tsx` |
+| Blog posts | `src/data/blog/*.md` |
+| Site URL & sitemap | `astro.config.mjs` |
 
-```bash
-# Start the project in development
-$ pnpm run dev
-or
-$ npm run dev
-```
+## Contact
 
-# Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
+- LinkedIn: https://www.linkedin.com/in/jason-tsai-7a926769/
+- GitHub: https://github.com/JasonTsai1978
 
-## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
+## Credits
 
-# Configuration
-
-remember to replace the `site` and other properties with your data in `astro.config.mjs`
-
-# Deploy on Netlify 🚀
-
-Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
-
-You just need to fork this repo and linking it to your Netlify account.
-
-or
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)
-
-## Authors ❤️
-
-- Gianmarco - https://github.com/Ladvace
+Built on the open-source [astro-bento-portfolio](https://github.com/Ladvace/astro-bento-portfolio) template (MIT License). See [LICENSE](LICENSE).

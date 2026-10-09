@@ -20,7 +20,7 @@ const posts = (await getCollection("blog"))?.sort(
 </script>
 
 <Layout
-  description="Software developer with strong focus on the user experience animations and micro interactions"   title="Gianmarco Cavallo - Blog"
+  description="Notes from Jason Tsai on semiconductor IT, system integration and personal AI workflows."   title="Jason Tsai - Blog"
 >
   <main
     class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
@@ -30,6 +30,7 @@ const posts = (await getCollection("blog"))?.sort(
       >Back</a
     >
     <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
+    {!posts?.length && <p class="text-neutral-400">First posts coming soon.</p>}
     <ul class="w-full">
       {
         posts?.map((post) => (

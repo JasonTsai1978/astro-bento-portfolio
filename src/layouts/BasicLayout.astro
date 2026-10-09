@@ -12,7 +12,7 @@ interface Props {
 const { title, description, page, pubDate } = Astro.props;
 const image =
   page === "travel"
-    ? `${Astro.url.origin}/globe_preview.webp"`
+    ? `${Astro.url.origin}/og-image.png`
     : `${Astro.url.origin}/og-image.png`;
 
 const schema =
