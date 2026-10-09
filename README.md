@@ -4,7 +4,7 @@
 
 **Live:** https://jasontsai-portfolio.pages.dev/
 
-IT Manager with 20 years in semiconductor manufacturing, based in Hsinchu, Taiwan. By day I keep Tier-1 semiconductor operations online — C# / .NET, MS SQL, webMethods, SAP and MES integration. By night I build personal AI infrastructure: Claude, GPT and Gemini in the cloud, Ollama and LM Studio on-prem, stitched together with n8n workflows.
+IT Manager with 20 years in semiconductor manufacturing, based in Hsinchu, Taiwan. By day I keep Tier-1 semiconductor operations online — C# / .NET, MS SQL, webMethods, SAP and MES integration. I lead a 10-person development team and am bringing AI into how we work — security and compliance first. On my own time I build with Claude Code, Claude, Gemini and ChatGPT: an always-on agent on a recycled MacBook, an automated semiconductor news brief, and an Obsidian knowledge system.
 
 This repo is the source of my personal site: a single-page bento layout with an about card, a "now" card, a live Taipei clock, a 3D globe of countries I've visited, and a blog.
 
