@@ -71,25 +71,17 @@ description="IT Manager with 20 years in semiconductor manufacturing, leading a 
         {!posts?.length && <p class="text-sm font-light text-gray-400">First posts coming soon.</p>}
         {
           posts?.slice(0, 3).map((post) => (
-            // <a
-            //   class="text-sm md:text-base decoration-none flex justify-between"
-            //   href={`/blog/${post.id}`}
-            // >
-            <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
-              <p class="inline-block whitespace-nowrap text-sm">
-                {post.data.title}
-              </p>
+            <div class="w-full text-neutral-100 border-b-neutral-600 border-dashed border-b-1 pb-2">
+              <p class="text-sm m-0">{post.data.title}</p>
               {post.data.pubDate && (
                 <time
-                  class="text-right tabular-nums text-sm"
-                  data-date={post.data.pubDate.toISOString()}
+                  class="text-xs text-gray-500 tabular-nums"
                   datetime={post.data.pubDate.toISOString()}
                 >
                   {formatDate(post.data.pubDate)}
                 </time>
               )}
             </div>
-            // </a>
           ))
         }
       </div>

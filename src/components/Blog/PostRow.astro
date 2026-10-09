@@ -14,14 +14,14 @@ const { title, date, id } = Astro.props;
   class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-2"
 >
   <a
-    class="text-sm md:text-base decoration-none flex justify-between"
+    class="text-sm md:text-base decoration-none flex justify-between gap-4"
     href={`/blog/${id}`}
   >
-    <p class="inline-block whitespace-nowrap">
+    <p class="m-0">
       {title}
     </p>
     <time
-      class="text-right tabular-nums"
+      class="text-right tabular-nums shrink-0 text-gray-400"
       data-date={date.toISOString()}       datetime={date.toISOString()}
     >
       {formatDate(date)}
