@@ -40,13 +40,14 @@ The fourth install finished cleanly. The only leftover quirk: the built-in keybo
 
 Claude Code runs as a background service in remote-control mode and restarts itself after a crash or reboot. I open the Claude app on my phone, pick the MacBook, and give it work. It works over 4G too. Nothing is exposed to the internet; SSH stays on my home network.
 
-Every day it does three things:
+Every day it handles two jobs:
 
-- **A morning chip-industry brief.** A script collects semiconductor news from RSS feeds, Claude summarizes it, and the highlights arrive on my phone via Telegram at 7:30 a.m. The summarizer runs with all tools disabled, so untrusted news text can't trick it into running commands.
+- **A morning news brief.** Right now it covers the semiconductor industry. Next I'm adding sports: the NBA, MLB, Taiwan's CPBL, and F1. Outside of work, those are what I actually follow every day. A script collects news from RSS feeds, Claude summarizes it, and the highlights arrive on my phone via Telegram at 7:30 a.m. The summarizer runs with all tools disabled, so untrusted news text can't trick it into running commands.
 - **A health check every five minutes.** A plain shell script watches power, the SSD, disk, temperature, and the agent service, and pings me if something looks wrong. With a ten-year-old battery, I'd rather hear about power problems early.
-- **Read-only access to my notes.** A one-way sync gives the agent a snapshot of my Obsidian notes, with private folders excluded.
 
-The agent is kept on a short leash: the Telegram bot can only send, not receive commands; Claude Code is blocked from reading keys and credentials (tested before trusting it); and it has no access to my email, calendar, or documents.
+The agent is kept on a short leash: the Telegram bot can only send, not receive commands; Claude Code is blocked from reading keys and credentials (tested before trusting it).
+
+As for email and calendar, I'm not ready to let AI into my personal accounts yet. I may set up a separate account and let it try things there first.
 
 ## What I learned
 
