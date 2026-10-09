@@ -1,0 +1,5 @@
+2026-10-09：改部署至 Cloudflare Pages（Zeabur 已停租）。
+完成：astro.config.mjs 的 site 與 robots sitemap 改為 https://jasontsai-portfolio.pages.dev/；新增 .node-version（22）；移除 zeabur.json；已 push master（14ea9a3）。
+注意：README 與 GitHub repo homepage 的 netlify 網址是原模板作者（Ladvace）的 demo，不是本站。
+遺留：①使用者需在 Cloudflare 後台連 GitHub 建 Pages 專案（名稱 jasontsai-portfolio，preset Astro，build `pnpm build`，output `dist`）；若子網域被占用要回改 site。②本機無 Node，未在本機 build。③GitHub repo homepage 欄位待改成 pages.dev 網址。
+下次從：確認 Cloudflare 首次 build 成功、網站可開。
