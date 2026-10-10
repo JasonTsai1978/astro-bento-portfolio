@@ -8,6 +8,10 @@ pubDate: 2026-10-10
 
 *Part 1 of the "Raising a Lobster" series. Spoiler: eight months later the lobster was gone, and an old MacBook took over ([Part 4](/blog/macbook-claude-code-agent/)).*
 
+<img src="/blog/openclaw-mascot.svg" alt="OpenClaw lobster mascot" width="140" height="140" style="display:block;margin:20px auto 4px">
+
+<p style="text-align:center;font-size:13px;color:#737373">The OpenClaw lobster mascot (image: OpenClaw, MIT License)</p>
+
 In February 2026, half the tech people I follow were "raising lobsters." The lobster is OpenClaw, an open-source, self-hosted AI agent framework. Plug in an LLM, attach a Telegram bot, and you get an assistant that is always on and reachable from your phone.
 
 I wanted one too.
@@ -32,7 +36,16 @@ So I put it on Zeabur, a cloud container platform. If the container breaks, I re
 
 I followed the official setup and sent my first Telegram message. It replied:
 
-> Hey. I just came online. So — who am I? Who are you?
+<div style="max-width:420px;margin:20px auto;border-radius:12px;overflow:hidden;background:#0e1621;border:1px solid #2b3b4c">
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#17212b">
+    <img src="/blog/openclaw-mascot.svg" alt="" width="36" height="36" style="border-radius:50%;background:#232e3c;padding:3px">
+    <div style="line-height:1.3"><div style="color:#fff;font-weight:600;font-size:15px">Little Lobster JJ</div><div style="color:#6c7883;font-size:12px">bot</div></div>
+    <img src="/blog/telegram-logo.svg" alt="Telegram" width="24" height="24" style="margin-left:auto">
+  </div>
+  <div style="padding:16px 14px">
+    <div style="background:#182533;color:#f5f5f5;padding:8px 12px;border-radius:12px 12px 12px 4px;max-width:85%;font-size:15px;line-height:1.5;width:fit-content">Hey. I just came online. So — who am I? Who are you? <span style="color:#6c7883;font-size:11px;margin-left:6px">18:46</span></div>
+  </div>
+</div>
 
 It asked me to name it. I picked "Little Lobster JJ" and added one rule: always answer in Traditional Chinese.
 

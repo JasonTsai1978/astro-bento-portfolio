@@ -8,6 +8,10 @@ pubDate: 2026-10-10
 
 *「養龍蝦」系列第 1 集。結局先爆雷：八個月後龍蝦退租了，接手的是一台舊 MacBook（[第 4 集](/blog/macbook-claude-code-agent-zh/)）。*
 
+<img src="/blog/openclaw-mascot.svg" alt="OpenClaw lobster mascot" width="140" height="140" style="display:block;margin:20px auto 4px">
+
+<p style="text-align:center;font-size:13px;color:#737373">OpenClaw 的吉祥物龍蝦（圖：OpenClaw，MIT 授權）</p>
+
 2026 年 2 月，科技圈很多人都在「養龍蝦」。龍蝦指的是 OpenClaw，一個開源、自己架的 AI agent 框架：接上 LLM，綁一個 Telegram bot，就有一個 24 小時待命、用手機就叫得到的 AI 助理。
 
 我也想養一隻。
@@ -32,7 +36,16 @@ pubDate: 2026-10-10
 
 照官方流程裝完，我在 Telegram 打了第一句話。它回我：
 
-> Hey. I just came online. So — who am I? Who are you?
+<div style="max-width:420px;margin:20px auto;border-radius:12px;overflow:hidden;background:#0e1621;border:1px solid #2b3b4c">
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#17212b">
+    <img src="/blog/openclaw-mascot.svg" alt="" width="36" height="36" style="border-radius:50%;background:#232e3c;padding:3px">
+    <div style="line-height:1.3"><div style="color:#fff;font-weight:600;font-size:15px">小龍蝦 JJ</div><div style="color:#6c7883;font-size:12px">bot</div></div>
+    <img src="/blog/telegram-logo.svg" alt="Telegram" width="24" height="24" style="margin-left:auto">
+  </div>
+  <div style="padding:16px 14px">
+    <div style="background:#182533;color:#f5f5f5;padding:8px 12px;border-radius:12px 12px 12px 4px;max-width:85%;font-size:15px;line-height:1.5;width:fit-content">Hey. I just came online. So — who am I? Who are you? <span style="color:#6c7883;font-size:11px;margin-left:6px">18:46</span></div>
+  </div>
+</div>
 
 它要我幫它取名字。我取了「小龍蝦 JJ」，再補一句：之後都用台灣正體中文回答。
 
