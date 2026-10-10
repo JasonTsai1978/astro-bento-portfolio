@@ -3,18 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card/index.astro";
 import IntroCard from "../components/IntroCard.astro";
 import ContactsCard from "../components/ContactsCard.astro";
-import TimeZone from "../components/TimeZoneCard.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
 import Globe from "../components/Globe";
-import { getCollection } from "astro:content";
-import { formatDate } from "../lib/helpers";
-
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
-);
+import BlogCard from "../components/BlogCard.astro";
 ---
 
 <script>
@@ -49,7 +41,7 @@ description="IT Manager with 20 years in semiconductor manufacturing, leading a 
     <AboutMe />
     <ContactsCard />        
     <Now />
-    <TimeZone />
+    <BlogCard />
     <Card
       colorText="text-neutral-900"
       colSpan="md:col-span-1"
@@ -61,39 +53,8 @@ description="IT Manager with 20 years in semiconductor manufacturing, leading a 
         <Globe client:load />
       </div>
     </Card>
-    <Card
-      colSpan="md:col-span-1"
-      href="/blog"
-      rowSpan="md:row-span-2 flex gap-1"
-      title="Blog"
-    >
-      <div class="flex flex-col gap-1">
-        {!posts?.length && <p class="text-sm font-light text-gray-400">First posts coming soon.</p>}
-        {
-          posts?.slice(0, 3).map((post) => (
-            <div class="w-full text-neutral-100 border-b-neutral-600 border-dashed border-b-1 pb-2">
-              <p class="text-sm m-0">{post.data.title}</p>
-              {post.data.pubDate && (
-                <time
-                  class="text-xs text-gray-500 tabular-nums"
-                  datetime={post.data.pubDate.toISOString()}
-                >
-                  {formatDate(post.data.pubDate)}
-                </time>
-              )}
-            </div>
-          ))
-        }
-      </div>
-    </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-sm font-light">
-        © 2025 · Crafted with ♥️ using <a
-          class="text-red-500"
-          href="https://astro.build/"
-          target="_blank">Astro</a
-        > by Jason Tsai.
-      </p>
-    </Card>
   </main>
+  <footer class="text-center text-xs font-light text-gray-500 pb-6">
+    © 2025 · Crafted with ♥️ using <a class="text-red-500" href="https://astro.build/" target="_blank">Astro</a> by Jason Tsai.
+  </footer>
 </Layout>

@@ -2,7 +2,22 @@
 import Card from "./Card/index.astro";
 import { LINKS } from "../lib/constants";
 ---
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
+<script>
+  // 每秒更新台北當地時間（原 Time zone 卡片併入此處）
+  function updateLocalTime() {
+    const el = document.getElementById("localTime");
+    if (!el) return;
+    const now = new Date();
+    el.textContent =
+      now.toLocaleTimeString("en-US", { timeZone: "Asia/Taipei", hour: "numeric", minute: "2-digit" }) +
+      " (UTC+8)";
+    el.setAttribute("datetime", now.toISOString());
+  }
+  updateLocalTime();
+  setInterval(updateLocalTime, 1000);
+</script>
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-3">
   <div class="h-full">
     <header class="flex items-center">
       <h1 class="text-white text-xl font-bold">
@@ -12,6 +27,7 @@ import { LINKS } from "../lib/constants";
     <address class="flex flex-col mt-4 not-italic">
       <h2 class="text-sm text-gray-500">Location</h2>
       <p class="text-sm">Hsinchu, Taiwan</p>
+      <time class="text-sm text-gray-400 tabular-nums" datetime="" id="localTime"></time>
     </address>
     <div class="flex flex-col mt-4 w-fit">
       <h2 class="text-sm text-gray-500">Socials</h2>

@@ -1,0 +1,63 @@
+---
+import Card from "./Card/index.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import { formatDate } from "../lib/helpers";
+
+// 同一篇文章的中英文版合併成一列：英文為主，中文標題放副標
+const all = await getCollection("blog");
+const byId = new Map(all.map((p) => [p.id, p]));
+const posts = all
+  .filter((p) => !p.id.endsWith("-zh") || !byId.has(p.id.slice(0, -3)))
+  .map((p) => ({
+    post: p,
+    zh: p.id.endsWith("-zh") ? undefined : byId.get(`${p.id}-zh`),
+  }))
+  .sort(
+    (a, b) =>
+      (b.post.data.pubDate || new Date()).getTime() -
+      (a.post.data.pubDate || new Date()).getTime()
+  )
+  .slice(0, 5);
+---
+
+<Card colSpan="md:col-span-2" rowSpan="md:row-span-3">
+  <div class="flex justify-between items-center mb-2">
+    <h2 class="text-xl font-bold m-0">Blog</h2>
+    <a
+      class="flex items-center gap-1 text-sm text-gray-400 hover:text-primary-500 transition-colors"
+      href="/blog"
+    >
+      All posts
+      <Icon class="h-5" name="ri:arrow-right-up-line" />
+    </a>
+  </div>
+  {!posts.length && <p class="text-sm font-light text-gray-400">First posts coming soon.</p>}
+  <ul class="flex flex-col m-0 p-0">
+    {
+      posts.map(({ post, zh }) => (
+        <li class="list-none border-b-neutral-600 border-dashed border-b-1 py-3 first:pt-1">
+          <a class="block text-neutral-100 hover:text-primary-500 transition-colors" href={`/blog/${post.id}/`}>
+            <div class="flex justify-between gap-4 items-baseline">
+              <p class="text-base m-0">
+                {post.data.title}
+              </p>
+              {post.data.pubDate && (
+                <time
+                  class="text-xs text-gray-500 tabular-nums shrink-0"
+                  datetime={post.data.pubDate.toISOString()}
+                >
+                  {formatDate(post.data.pubDate)}
+                </time>
+              )}
+            </div>
+            {zh && <p class="text-sm m-0 mt-1 text-gray-400">{zh.data.title}</p>}
+            {post.data.description && (
+              <p class="text-sm font-light m-0 mt-1 text-gray-500 line-clamp-2">{post.data.description}</p>
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Card>
