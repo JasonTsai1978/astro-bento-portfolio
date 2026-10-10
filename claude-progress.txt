@@ -27,3 +27,5 @@
 2026-10-10（備援入口）：新增 CLAUDE.md（部署、分支預覽流程、多環境交接、公開內容禁放）。分支 add-claude-md，未合併 master；本次只影響 Claude 的作業規則，網站內容不變。已建立 claude.ai/code 備援（Claude GitHub App 授權本 repo），GitHub 網頁 / github.dev 為緊急入口。
 遺留：①合併 add-claude-md。②在 claude.ai/code 做一次小改動，確認 Cloudflare 預覽網址正常，備援才算驗證通過。③GitHub App 授權清單移除練習用 repo（只保留本 repo）。
 下次從：確認預覽後合併 add-claude-md，再做 claude.ai/code 演練。
+2026-10-10（合併）：add-claude-md fast-forward 合併 master，CLAUDE.md 上線（網站內容不變）。另建私人靈感收件匣（不在本 repo），PC 端 Claude Code 讀取後照本檔流程處理。
+遺留：①claude.ai/code 演練一次小改動、確認預覽網址。②GitHub App 授權移除練習用 repo。
