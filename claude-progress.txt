@@ -31,3 +31,4 @@
 遺留：①claude.ai/code 演練一次小改動、確認預覽網址。②GitHub App 授權移除練習用 repo。
 2026-10-10（養龍蝦第 1 集）：分支 blog/lobster-ep1 新增 lobster-ep1-week-one（en）與 -zh，系列第 1 集（2026-02 第一週部署）。未合併，等預覽確認。pubDate 暫填 2026-10-10，合併當天再改。
 下次從：Jason 看預覽回饋 → 修改 → 合併；接著寫第 2 集（三月維運）。
+2026-10-10（補）：blog/lobster-ep1 加入「到底是我在用 AI」段落，仍未合併。
