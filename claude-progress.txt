@@ -41,3 +41,4 @@
 2026-10-10（補）：blog/lobster-ep3 一併把第 1 集 pubDate 改 2026-09-26、第 2 集改 2026-10-03（Jason 決定錯開日期）。
 2026-10-10（上線）：blog/lobster-ep3 合併 master——養龍蝦第 3 集上線；發表日期 第 1 集 9/26、第 2 集 10/3、第 3 集 10/9、mbook 終章 10/10。分支已刪。
 2026-10-10（首頁留白修正）：分支 site/intro-height——桌機改 14 列格線並依內容高度分配（Welcome 4、Now 3、Blog 7、Contacts 6、Globe 4、About 14）；平板（md）移除列跨距、Welcome/About me 全寬，修正原本 About me 被撐到 3800px 的問題；地球卡片 min-h-80。未合併，等 Jason 確認。
+2026-10-10（上線）：site/intro-height 合併 master，首頁桌機 14 列格線與平板版面修正上線，分支已刪。
