@@ -29,3 +29,5 @@
 下次從：確認預覽後合併 add-claude-md，再做 claude.ai/code 演練。
 2026-10-10（合併）：add-claude-md fast-forward 合併 master，CLAUDE.md 上線（網站內容不變）。另建私人靈感收件匣（不在本 repo），PC 端 Claude Code 讀取後照本檔流程處理。
 遺留：①claude.ai/code 演練一次小改動、確認預覽網址。②GitHub App 授權移除練習用 repo。
+2026-10-10（養龍蝦第 1 集）：分支 blog/lobster-ep1 新增 lobster-ep1-week-one（en）與 -zh，系列第 1 集（2026-02 第一週部署）。未合併，等預覽確認。pubDate 暫填 2026-10-10，合併當天再改。
+下次從：Jason 看預覽回饋 → 修改 → 合併；接著寫第 2 集（三月維運）。
