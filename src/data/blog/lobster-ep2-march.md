@@ -114,4 +114,4 @@ That log ran through March 22, and it became the skeleton of this post. I still 
 
 By the end of March, JJ delivered its brief on time every morning, no longer made up numbers, and the three lobsters had clear roles. Looking back, though, I spent far more time repairing it that month than it saved me.
 
-Next time: April to September, and why I shut the lobster down.
+Next time: [April to September, and why I shut the lobster down](/blog/lobster-ep3-letting-go/).
