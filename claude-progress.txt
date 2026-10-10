@@ -35,3 +35,4 @@
 2026-10-10（首頁版面）：分支 site/blog-card（以 blog/lobster-ep1 為基底，含第 1 集）——Blog 卡片改 2 欄 3 列、列最新 5 篇且中英合併；移除 Time zone 卡片，當地時間併入 Let's connect；版權行移到卡片外。未合併，等預覽確認；合併此分支即一併上線第 1 集。
 2026-10-10（上線）：site/blog-card fast-forward 合併 master——首頁 Blog 卡片加寬（最新 5 篇、中英合併）、移除 Time zone 改在 Let's connect 顯示當地時間；養龍蝦第 1 集（中英文，含 OpenClaw 吉祥物 MIT 授權、Telegram 圖示 CC0、仿 Telegram 對話框）上線。分支 blog/lobster-ep1、site/blog-card 已刪。
 下次從：第 2 集（三月維運，素材 session-log）。
+2026-10-10（養龍蝦第 2 集）：分支 blog/lobster-ep2 新增 lobster-ep2-march（en）與 -zh（三月維運），第 1 集結尾加連結。未合併，等預覽確認。
