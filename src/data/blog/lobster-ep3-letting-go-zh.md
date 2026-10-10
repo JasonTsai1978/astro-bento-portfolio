@@ -1,7 +1,7 @@
 ---
 title: "養龍蝦第 3 集：我為什麼把龍蝦收掉"
 description: "2026 年 3 月底之後，我就很少再打開 Zeabur 了。九月，我把龍蝦退租。不是因為它不好用，而是我發現自己其實不需要一隻龍蝦。"
-pubDate: 2026-10-10
+pubDate: 2026-10-09
 ---
 
 [English version](/blog/lobster-ep3-letting-go/)
