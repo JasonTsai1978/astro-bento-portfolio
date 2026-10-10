@@ -114,4 +114,4 @@ That week I also read a post from a senior engineer that I still think is the be
 
 That week I did the exact opposite: I let the lobster figure things out, and opened a Claude chat window to debug it. Installing took a morning. Getting it stable took a week.
 
-Next time: March, when the lobster starts making up stock prices.
+Next time: [March, when the lobster starts making up stock prices](/blog/lobster-ep2-march/).
