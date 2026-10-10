@@ -1,7 +1,7 @@
 ---
 title: "Raising a Lobster, Part 2: March, When the Lobster Started Making Up Stock Prices"
 description: "Deployment was only the start. In March 2026 my AI lobster sent market updates at midnight, invented stock prices and forgot things after every upgrade. I learned to write it rules, switch models, and keep a handoff log."
-pubDate: 2026-10-10
+pubDate: 2026-10-03
 ---
 
 [中文版](/blog/lobster-ep2-march-zh/)

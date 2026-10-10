@@ -1,7 +1,7 @@
 ---
 title: "養龍蝦第 1 集：JJ 誕生，第一週就繳了一堆學費"
 description: "2026 年 2 月，我在雲端架了 OpenClaw，養出一隻叫 JJ 的 AI 龍蝦和兩個小弟。安裝只花一個早上，穩定花了一整週。"
-pubDate: 2026-10-10
+pubDate: 2026-09-26
 ---
 
 [English version](/blog/lobster-ep1-week-one/)

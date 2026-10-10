@@ -1,7 +1,7 @@
 ---
 title: "養龍蝦第 2 集：三月，龍蝦開始自己編股價"
 description: "部署完只是開始。2026 年 3 月，我的 AI 龍蝦半夜發股市快報、自己編股價、升級後失憶，我也學會替它寫規則、換模型，還有寫交接文件。"
-pubDate: 2026-10-10
+pubDate: 2026-10-03
 ---
 
 [English version](/blog/lobster-ep2-march/)
