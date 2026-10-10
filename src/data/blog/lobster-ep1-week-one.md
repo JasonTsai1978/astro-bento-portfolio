@@ -81,6 +81,18 @@ Skills follow the same rule. OpenClaw has a skill marketplace, and the "security
 - **Point schedules at a SKILL.md, not a paragraph.** The stock brief was first described in plain language. One morning the report read "TSMC: NT$X,XXX", with no actual number. I wrote the lookup steps into a SKILL.md and changed the schedule to just "read this file and run it," and the output finally became consistent. Also, the gateway runs the schedule config file, not the notes I kept next to it.
 - **When a new version ships, wait.** When an update came out, the community reported Telegram bugs. I held off and planned to check again two days later.
 
+## Am I using the AI, or is the AI using me?
+
+One more thing from that week has stayed with me.
+
+Almost every change to the lobster meant going into a Linux terminal: editing config files, installing skills, restarting services. I don't know Linux commands well, so at every step I asked Claude or ChatGPT not only what to change, but for the exact commands to type.
+
+I became a typist. The AI chat window on the left, the Zeabur terminal on the right: copy the command over, paste it, copy the output back. Once, git was asking for my GitHub username, I didn't notice, and I pasted the next block of install commands straight into the username prompt.
+
+I kept asking myself: am I using the AI, or is the AI using me?
+
+The AI should be doing this work itself. Tools like Claude in Chrome and computer use, which came later, let an AI operate the browser and the computer directly, and that is the right direction. Once the MacBook in Part 4 was set up, Claude Code did the work on it directly. But once an AI can act on its own, lock down permissions first. Be clearer than ever about what it may touch and what it may not.
+
 ## One week later
 
 On Friday morning, JJ delivered the stock brief on time, every number filled in, signed "— JJ."
