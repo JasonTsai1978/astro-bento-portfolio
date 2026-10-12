@@ -4,6 +4,7 @@ import Button from "./Button.astro";
 import { LINKS } from "../lib/constants";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import photo from "../assets/JasonTsai.webp";
 ---
 <Card colSpan="md:col-span-2 lg:col-span-3" rowSpan="lg:order-1">
   <div class="flex flex-col-reverse gap-4 w-full h-full md:flex-row">
@@ -39,9 +40,12 @@ import { Image } from "astro:assets";
     <Image
       alt="Jason Tsai"
       class="w-24 h-24 rounded-full object-cover object-top select-none md:w-auto md:h-auto md:max-h-[300px] md:rounded-none pointer-events-none"
-      height="300"
-      src="/JasonTsai.webp"
-      width="300"
+      fetchpriority="high"
+      loading="eager"
+      sizes="(min-width: 768px) 225px, 96px"
+      src={photo}
+      width={450}
+      widths={[192, 450]}
     />
   </div>
 </Card>

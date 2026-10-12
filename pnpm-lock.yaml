@@ -62,6 +62,9 @@ importers:
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
+      sharp:
+        specifier: 0.34.4
+        version: 0.34.4
       solid-js:
         specifier: ^1.9.10
         version: 1.9.10
@@ -6561,7 +6564,7 @@ snapshots:
       https-proxy-agent: 7.0.6
       node-fetch: 2.7.0
       nopt: 8.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       tar: 7.4.3
     transitivePeerDependencies:
       - encoding
@@ -6633,7 +6636,7 @@ snapshots:
       image-size: 2.0.2
       js-image-generator: 1.0.4
       parse-gitignore: 2.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       tmp-promise: 3.0.3
       uuid: 13.0.0
       write-file-atomic: 5.0.1
@@ -6693,7 +6696,7 @@ snapshots:
       p-wait-for: 5.0.2
       parse-imports: 2.2.1
       path-key: 4.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       tar: 7.4.3
       tmp-promise: 3.0.3
       urlpattern-polyfill: 8.0.2
@@ -6727,7 +6730,7 @@ snapshots:
       jwt-decode: 4.0.0
       lambda-local: 2.2.0
       read-package-up: 11.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       source-map-support: 0.5.21
     transitivePeerDependencies:
       - encoding
@@ -6879,7 +6882,7 @@ snapshots:
       precinct: 12.2.0
       require-package-name: 2.0.1
       resolve: 2.0.0-next.5
-      semver: 7.7.2
+      semver: 7.7.3
       tmp-promise: 3.0.3
       toml: 3.0.0
       unixify: 1.0.0
@@ -6958,7 +6961,7 @@ snapshots:
       '@opentelemetry/propagator-b3': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/propagator-jaeger': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 1.30.1(@opentelemetry/api@1.9.0)
-      semver: 7.7.2
+      semver: 7.7.3
 
   '@opentelemetry/semantic-conventions@1.28.0': {}
 
@@ -7418,7 +7421,7 @@ snapshots:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.7.2
+      semver: 7.7.3
       ts-api-utils: 2.1.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -9865,7 +9868,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.7.2
+      semver: 7.7.3
 
   jsx-ast-utils@3.3.5:
     dependencies:
@@ -10517,7 +10520,7 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.7.2
+      semver: 7.7.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@2.1.1:
@@ -11587,7 +11590,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.5:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.3
 
   typescript@5.9.3: {}
 
@@ -11899,7 +11902,7 @@ snapshots:
   volar-service-typescript@0.0.67(@volar/language-service@2.4.26):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.7.2
+      semver: 7.7.3
       typescript-auto-import-cache: 0.3.5
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0

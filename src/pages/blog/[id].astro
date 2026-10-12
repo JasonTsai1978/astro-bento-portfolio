@@ -144,6 +144,15 @@ const alternates =
     height: auto;
   }
 
+  /* 文章內經 Astro 處理的照片：置中、限制直式照片高度（不影響手寫 HTML 的 SVG 小圖） */
+  article img[src^="/_astro/"] {
+    display: block;
+    width: auto;
+    max-height: 520px;
+    margin: 0 auto;
+    border-radius: 6px;
+  }
+
   table {
     border-collapse: collapse;
     width: 100%;

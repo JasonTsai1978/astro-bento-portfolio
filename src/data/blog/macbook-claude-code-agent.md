@@ -7,7 +7,7 @@ category: "Personal Lab"
 
 [中文版](/blog/macbook-claude-code-agent-zh/)
 
-![The rose gold 12-inch MacBook, fresh out of the box](/blog/macbook-rose-gold-lid.jpg)
+![The rose gold 12-inch MacBook, fresh out of the box](../../assets/blog/macbook-rose-gold-lid.jpg)
 
 *Unboxing day, January 2017.*
 
@@ -19,7 +19,7 @@ Years later it was sitting unused. This week it became the most useful computer 
 
 I wanted an AI agent that is always on and reachable from anywhere, not a chat window I have to open. My desktop PC isn't on all the time and Windows updates restart it. The MacBook was a better fit: fanless, low power, and already ours. Its Core m3 and 8 GB of RAM are modest, but that doesn't matter. The model runs in the cloud; the machine only needs to keep a terminal running.
 
-<img src="/blog/macbook-rose-gold-open.jpg" alt="The MacBook opened for the first time, with a Traditional Chinese Zhuyin keyboard" style="max-height:520px;margin:0 auto;display:block;border-radius:6px" />
+![The MacBook opened for the first time, with a Traditional Chinese Zhuyin keyboard](../../assets/blog/macbook-rose-gold-open.jpg)
 
 *Opened for the first time in 2017. Nearly ten years later, this keyboard only answers to Enter.*
 

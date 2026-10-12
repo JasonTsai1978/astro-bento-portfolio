@@ -7,7 +7,7 @@ category: "Personal Lab"
 
 [English version](/blog/macbook-claude-code-agent/)
 
-![剛開箱的玫瑰金 12 吋 MacBook](/blog/macbook-rose-gold-lid.jpg)
+![剛開箱的玫瑰金 12 吋 MacBook](../../assets/blog/macbook-rose-gold-lid.jpg)
 
 *2017 年 1 月，開箱那天。*
 
@@ -21,7 +21,7 @@ category: "Personal Lab"
 
 這台 MacBook 反而剛好：沒有風扇、很省電，而且本來就在家裡。Core m3 加 8 GB RAM 現在看很普通，但沒關係。模型跑在雲端，這台只要負責讓 terminal 一直開著。
 
-<img src="/blog/macbook-rose-gold-open.jpg" alt="第一次打開的 MacBook，注音鍵盤" style="max-height:520px;margin:0 auto;display:block;border-radius:6px" />
+![第一次打開的 MacBook，注音鍵盤](../../assets/blog/macbook-rose-gold-open.jpg)
 
 *2017 年第一次打開它。快十年後，這副鍵盤只剩 Enter 還有反應。*
 
