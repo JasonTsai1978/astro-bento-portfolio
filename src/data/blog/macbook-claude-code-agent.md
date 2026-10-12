@@ -2,6 +2,7 @@
 title: "Turning a 2016 MacBook into an Always-On Claude Code Agent"
 description: "How my wife's old rose gold MacBook became a 24/7 Claude Code agent I control from my phone: four Ubuntu installs, one flaky SSD controller, and a morning chip-industry brief."
 pubDate: 2026-10-10
+category: "Personal Lab"
 ---
 
 [中文版](/blog/macbook-claude-code-agent-zh/)

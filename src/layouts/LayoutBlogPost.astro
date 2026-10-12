@@ -1,17 +1,19 @@
 ---
 import { formatDate } from "../lib/helpers";
 import BasicLayout from "./BasicLayout.astro";
+import CategoryTag from "../components/Blog/CategoryTag.astro";
 
 type Props = {
   title: string;
   description: string;
   pubDate: Date;
+  category: string;
   minutesRead: string;
   url: string;
   lang?: string;
 };
 
-const { title, description, pubDate, minutesRead, url, lang } = Astro.props;
+const { title, description, pubDate, category, minutesRead, url, lang } = Astro.props;
 ---
 
 <BasicLayout description={description} lang={lang} page="blog" slug={url} title={`${title} | Jason Tsai`}>
@@ -23,7 +25,10 @@ const { title, description, pubDate, minutesRead, url, lang } = Astro.props;
     <div class="my-10">
       <h1 class="text-3xl md:text-5xl font-semibold">{title}</h1>
       <div class="flex justify-between pt-4 text-gray-500 text-sm">
-        <p>{formatDate(pubDate)}</p>
+        <div class="flex items-start gap-2">
+          <p>{formatDate(pubDate)}</p>
+          <CategoryTag category={category} />
+        </div>
         <p>{minutesRead}</p>
       </div>
     </div>

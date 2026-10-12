@@ -14,6 +14,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
+      categories: [post.data.category],
       content: sanitizeHtml(parser.render(post.body)),
       // 以 post.id 組出文章連結
       link: `/blog/${post.id}/`,

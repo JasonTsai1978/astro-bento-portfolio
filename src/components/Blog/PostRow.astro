@@ -1,13 +1,15 @@
 ---
 import { formatDate } from "../../lib/helpers";
+import CategoryTag from "./CategoryTag.astro";
 
 interface Props {
   title: string;
   date: Date;
   id: string;
+  category: string;
 }
 
-const { title, date, id } = Astro.props;
+const { title, date, id, category } = Astro.props;
 ---
 
 <li
@@ -19,6 +21,7 @@ const { title, date, id } = Astro.props;
   >
     <p class="m-0">
       {title}
+      <CategoryTag category={category} class="ml-1" />
     </p>
     <time
       class="text-right tabular-nums shrink-0 text-gray-400"

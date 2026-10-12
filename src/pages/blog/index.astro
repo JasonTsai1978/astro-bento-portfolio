@@ -35,6 +35,7 @@ const posts = (await getCollection("blog"))?.sort(
       {
         posts?.map((post) => (
           <PostRow
+            category={post.data.category}
             date={post.data.pubDate || new Date()}             id={post.id}             title={post.data.title || "No title"}
           />
         ))

@@ -2,6 +2,7 @@
 title: "把 2016 年的 MacBook 改造成 24 小時待命的 Claude Code Agent"
 description: "送給太太的玫瑰金 MacBook，閒置多年後重新上工：裝了四次 Ubuntu、搞定一顆會斷線的 SSD，現在每天早上幫我整理半導體新聞。"
 pubDate: 2026-10-10
+category: "Personal Lab"
 ---
 
 [English version](/blog/macbook-claude-code-agent/)

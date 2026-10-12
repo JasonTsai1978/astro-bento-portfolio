@@ -30,7 +30,7 @@ Jason Tsai 的個人網站與部落格。Astro 5 + UnoCSS，改自 Ladvace 的 a
 
 ## 部落格
 
-- 文章放 `src/data/blog/*.md`，frontmatter：`title`、`description`、`pubDate`。
+- 文章放 `src/data/blog/*.md`，frontmatter：`title`、`description`、`pubDate`、`category`（必填，只能是 `Enterprise IT`、`AI Engineering & Governance`、`Personal Lab` 之一，定義在 `src/lib/constants.ts`；漏填 build 會失敗）。
 - 英文版與中文版各一篇、互相連結；中文版檔名以 `-zh` 結尾（輸出 `html lang=zh-Hant`）。
 - 圖片放 `public/blog/`，**上傳前必須去除 EXIF／GPS**。
 - 中文版語氣：結論先行、句子短、技術名詞留英文，不要書面腔。

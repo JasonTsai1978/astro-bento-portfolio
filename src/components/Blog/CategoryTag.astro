@@ -1,0 +1,17 @@
+---
+interface Props {
+  category: string;
+  class?: string;
+}
+
+const { category, class: className = "" } = Astro.props;
+---
+
+<span
+  class:list={[
+    "inline-block align-middle text-[11px] leading-none font-normal px-2 py-1 rounded-full bg-neutral-800 text-gray-300 whitespace-nowrap",
+    className,
+  ]}
+>
+  {category}
+</span>

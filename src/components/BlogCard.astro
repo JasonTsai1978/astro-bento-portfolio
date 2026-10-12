@@ -3,6 +3,7 @@ import Card from "./Card/index.astro";
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 import { formatDate } from "../lib/helpers";
+import CategoryTag from "./Blog/CategoryTag.astro";
 
 // 同一篇文章的中英文版合併成一列：英文為主，中文標題放副標
 const all = await getCollection("blog");
@@ -21,7 +22,7 @@ const posts = all
   .slice(0, 5);
 ---
 
-<Card colSpan="md:col-span-2" rowSpan="lg:row-span-7">
+<Card colSpan="md:col-span-2" rowSpan="lg:row-span-9">
   <div class="flex justify-between items-center mb-2">
     <h2 class="text-xl font-bold m-0">Blog</h2>
     <a
@@ -52,9 +53,10 @@ const posts = all
               )}
             </div>
             {zh && <p class="text-sm m-0 mt-1 text-gray-400">{zh.data.title}</p>}
-            {post.data.description && (
-              <p class="text-sm font-light m-0 mt-1 text-gray-500 line-clamp-2">{post.data.description}</p>
-            )}
+            <p class="text-sm font-light m-0 mt-1 text-gray-500 line-clamp-2">
+              <CategoryTag category={post.data.category} class="mr-1" />
+              {post.data.description}
+            </p>
           </a>
         </li>
       ))

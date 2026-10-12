@@ -27,6 +27,7 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 ---
 
 <LayoutBlogPost
+  category={entry.data.category}
   description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   lang={entry.id.endsWith("-zh") ? "zh-Hant" : "en"}   title={entry.data.title}   url={`blog/${entry.id}`}
 >
   <Content />

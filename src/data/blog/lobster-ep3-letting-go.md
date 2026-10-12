@@ -2,6 +2,7 @@
 title: "Raising a Lobster, Part 3: Why I Let the Lobster Go"
 description: "After March 2026 I rarely opened Zeabur. In September I shut the lobster down. Not because it was bad, but because I realized I didn't actually need one."
 pubDate: 2026-10-09
+category: "Personal Lab"
 ---
 
 [中文版](/blog/lobster-ep3-letting-go-zh/)

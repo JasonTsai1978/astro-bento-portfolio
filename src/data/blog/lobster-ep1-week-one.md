@@ -2,6 +2,7 @@
 title: "Raising a Lobster, Part 1: JJ Is Born, and Week One Costs Me Tuition"
 description: "In February 2026 I set up OpenClaw in the cloud and raised an AI lobster named JJ, plus two sidekicks. Installing took a morning. Getting it stable took a week."
 pubDate: 2026-09-26
+category: "Personal Lab"
 ---
 
 [中文版](/blog/lobster-ep1-week-one-zh/)
