@@ -56,3 +56,4 @@
 2026-10-12（補）：site/image-optimize 修正——第一版 CSS 用 width:auto 造成照片載入前寬度 0、CLS 反升到 0.195，改為保留 width/height 屬性、直式照片用 Markdown 內 <div class="portrait"> 外框限寬 390px；LinkedIn 連結改 primary-300（原 4.3:1）。預覽站 Lighthouse：首頁 P99/96、A100；MacBook 文章 P100/98、A100、CLS 0.015/0.028（預覽 SEO 69 是 Cloudflare 對預覽網址加 noindex，正式站不受影響）。合併順序：先 site/seo-fixes，再 site/image-optimize。
 2026-10-12（上線）：site/seo-fixes 與 site/image-optimize 經 Jason 確認後 fast-forward 合併 master，技術健檢修正與圖片最佳化上線，兩分支已刪。
 2026-10-12（健檢小項目）：分支 site/misc-fixes——RSS 自動偵測 link、sitemap lastmod（文章 pubDate，/blog/ 取最新）、/travel 描述改寫。未合併，等 Jason 看預覽。www 導向主網域需在 Cloudflare 後台設 Redirect Rule（Pages 的 _redirects 不支援網域層級轉址），由 Jason 手動。
+2026-10-12（上線）：site/misc-fixes 經 Jason 同意後 fast-forward 合併 master（RSS 自動偵測、sitemap lastmod、/travel 描述），分支已刪。遺留：www 導向主網域待 Jason 在 Cloudflare 設 Redirect Rule；下次從首頁改版第三階段兩篇文章。
