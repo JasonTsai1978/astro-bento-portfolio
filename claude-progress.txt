@@ -57,3 +57,4 @@
 2026-10-12（上線）：site/seo-fixes 與 site/image-optimize 經 Jason 確認後 fast-forward 合併 master，技術健檢修正與圖片最佳化上線，兩分支已刪。
 2026-10-12（健檢小項目）：分支 site/misc-fixes——RSS 自動偵測 link、sitemap lastmod（文章 pubDate，/blog/ 取最新）、/travel 描述改寫。未合併，等 Jason 看預覽。www 導向主網域需在 Cloudflare 後台設 Redirect Rule（Pages 的 _redirects 不支援網域層級轉址），由 Jason 手動。
 2026-10-12（上線）：site/misc-fixes 經 Jason 同意後 fast-forward 合併 master（RSS 自動偵測、sitemap lastmod、/travel 描述），分支已刪。遺留：www 導向主網域待 Jason 在 Cloudflare 設 Redirect Rule；下次從首頁改版第三階段兩篇文章。
+2026-10-12（www 導向）：Jason 在 Cloudflare 設 Redirect Rule，www.jasontsai.dev 301 到 jasontsai.dev（保留路徑與 query string），實測通過。健檢項目全部完成。下次從：首頁改版第三階段兩篇文章。
