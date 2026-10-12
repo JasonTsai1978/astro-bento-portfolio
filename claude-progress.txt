@@ -45,3 +45,4 @@
 2026-10-12（首頁改版第一階段）：分支 site/homepage-phase1——About me 的 What I'm Building Now 併入 Now（保留 At work／On the side／Off the clock，On the side 標明 personal lab、補 Obsidian）；部落格加必填 category（Enterprise IT／AI Engineering & Governance／Personal Lab，定義在 src/lib/constants.ts），現有 8 篇皆 Personal Lab，首頁 Blog 卡片、/blog、文章頁顯示標籤，RSS 帶 category；頁尾年份動態；桌機格線改為 Welcome 5／About 9＋Now 5（右欄）／Contacts 5＋Globe 4／Blog 9，總高約 1270→1095px。PC 以可攜 Node 24＋corepack pnpm 本機 build 通過（Cloudflare 用 Node 22），桌機／平板／手機截圖確認。未合併，等 Jason 看預覽。
 下次從：Jason 確認預覽 → 合併；接第二階段文案（Hero 方案 A、About 去營收數字、Core Expertise 四分類、Currently open to 改邀請聊天語氣），About／Contacts 內容變動後要重算桌機列跨距。
 2026-10-12（補）：site/homepage-phase1 的 Off the clock 改為「strength training and eating clean. Stay strong, stay healthy.」（與頻道影片字卡一致，不提高爾夫）。仍未合併。
+2026-10-12（上線）：site/homepage-phase1 經 Jason 確認後 fast-forward 合併 master，首頁改版第一階段上線，分支已刪。
