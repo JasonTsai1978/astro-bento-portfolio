@@ -123,6 +123,7 @@ nationality: {
 
     <link href="https://cdn.fontshare.com" rel="preconnect" />
     <link href={Astro.url.href} rel="canonical" />
+    <link href="/rss.xml" rel="alternate" title="Jason Tsai's Blog" type="application/rss+xml" />
     {alternates.map((a) => <link href={a.href} hreflang={a.lang} rel="alternate" />)}
     {
       alternates.length > 0 && (
