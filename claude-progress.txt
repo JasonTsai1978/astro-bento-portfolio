@@ -42,3 +42,5 @@
 2026-10-10（上線）：blog/lobster-ep3 合併 master——養龍蝦第 3 集上線；發表日期 第 1 集 9/26、第 2 集 10/3、第 3 集 10/9、mbook 終章 10/10。分支已刪。
 2026-10-10（首頁留白修正）：分支 site/intro-height——桌機改 14 列格線並依內容高度分配（Welcome 4、Now 3、Blog 7、Contacts 6、Globe 4、About 14）；平板（md）移除列跨距、Welcome/About me 全寬，修正原本 About me 被撐到 3800px 的問題；地球卡片 min-h-80。未合併，等 Jason 確認。
 2026-10-10（上線）：site/intro-height 合併 master，首頁桌機 14 列格線與平板版面修正上線，分支已刪。
+2026-10-12（首頁改版第一階段）：分支 site/homepage-phase1——About me 的 What I'm Building Now 併入 Now（保留 At work／On the side／Off the clock，On the side 標明 personal lab、補 Obsidian）；部落格加必填 category（Enterprise IT／AI Engineering & Governance／Personal Lab，定義在 src/lib/constants.ts），現有 8 篇皆 Personal Lab，首頁 Blog 卡片、/blog、文章頁顯示標籤，RSS 帶 category；頁尾年份動態；桌機格線改為 Welcome 5／About 9＋Now 5（右欄）／Contacts 5＋Globe 4／Blog 9，總高約 1270→1095px。PC 以可攜 Node 24＋corepack pnpm 本機 build 通過（Cloudflare 用 Node 22），桌機／平板／手機截圖確認。未合併，等 Jason 看預覽。
+下次從：Jason 確認預覽 → 合併；接第二階段文案（Hero 方案 A、About 去營收數字、Core Expertise 四分類、Currently open to 改邀請聊天語氣），About／Contacts 內容變動後要重算桌機列跨距。
