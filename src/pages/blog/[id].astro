@@ -144,13 +144,17 @@ const alternates =
     height: auto;
   }
 
-  /* 文章內經 Astro 處理的照片：置中、限制直式照片高度（不影響手寫 HTML 的 SVG 小圖） */
+  /* 文章內經 Astro 處理的照片：置中、圓角（不影響手寫 HTML 的 SVG 小圖）。
+     不設 width:auto，讓 width/height 屬性在載入前就預留空間，避免版面跳動 */
   article img[src^="/_astro/"] {
     display: block;
-    width: auto;
-    max-height: 520px;
     margin: 0 auto;
     border-radius: 6px;
+  }
+
+  /* 直式照片：Markdown 中用 <div class="portrait"> 包住，寬度上限 390px（3:4 照片高度約 520px） */
+  article .portrait img {
+    max-width: min(100%, 390px);
   }
 
   table {

@@ -19,7 +19,11 @@ Years later it was sitting unused. This week it became the most useful computer 
 
 I wanted an AI agent that is always on and reachable from anywhere, not a chat window I have to open. My desktop PC isn't on all the time and Windows updates restart it. The MacBook was a better fit: fanless, low power, and already ours. Its Core m3 and 8 GB of RAM are modest, but that doesn't matter. The model runs in the cloud; the machine only needs to keep a terminal running.
 
+<div class="portrait">
+
 ![The MacBook opened for the first time, with a Traditional Chinese Zhuyin keyboard](../../assets/blog/macbook-rose-gold-open.jpg)
+
+</div>
 
 *Opened for the first time in 2017. Nearly ten years later, this keyboard only answers to Enter.*
 
