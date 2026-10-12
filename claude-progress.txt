@@ -51,3 +51,5 @@
 2026-10-12（上線）：site/homepage-copy 經 Jason 確認後 fast-forward 合併 master，首頁改版第二階段上線，分支已刪。
 2026-10-12（技術健檢）：對正式站跑 Lighthouse（手機／桌機四頁：Performance 80–99、Accessibility 92–100、Best Practices 與 SEO 全 100）與 meta／標頭檢查。分支 site/seo-fixes 修正：og:url 原本每頁都是首頁；JSON-LD datePublished 原本是 build 時間；中英文章加 hreflang 與 og:locale；文章 og:type 改 article；新增 404 頁（原本不存在的網址回 200 首頁）；public/_headers 加 X-Frame-Options、frame-ancestors、Permissions-Policy、HSTS；text-gray-500 改 gray-400 修對比。本機 build 通過。未合併，等 Jason 看預覽。
 遺留：①圖片另開分支（頭像 126KB 只顯示 300px 且首屏 lazy；文章實拍照片未標寬高造成 CLS 0.128、未壓縮）。②小項目未做：RSS 自動偵測 link、sitemap lastmod、www 未導向主網域、/travel 描述仍是模板文字、未使用的 public/JasonTsai.jpg（558KB）。③完整 CSP 刻意不加。
+2026-10-12（圖片最佳化）：分支 site/image-optimize（接在 site/seo-fixes 之後，要先合併 seo-fixes 再合併本分支）——頭像與 MacBook 文章照片移到 src/assets 走 Astro 圖片流程（webp、寬高、srcset），頭像 126KB→16KB、照片約 140KB→55／76KB；sharp 加為直接依賴（以 pnpm 9.15.9 更新 lockfile，維持 9.0 格式）；刪未使用的 public/JasonTsai.jpg；CLAUDE.md 圖片規則改為照片放 src/assets/blog。本機 build 與截圖確認。未合併，等 Jason 看預覽。
+注意：本機 node_modules 已改用 pnpm 9 安裝。site/seo-fixes 第一次 push 時 Cloudflare 沒觸發建置，再 push 一次才建；預覽 404 時先懷疑漏接。
