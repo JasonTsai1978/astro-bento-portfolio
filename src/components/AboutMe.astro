@@ -1,11 +1,34 @@
 ---
 import Card from "./Card/index.astro";
+
+// 技術名稱只沿用既有六項；細項（RAG、agent evaluation 等）留給 LinkedIn
+const EXPERTISE = [
+  {
+    area: "Enterprise Integration & Data Exchange",
+    summary: "Connecting ERP, factory and partner systems so data moves reliably at scale.",
+    stack: "webMethods (Software AG) · SAP · B2B / EDI",
+  },
+  {
+    area: "Semiconductor Manufacturing IT",
+    summary: "Keeping shop-floor systems and the business systems around them in step.",
+    stack: "MES",
+  },
+  {
+    area: "Software Engineering & IT Governance",
+    summary: "Building and running in-house systems with the discipline production demands.",
+    stack: "C# / .NET (since 2003) · MS SQL / T-SQL",
+  },
+  {
+    area: "Enterprise AI & Engineering Productivity",
+    summary: "Turning AI coding tools into real gains for a dev team, within security and compliance limits.",
+  },
+];
 ---
-<Card colSpan="md:col-span-2 lg:col-span-1" rowSpan="lg:row-span-9" title="About me">
+<Card colSpan="md:col-span-2" rowSpan="lg:order-3" title="About me">
   <div class="flex flex-col gap-4">
     <div class="text-sm font-light">
       <p>
-        With two decades of deep-rooted experience in semiconductor manufacturing, my journey spans from developing C# solutions on the factory floor to directing enterprise systems that drive <b class="font-semibold">$2B+ in annual revenue</b>. I've seen what happens when integration fails at scale, and I've built the infrastructure to make sure it doesn't.
+        With two decades of deep-rooted experience in semiconductor manufacturing, my journey spans from developing C# solutions on the factory floor to directing the <b class="font-semibold">enterprise systems a Tier-1 semiconductor operation runs on</b>. I've seen what happens when integration fails at scale, and I've built the infrastructure to make sure it doesn't.
       </p>
     </div>
     <div class="text-sm font-light">
@@ -14,15 +37,18 @@ import Card from "./Card/index.astro";
       </p>
     </div>
     <div class="text-sm font-light">
-      <p class="mb-2">Core Enterprise Expertise:</p>
-      <ul class="list-disc list-inside">
-        <li>C# / .NET — since 2003</li>
-        <li>MS SQL / T-SQL</li>
-        <li>webMethods (Software AG)</li>
-        <li>SAP</li>
-        <li>B2B / EDI Integration</li>
-        <li>MES Systems</li>
-      </ul>
+      <p class="mb-2">Core Expertise:</p>
+      <dl class="flex flex-col gap-3 m-0">
+        {
+          EXPERTISE.map(({ area, summary, stack }) => (
+            <div>
+              <dt class="font-semibold">{area}</dt>
+              <dd class="m-0">{summary}</dd>
+              {stack && <dd class="m-0 text-xs text-gray-500">{stack}</dd>}
+            </div>
+          ))
+        }
+      </dl>
     </div>
     <p class="text-sm font-light">
       I try everything on my own work first. What survives gets brought to the team.
