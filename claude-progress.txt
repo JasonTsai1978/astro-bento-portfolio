@@ -46,3 +46,5 @@
 下次從：Jason 確認預覽 → 合併；接第二階段文案（Hero 方案 A、About 去營收數字、Core Expertise 四分類、Currently open to 改邀請聊天語氣），About／Contacts 內容變動後要重算桌機列跨距。
 2026-10-12（補）：site/homepage-phase1 的 Off the clock 改為「strength training and eating clean. Stay strong, stay healthy.」（與頻道影片字卡一致，不提高爾夫）。仍未合併。
 2026-10-12（上線）：site/homepage-phase1 經 Jason 確認後 fast-forward 合併 master，首頁改版第一階段上線，分支已刪。
+2026-10-12（首頁改版第二階段）：分支 site/homepage-copy——Hero 方案 A（I run enterprise systems for semiconductor manufacturing...）接原 By day / By night；About 拿掉 $2B+ 營收改「enterprise systems a Tier-1 semiconductor operation runs on」；Core Expertise 改四分類（Enterprise Integration & Data Exchange／Semiconductor Manufacturing IT／Software Engineering & IT Governance／Enterprise AI & Engineering Productivity），技術名只用原六項；Currently open to 改「Always happy to chat about」三個話題＋Say hi on LinkedIn。About 變長後 14 列格線無法平衡，桌機改為三排、列高由內容決定（Welcome 3 欄＋Contacts｜About 2 欄＋Blog 2 欄｜Now 3 欄＋Globe，用 lg:order-* 排序，手機／平板順序不變），之後內容變動不必再算列跨距。本機 build 通過、三種寬度截圖確認。未合併，等 Jason 看預覽。
+下次從：Jason 確認 → 合併；接第三階段兩篇文章，或並行的技術健檢報告。
