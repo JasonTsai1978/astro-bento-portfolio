@@ -54,3 +54,4 @@
 2026-10-12（圖片最佳化）：分支 site/image-optimize（接在 site/seo-fixes 之後，要先合併 seo-fixes 再合併本分支）——頭像與 MacBook 文章照片移到 src/assets 走 Astro 圖片流程（webp、寬高、srcset），頭像 126KB→16KB、照片約 140KB→55／76KB；sharp 加為直接依賴（以 pnpm 9.15.9 更新 lockfile，維持 9.0 格式）；刪未使用的 public/JasonTsai.jpg；CLAUDE.md 圖片規則改為照片放 src/assets/blog。本機 build 與截圖確認。未合併，等 Jason 看預覽。
 注意：本機 node_modules 已改用 pnpm 9 安裝。site/seo-fixes 第一次 push 時 Cloudflare 沒觸發建置，再 push 一次才建；預覽 404 時先懷疑漏接。
 2026-10-12（補）：site/image-optimize 修正——第一版 CSS 用 width:auto 造成照片載入前寬度 0、CLS 反升到 0.195，改為保留 width/height 屬性、直式照片用 Markdown 內 <div class="portrait"> 外框限寬 390px；LinkedIn 連結改 primary-300（原 4.3:1）。預覽站 Lighthouse：首頁 P99/96、A100；MacBook 文章 P100/98、A100、CLS 0.015/0.028（預覽 SEO 69 是 Cloudflare 對預覽網址加 noindex，正式站不受影響）。合併順序：先 site/seo-fixes，再 site/image-optimize。
+2026-10-12（上線）：site/seo-fixes 與 site/image-optimize 經 Jason 確認後 fast-forward 合併 master，技術健檢修正與圖片最佳化上線，兩分支已刪。
