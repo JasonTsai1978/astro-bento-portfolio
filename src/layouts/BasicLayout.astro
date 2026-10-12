@@ -6,11 +6,27 @@ interface Props {
   description: string;
   page?: "travel" | "blog";
   slug?: string | undefined;
-  pubDate?: string;
+  pubDate?: Date;
+  // 文章原標題（不含站名），給 JSON-LD headline 用
+  headline?: string;
   lang?: string;
+  // 同一篇文章的各語言版本，輸出 hreflang
+  alternates?: { lang: string; href: string }[];
+  noindex?: boolean;
 }
 
-const { title, description, page, pubDate, lang = "en" } = Astro.props;
+const {
+  title,
+  description,
+  page,
+  pubDate,
+  headline,
+  lang = "en",
+  alternates = [],
+  noindex = false,
+} = Astro.props;
+const isPost = page === "blog" && !!pubDate;
+const ogLocale = (l: string) => (l === "zh-Hant" ? "zh_TW" : "en_US");
 const image =
   page === "travel"
     ? `${Astro.url.origin}/og-image.png`
@@ -47,7 +63,8 @@ nationality: {
           "@type": "WebPage",
           "@id": Astro.url.href,
         },
-        headline: title || title,
+        headline: headline || title,
+        inLanguage: lang,
         description: description || title,
         image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
@@ -64,8 +81,8 @@ nationality: {
             url: `${Astro.url.origin}/og-image.png`,
           },
         },
-        datePublished: pubDate || new Date().toISOString(),
-        dateModified: pubDate || new Date().toISOString(),
+        datePublished: pubDate?.toISOString(),
+        dateModified: pubDate?.toISOString(),
       };
 ---
 
@@ -78,12 +95,19 @@ nationality: {
     <meta content={Astro.generator} name="generator" />
     <title>{title}</title>
     <meta content={description} name="description" />
-    <meta content="index, follow" name="robots" />
+    <meta content={noindex ? "noindex, follow" : "index, follow"} name="robots" />
     <!-- Basic OG tags for sharing your website's content on platforms like Facebook and LinkedIn -->
     <meta content={title} property="og:title" />
     <meta content={description} property="og:description" />
-    <meta content="website" property="og:type" />
-    <meta content={Astro.url.origin} property="og:url" />
+    <meta content={isPost ? "article" : "website"} property="og:type" />
+    <meta content={Astro.url.href} property="og:url" />
+    <meta content={ogLocale(lang)} property="og:locale" />
+    {
+      alternates
+        .filter((a) => a.lang !== lang)
+        .map((a) => <meta content={ogLocale(a.lang)} property="og:locale:alternate" />)
+    }
+    {isPost && <meta content={pubDate!.toISOString()} property="article:published_time" />}
     <meta
       content={image || `${Astro.url.origin}/og-image.png`}
       property="og:image"
@@ -99,6 +123,12 @@ nationality: {
 
     <link href="https://cdn.fontshare.com" rel="preconnect" />
     <link href={Astro.url.href} rel="canonical" />
+    {alternates.map((a) => <link href={a.href} hreflang={a.lang} rel="alternate" />)}
+    {
+      alternates.length > 0 && (
+        <link href={alternates.find((a) => a.lang === "en")?.href} hreflang="x-default" rel="alternate" />
+      )
+    }
     <script
       is:inline
       set:html={JSON.stringify(schema)}

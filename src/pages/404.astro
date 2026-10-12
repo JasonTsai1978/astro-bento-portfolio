@@ -1,0 +1,19 @@
+---
+import BasicLayout from "../layouts/BasicLayout.astro";
+---
+
+<!-- Cloudflare Pages 偵測到 404.html 就會對不存在的網址回 404，而不是回首頁 -->
+<BasicLayout
+  description="This page doesn't exist."
+  noindex
+  title="Page not found | Jason Tsai"
+>
+  <main class="flex flex-col items-center justify-center gap-6 min-h-screen p-8 text-center text-neutral-100">
+    <p class="text-6xl font-bold m-0">404</p>
+    <p class="text-lg text-gray-400 m-0">This page doesn't exist, or it moved.</p>
+    <div class="flex gap-4">
+      <a class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg" href="/">Home</a>
+      <a class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg" href="/blog/">Blog</a>
+    </div>
+  </main>
+</BasicLayout>

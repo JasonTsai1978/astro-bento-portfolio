@@ -1,0 +1,7 @@
+# Cloudflare Pages 回應標頭
+# 不加完整 CSP：網站有 inline script 與外部字型，設錯會讓頁面壞掉；只用 frame-ancestors 禁止被嵌入
+/*
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

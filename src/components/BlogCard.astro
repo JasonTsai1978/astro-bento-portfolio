@@ -45,15 +45,15 @@ const posts = all
               </p>
               {post.data.pubDate && (
                 <time
-                  class="text-xs text-gray-500 tabular-nums shrink-0"
+                  class="text-xs text-gray-400 tabular-nums shrink-0"
                   datetime={post.data.pubDate.toISOString()}
                 >
                   {formatDate(post.data.pubDate)}
                 </time>
               )}
             </div>
-            {zh && <p class="text-sm m-0 mt-1 text-gray-400">{zh.data.title}</p>}
-            <p class="text-sm font-light m-0 mt-1 text-gray-500 line-clamp-2">
+            {zh && <p class="text-sm m-0 mt-1 text-gray-300">{zh.data.title}</p>}
+            <p class="text-sm font-light m-0 mt-1 text-gray-400 line-clamp-2">
               <CategoryTag category={post.data.category} class="mr-1" />
               {post.data.description}
             </p>

@@ -24,9 +24,23 @@ if (!entry) {
 }
 
 const { Content, remarkPluginFrontmatter } = await render(entry);
+
+// 中英文版互指：英文 id 為 x，中文為 x-zh；兩篇都存在才輸出 hreflang
+const enId = id.endsWith("-zh") ? id.slice(0, -3) : id;
+const zhId = `${enId}-zh`;
+const ids = new Set((await getCollection("blog")).map((p) => p.id));
+const postUrl = (postId: string) => new URL(`/blog/${postId}/`, Astro.site).href;
+const alternates =
+  ids.has(enId) && ids.has(zhId)
+    ? [
+        { lang: "en", href: postUrl(enId) },
+        { lang: "zh-Hant", href: postUrl(zhId) },
+      ]
+    : [];
 ---
 
 <LayoutBlogPost
+  alternates={alternates}
   category={entry.data.category}
   description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   lang={entry.id.endsWith("-zh") ? "zh-Hant" : "en"}   title={entry.data.title}   url={`blog/${entry.id}`}
 >
