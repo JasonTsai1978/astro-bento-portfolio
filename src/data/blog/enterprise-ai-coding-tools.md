@@ -36,7 +36,7 @@ AI makes a good first filter. It catches obvious bugs, missing exception handlin
 
 But formal code review is still done by people, and people own the result. When something breaks, "the AI said it was fine" isn't an answer. Accountability can't be outsourced.
 
-My own flow: AI simplifies the code, then AI looks for bugs, then I read the diff myself before I commit. AI clears the noise. The judgment stays with me.
+The flow I recommend: AI simplifies the code, then AI looks for bugs, then the engineer reads the diff before committing. AI clears the noise for the engineer. The judgment stays with the engineer or their lead.
 
 ## 4. From personal POC to team pilot
 
