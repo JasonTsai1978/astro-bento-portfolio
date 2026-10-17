@@ -64,3 +64,4 @@
 2026-10-17（養龍蝦番外草稿）：分支 blog/lobster-zeabur-shutdown（從 master 開，與 blog/enterprise-ai-adoption 平行，合併時 claude-progress.txt 會有衝突需手動合）——新增 lobster-extra-zeabur-shutdown（英）與 -zh（中），Personal Lab，pubDate 10/17。內容只引 Zeabur 官方事後報告、狀態頁與 10/17 停業信；個人處置只寫已完成的（OpenAI key 撤銷、無扣款、GitHub token 與搜尋 key 先前已刪）。本機 build 通過。未合併，等 Jason 審稿。遺留：文章 A 與番外同為 10/17，合併前決定是否錯開 pubDate。
 2026-10-17（番外修訂）：「我做了什麼」補 OpenAI／Anthropic key 皆撤銷且 8/27 後無使用、Zeabur 環境變數已清除（並說明清除不等於撤銷）；checklist 第 2 點改為到源頭撤銷。本機 build 通過。分支 blog/lobster-zeabur-shutdown，未合併。
 2026-10-17（上線）：Jason 同意後，文章 A（pubDate 改 10/15）與養龍蝦番外（10/17）依序 fast-forward 合併 master；番外分支 rebase 時 claude-progress.txt 衝突，兩邊紀錄都保留。遺留：文章 B（個人實驗到團隊規範）未寫；兩個分支待刪。
+2026-10-17（收工）：正式站四個網址確認 200；blog/enterprise-ai-adoption、blog/lobster-zeabur-shutdown 兩分支本機與遠端皆已刪。Obsidian 網站筆記文章清單已同步。下次從：文章 B（個人實驗到團隊規範）。
