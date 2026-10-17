@@ -35,8 +35,9 @@ Its advice is blunt: rotate every credential that was ever stored in a Zeabur en
 
 ## What I did
 
-- **Revoked the OpenAI key.** I checked billing. No charges in the past few months.
+- **Revoked the OpenAI and Anthropic keys.** I checked both. No usage and no charges since August 27.
 - **The GitHub token and the search API key** were already deleted in early October, while I was writing this series.
+- **Cleared the environment variables on Zeabur.** That's only step one. What was read is a copy of the values at the time. Deleting them on the platform doesn't stop the copy from working. Only revoking at the source does.
 - I'm working through the rest, one credential at a time.
 
 ## Lesson: cancelling isn't the same as safe
@@ -46,7 +47,7 @@ Cancelling a service just means you stop paying. Any key you left on the platfor
 Next time I shut something down, I'll go in this order:
 
 1. List every credential stored on the platform.
-2. Revoke them the same day I cancel, not after something goes wrong.
+2. Revoke them at the source the same day I cancel, not after something goes wrong. Deleting them on the platform doesn't count.
 3. Put spending caps on any key an agent uses, so a leak has a ceiling.
 4. Ask the platform to delete the account and data, not just stop the service.
 
