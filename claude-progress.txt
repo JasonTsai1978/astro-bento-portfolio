@@ -60,3 +60,4 @@
 2026-10-12（www 導向）：Jason 在 Cloudflare 設 Redirect Rule，www.jasontsai.dev 301 到 jasontsai.dev（保留路徑與 query string），實測通過。健檢項目全部完成。下次從：首頁改版第三階段兩篇文章。
 2026-10-17（第三階段文章 A 草稿）：分支 blog/enterprise-ai-adoption——新增 enterprise-ai-coding-tools（英）與 -zh（中），分類 AI Engineering & Governance，pubDate 10/17。四段：不只比模型、未核准工具不碰公司程式碼、AI review 不取代正式審查、從個人 POC 到團隊試行；定位為個人框架，不提公司內部提案。本機 build 通過（14 頁）。未合併，等 Jason 審稿與看預覽。下次從：文章 B（個人實驗到團隊規範），pubDate 約 10/24。
 2026-10-17（文章 A 修訂）：第 3 段「我自己的流程」改為「我建議的流程」，看 diff 與判斷改由工程師或主管負責（中英同步）。分支 blog/enterprise-ai-adoption，未合併。
+2026-10-17（文章 A 建議語氣）：全文改為建議語氣，標題改「我建議先問的四件事」，第 4 段第 1 步改為主管或種子成員先用（中英同步）。本機 build 通過。分支 blog/enterprise-ai-adoption，未合併。
