@@ -1,7 +1,7 @@
 ---
 title: "Bringing AI Coding Tools into a Fab: Four Questions I Recommend Asking First"
 description: "When evaluating AI coding tools, model quality should be the last thing you compare. Start with where the code goes, who approves the tool, who owns the mistakes, and how to get from one person to a team."
-pubDate: 2026-10-17
+pubDate: 2026-10-15
 category: "AI Engineering & Governance"
 ---
 

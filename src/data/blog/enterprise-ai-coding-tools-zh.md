@@ -1,7 +1,7 @@
 ---
 title: "在工廠導入 AI coding 工具，我建議先問的四件事"
 description: "評估 AI coding 工具，模型強弱反而應該最後才比。建議先問程式碼會去哪、誰核准、出錯誰負責，以及怎麼從一個人擴到一個團隊。"
-pubDate: 2026-10-17
+pubDate: 2026-10-15
 category: "AI Engineering & Governance"
 ---
 
