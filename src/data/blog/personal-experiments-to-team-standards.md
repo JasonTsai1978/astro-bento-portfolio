@@ -37,53 +37,27 @@ Teams are no different. The AI doesn't remember who did what last week, and peop
 
 ## 2. Hit a problem, add a rule
 
-`CLAUDE.md` is the rules file Claude Code reads at the start of every session. Almost every rule in mine exists because something went wrong first. For example:
+`CLAUDE.md` is the rules file Claude Code reads at the start of every session. Almost every rule in mine exists because something went wrong first. For example, AI is quick to turn "should pass" into "passed," so I added a rule: if you didn't actually run it, don't say it passed.
 
-- **Without Node installed, never claim "the build passed."** Use the cloud preview build instead. AI is quick to turn "should pass" into "passed."
-- **Never push straight to master.** Always open a branch, show me the preview, and merge only after I confirm.
-- **One feature per session.** Nothing half-finished at the end.
-- **A list of things never to publish:** IPs, accounts, keys, company and customer names, family names. The repo is public, so this one is non-negotiable.
-
-Some rules need the tool to enforce them, not just a line in a file. For "update the progress file after every commit," I use a hook that reminds me after each commit. It doesn't rely on the AI's memory or mine.
-
-This is what I meant last time by "if it can be written down as a rule, it goes to the team." The rules live in the repo and go through version control with the code. Git shows who changed what and why. A new teammate clones the repo, and the AI follows the same rules for them.
+This is what I meant last time by "if it can be written down as a rule, it goes to the team." The rules file lives with the code and goes through version control with it. When a new teammate picks up the project, the AI follows the same rules for them.
 
 ## 3. Turn your go-to prompts into skills
 
-`CLAUDE.md` covers how a given project works. A second kind of rule covers how a given kind of task works, like writing a business email in English or drawing a flowchart. These come up in every project, so I turn them into skills: a folder with a `SKILL.md` that says when to use it, how to do the task, and what the output should look like. Both claude.ai and Claude Code can use them.
+The rules file covers how a given project works. A second kind of rule covers how a given kind of task works, and those come up in every project. I turn these into skills: in effect, a go-to prompt saved as a fixed way of doing the job. Both claude.ai and Claude Code can use them.
 
-The ones I use most:
+The one I use most is for English business email. At work I write a lot of English email almost every day. Some readers are native English speakers, others are Taiwanese colleagues. Writing the same email the same way for both means it's either too stiff for native speakers or too hard to read for my Taiwanese colleagues. So I had AI help me build a skill that always produces two versions: a natural one for native speakers, and one with simpler tone and vocabulary for Taiwanese colleagues.
 
-| Skill | What it solves |
-|---|---|
-| English business email | Always produces two versions, one native-sounding and one in plainer English, so I can match the reader |
-| Chinese business email | Separate internal and external versions, with the tone adjusted for each |
-| Flowcharts and timelines | Always outputs a single HTML file I can open directly or screenshot into slides |
-| Note format | Every note written into Obsidian gets the same frontmatter and link format |
-| Cross-model review | The review flow from points 4 and 5 |
-| Should this be a skill? | Yes, even deciding whether to make a skill is a skill |
+Others cover Chinese business email, flowcharts, note formatting, and the cross-model review described below. Even "is this worth making into a skill?" is itself a skill.
 
-I followed the official guidance (links in the appendix). Three points helped most:
-
-- **Make the description say what it does and when to use it.** Claude reads it to decide whether to load the skill. Vague descriptions don't get picked.
-- **Only write what Claude doesn't already know.** No need to explain what a business email is. Write down your format and the mistakes you've already hit.
-- **Try first, then write.** Do the task a few times without a skill. Note where it falls short and what you keep re-explaining, then write just enough instruction to cover that.
-
-That last point is also how I decide whether a skill is worth making: the same task keeps coming up, I keep re-explaining the background, or the quality swings from run to run. Not every prompt needs to be a skill.
+My test: the same task keeps coming up, I keep re-explaining the background, or the quality swings from run to run. Only then is it worth it. Not every prompt needs to be a skill.
 
 For a team, a skill is a prompt you can share. What works no longer lives only in one person's chat history.
 
 ## 4. Tier your reviews, with criteria anyone can apply
 
-Not every change deserves the same review cost. My tiers:
+Not every change deserves the same review cost. For regular changes, AI simplifies the code, then looks for bugs, and I read it before committing. For complex changes, like anything touching SQL or transactions, I add a cross-model review. Text edits on this blog skip it.
 
-| Change type | Before commit |
-|---|---|
-| Regular changes | `/simplify` (clean up the code) → `/code-review` (find bugs) → I read the diff |
-| Complex changes: business logic, state machines, SQL/transactions, concurrency, retries, or more than ~100 lines or many files | All of the above, plus a cross-model review |
-| Personal site, blog, styling, copy, small config edits | No cross-model review |
-
-The point is that the second row can be checked directly. "Important changes get more review" can't be applied consistently. "Touches a SQL transaction" can. Vague rules mean everyone reads them differently.
+The point is that the criteria can be checked directly. "Important changes get more review" can't be applied consistently. "Touches a SQL transaction" can.
 
 ## 5. Test the rules
 
@@ -118,13 +92,13 @@ The last one is easy to skip. If rules only ever get added, eventually nobody re
 
 What separates a personal experiment from a team standard is writing it down. Write it as a rules file the AI can read, put it under version control, and test that it actually helps. Then what you hand the team isn't just "this works for me." It's a way of working others can follow, and also question.
 
-None of this is finished, either. For more advanced use, I'm still working things through with the AI and keep reading the official docs and what well-known AI practitioners share. When something looks good, I try it. Only what works gets written into the rules.
+None of this is finished, either. When the official docs publish something new, I read it, ask AI to explain the parts I don't follow, and decide whether the setup I'm using should change.
 
 Next post takes the engineer's side: from web chat to agents, and how AI fits into everyday development.
 
 ## Appendix: official docs
 
-If you want to try this yourself, start here:
+If you're interested, start here:
 
 **Claude Code**
 
