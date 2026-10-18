@@ -48,9 +48,16 @@ That way a new feature or a new piece of logic doesn't quietly break something I
 
 ## What else an agent did for me these past few weeks
 
-Beyond writing code, what I've handed to agents lately has been more varied than I expected. A few that apply to everyday engineering work:
+Beyond writing code, what I've handed to agents lately has been more varied than I expected. The most complete example: turning a 2016 MacBook at home into an always-on agent ([the full story is here](/blog/macbook-claude-code-agent/)).
 
-- **Reading logs to find the cause.** When I [turned an old MacBook into a Linux box](/blog/macbook-claude-code-agent/), the install failed several times. The agent read the installer logs and system messages and traced the real cause to the SSD controller dropping out, not the write errors that showed up on the surface. One of those failures was caused by a boot option it had suggested a step earlier, and it only corrected that after reading the log. It's very good at chasing logs, and its suggestions still need checking.
+That project was basically this post's workflow, start to finish. I laid out the goal and the constraints first: it stays on, I can reach it from my phone when I'm out, and it exposes no services to the outside. Claude Code on my desktop planned the install steps and wrote the setup script. I followed along and sent back photos of the MacBook's screen. It took four installs. Each time one failed, the agent read the installer logs and system messages, and it traced the real cause to the SSD controller dropping out, not the write errors that showed up on the surface.
+
+One of those failures was caused by a boot option the agent itself had suggested a step earlier, and it only corrected that after reading the log. I've kept that in mind since: it's very good at chasing down problems, and its suggestions still need checking.
+
+That MacBook now sends me a news digest every morning, and it's an agent in its own right. One agent setting up another is the result from these past few weeks that stuck with me most.
+
+The rest are smaller, but they apply just as well to everyday engineering work:
+
 - **Measuring after the fix, then fixing again.** During a performance check of this site, it ran the audit tool, found issues, fixed them and ran the audit again. One fix actually made things worse the first time, and only the rerun caught it. In a web chat, I'd probably have assumed it was done.
 - **Problems that aren't code.** My PC at home shut off without warning. It read the system event log, ruled out a few possibilities, then wrote a small script that records hardware status on a timer, so there's data to compare if it happens again.
 - **Small tools, tested at the edges.** For a few scripts I use myself (saving videos, pulling subtitles), it ran each one against a normal URL, a missing one and a duplicate after writing it. I just read the results.
