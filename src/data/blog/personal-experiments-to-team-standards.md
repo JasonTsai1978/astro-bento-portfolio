@@ -1,7 +1,7 @@
 ---
 title: "From Personal Experiments to Team Standards: How I Turn AI Lessons into Rules"
 description: "To turn personal AI experiments into team standards, write the lessons down as version-controlled rules the AI reads every time, then test whether each rule earns its place. Examples from my own Claude Code setup."
-pubDate: 2026-10-22
+pubDate: 2026-10-18
 category: "AI Engineering & Governance"
 ---
 

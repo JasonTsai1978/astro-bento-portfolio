@@ -1,7 +1,7 @@
 ---
 title: "從個人實驗到團隊規範：我怎麼把 AI 的使用心得寫成規則"
 description: "個人實驗要變成團隊規範，關鍵是把踩過的坑寫成 AI 讀得懂、可以版控的規則，再用實驗驗證規則值不值得留。以我自己的 Claude Code 設定當例子。"
-pubDate: 2026-10-22
+pubDate: 2026-10-18
 category: "AI Engineering & Governance"
 ---
 
