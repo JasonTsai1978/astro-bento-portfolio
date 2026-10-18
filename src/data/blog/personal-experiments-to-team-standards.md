@@ -48,7 +48,32 @@ Some rules need the tool to enforce them, not just a line in a file. For "update
 
 This is what I meant last time by "if it can be written down as a rule, it goes to the team." The rules live in the repo and go through version control with the code. Git shows who changed what and why. A new teammate clones the repo, and the AI follows the same rules for them.
 
-## 3. Tier your reviews, with criteria anyone can apply
+## 3. Turn your go-to prompts into skills
+
+`CLAUDE.md` covers how a given project works. A second kind of rule covers how a given kind of task works, like writing a business email in English or drawing a flowchart. These come up in every project, so I turn them into skills: a folder with a `SKILL.md` that says when to use it, how to do the task, and what the output should look like. Both claude.ai and Claude Code can use them.
+
+The ones I use most:
+
+| Skill | What it solves |
+|---|---|
+| English business email | Always produces two versions, one native-sounding and one in plainer English, so I can match the reader |
+| Chinese business email | Separate internal and external versions, with the tone adjusted for each |
+| Flowcharts and timelines | Always outputs a single HTML file I can open directly or screenshot into slides |
+| Note format | Every note written into Obsidian gets the same frontmatter and link format |
+| Cross-model review | The review flow from points 4 and 5 |
+| Should this be a skill? | Yes, even deciding whether to make a skill is a skill |
+
+I followed the official guidance (links in the appendix). Three points helped most:
+
+- **Make the description say what it does and when to use it.** Claude reads it to decide whether to load the skill. Vague descriptions don't get picked.
+- **Only write what Claude doesn't already know.** No need to explain what a business email is. Write down your format and the mistakes you've already hit.
+- **Try first, then write.** Do the task a few times without a skill. Note where it falls short and what you keep re-explaining, then write just enough instruction to cover that.
+
+That last point is also how I decide whether a skill is worth making: the same task keeps coming up, I keep re-explaining the background, or the quality swings from run to run. Not every prompt needs to be a skill.
+
+For a team, a skill is a prompt you can share. What works no longer lives only in one person's chat history.
+
+## 4. Tier your reviews, with criteria anyone can apply
 
 Not every change deserves the same review cost. My tiers:
 
@@ -60,7 +85,7 @@ Not every change deserves the same review cost. My tiers:
 
 The point is that the second row can be checked directly. "Important changes get more review" can't be applied consistently. "Touches a SQL transaction" can. Vague rules mean everyone reads them differently.
 
-## 4. Test the rules
+## 5. Test the rules
 
 The cross-model review sends the same diff to two different models, each reviewing on its own, then combines the results. But why those two models? I didn't want to pick on gut feel, so I ran two rounds of tests: I planted bugs in code (8 in the first round, 6 in the second) and counted what each model caught.
 
@@ -76,12 +101,13 @@ To be clear, the sample is small, I designed the bugs myself, and each test was 
 
 Teams can do the same. Instead of arguing over which tool is better, build a set of problems with known answers and let everyone run them with their own tools.
 
-## 5. A checklist before scaling to the team
+## 6. A checklist before scaling to the team
 
 Going from one person to a team, I'd confirm at least these:
 
 - [ ] The tool is approved and its data policy has been reviewed (point 2 of the last post)
 - [ ] There's one shared rules file in the repo, not everyone's own prompts
+- [ ] Go-to prompts are packaged as shared skills, not kept in personal chat histories
 - [ ] Review tiers are written down and can be checked directly
 - [ ] The rules have an owner, and there's a clear way to propose changes
 - [ ] There's a regular review, and rules that don't help get removed
@@ -92,4 +118,25 @@ The last one is easy to skip. If rules only ever get added, eventually nobody re
 
 What separates a personal experiment from a team standard is writing it down. Write it as a rules file the AI can read, put it under version control, and test that it actually helps. Then what you hand the team isn't just "this works for me." It's a way of working others can follow, and also question.
 
+None of this is finished, either. For more advanced use, I'm still working things through with the AI and keep reading the official docs and what well-known AI practitioners share. When something looks good, I try it. Only what works gets written into the rules.
+
 Next post takes the engineer's side: from web chat to agents, and how AI fits into everyday development.
+
+## Appendix: official docs
+
+If you want to try this yourself, start here:
+
+**Claude Code**
+
+- [Claude Code overview](https://code.claude.com/docs/en/overview)
+- [CLAUDE.md and project memory](https://code.claude.com/docs/en/memory)
+- [Skills](https://code.claude.com/docs/en/skills)
+- [Hooks](https://code.claude.com/docs/en/hooks-guide)
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
+
+**Skills and prompting**
+
+- [Agent Skills overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+- [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+- [Prompt engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
+- [Anthropic Engineering: Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)

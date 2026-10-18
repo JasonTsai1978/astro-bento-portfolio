@@ -48,7 +48,32 @@ category: "AI Engineering & Governance"
 
 這就是上一篇說的「能寫成規則的才帶給團隊」。規則寫在 repo 裡，跟程式碼一起進版控：誰改了、為什麼改，git 都查得到；新同仁 clone 下來，AI 就照同一套規則做事。
 
-## 3. 審查分級，標準要能判斷
+## 3. 常用的 prompt，做成 skill
+
+`CLAUDE.md` 規範的是「這個專案怎麼做事」。另一類規則是「這種工作怎麼做」，例如寫英文商務信、畫流程圖，每個專案都用得到。這類我做成 skill：一個資料夾放一份 `SKILL.md`，寫清楚什麼時候用、怎麼做、輸出長什麼樣子。claude.ai 和 Claude Code 都能用。
+
+我目前常用的幾個：
+
+| Skill | 解決什麼問題 |
+|---|---|
+| 英文商務信 | 固定產出兩版：一版道地、一版用字較淺，看收件人挑 |
+| 中文商務信 | 依對象分內部、外部兩版，語氣跟著調 |
+| 流程圖／時間軸 | 固定輸出單一 HTML 檔，可以直接開、截圖貼進簡報 |
+| 筆記格式 | 寫進 Obsidian 的筆記，一律帶固定的 frontmatter 和連結格式 |
+| 交叉審查 | 第 4、5 點的多模型審查流程 |
+| 該不該做成 skill | 對，連「要不要做 skill」也做成了 skill |
+
+寫法我照官方的建議（連結在文末附錄），最受用的是這三點：
+
+- **description 寫清楚做什麼、什麼時候用**：Claude 看這一段決定要不要啟用 skill，寫得含糊就不會被叫到。
+- **只寫 Claude 不知道的**：不用教它什麼是商務信，要寫的是你的格式、你踩過的地雷。
+- **先試再寫**：先不用 skill 做幾次，記下它哪裡做不好、你每次都在重講什麼，再寫剛好夠用的指示。
+
+最後一點也是我判斷要不要做 skill 的標準：同一種工作一直出現、每次都要重講背景、或品質忽好忽壞，才值得做。不是每個 prompt 都要變成 skill。
+
+對團隊來說，skill 就是可以分享的 prompt。好用的做法不再只躺在某個人的對話紀錄裡。
+
+## 4. 審查分級，標準要能判斷
 
 不是每個改動都值得同樣的審查成本。我的分級是：
 
@@ -60,7 +85,7 @@ category: "AI Engineering & Governance"
 
 重點是第二列的條件要能直接判斷。「重要的改動要多審」沒辦法執行，「有碰到 SQL 交易」就可以。規則寫得模糊，最後每個人的解讀都不一樣。
 
-## 4. 規則要拿實驗驗證
+## 5. 規則要拿實驗驗證
 
 交叉審查的設計，是同一份 diff 交給兩個不同的模型各自審查，再彙整結果。但為什麼是這兩個模型？我不想憑感覺決定，所以做了兩輪實驗：在程式裡刻意植入 bug（第一輪 8 個、第二輪 6 個），看各模型抓到幾個。
 
@@ -76,12 +101,13 @@ category: "AI Engineering & Governance"
 
 團隊也可以這樣做：與其爭論哪個工具比較好，不如準備一組已知答案的題目，讓大家用自己的工具跑一次。
 
-## 5. 擴大到團隊前的 checklist
+## 6. 擴大到團隊前的 checklist
 
 從個人到團隊，我建議至少確認這幾件事：
 
 - [ ] 工具已經核准，資料政策看過（上一篇第 2 點）
 - [ ] 有一份共用的規則檔放在 repo 裡，不是每個人各自的提示詞
+- [ ] 常用的 prompt 整理成共用的 skill，不只存在個人的對話紀錄裡
 - [ ] 審查分級的條件寫清楚了，而且能直接判斷
 - [ ] 規則有負責人，誰可以改、怎麼提修改都講好
 - [ ] 有固定的檢討時間，規則沒用就拿掉
@@ -92,4 +118,25 @@ category: "AI Engineering & Governance"
 
 個人實驗跟團隊規範之間，差的是把經驗寫下來。寫成 AI 讀得懂的規則檔，放進版控，再用實驗確認它真的有用。這樣交給團隊的，就不只是「我覺得好用」，而是一套別人可以照著做、也可以質疑的做法。
 
+這套設定也還沒定型。更進階的用法，我還在跟 AI 討論，也持續看官方文件和幾位知名 AI 實務者分享的做法。看到好的就照著試，有效的才留下來寫成規則。
+
 下一篇換個角度，寫給工程師：從網頁問答到 agent，AI 可以怎麼用在日常開發。
+
+## 附錄：官方文件
+
+想自己動手的，可以從這幾份開始（都是英文）：
+
+**Claude Code**
+
+- [Claude Code 總覽](https://code.claude.com/docs/en/overview)
+- [CLAUDE.md 與專案記憶](https://code.claude.com/docs/en/memory)
+- [Skills](https://code.claude.com/docs/en/skills)
+- [Hooks](https://code.claude.com/docs/en/hooks-guide)
+- [Claude Code 最佳實務](https://code.claude.com/docs/en/best-practices)
+
+**Skill 與 prompt**
+
+- [Agent Skills 概念說明](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+- [Skill 撰寫最佳實務](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+- [Prompt engineering 總覽](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
+- [Anthropic 工程部落格：Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
