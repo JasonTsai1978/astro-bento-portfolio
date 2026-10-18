@@ -69,3 +69,4 @@
 2026-10-18（文章 B 修訂）：新增第 3 段「常用的 prompt，做成 skill」（常用 skill 表、照官方建議的三個重點、何時值得做 skill），原第 3～5 段改為 4～6；checklist 加一項共用 skill；結尾加持續研究、仿效官方與知名 AI 實務者做法的段落；文末加官方文件附錄（9 個連結，已確認皆回 200）。中英同步，本機 build 通過。分支 blog/personal-experiments-to-team-standards，未合併。
 2026-10-18（文章 B 降低技術深度）：依 Jason 意見，第 2 段（踩坑補規則）只留一個例子、第 4 段（審查分級）移除表格改一段話；第 3 段 skill 改以英文商務信為主例（母語者／台灣同事兩種語氣與詞彙），移除 skill 表與官方建議三點；結尾持續研究段改為讀官方新文、請 AI 解釋、判斷設定是否調整，不提知名實務者；附錄官方連結保留。中英同步，本機 build 通過。分支 blog/personal-experiments-to-team-standards，未合併。
 2026-10-18（文章 B 合併段落）：原第 4 段（審查分級）與第 5 段（實驗驗證）合併為第 4 段「審查分級，複雜的交給多個 agent 確認」：參考官方 code review 建議與網路專家建議、複雜專案或程式碼派多個 agent 交叉確認；實驗縮成一段結論、移除表格與模型名稱。checklist 改為第 5 段，結尾不再點名模型。中英同步，本機 build 通過。分支 blog/personal-experiments-to-team-standards，未合併。
+2026-10-18（上線）：Jason 同意後，文章 B pubDate 改為 10/18，fast-forward 合併 master 並推送；正式站中英兩個網址確認已上線。分支 blog/personal-experiments-to-team-standards 本機與遠端皆已刪。下次從：文章 C（給工程師的 AI 入門：從網頁問答到 agent），之後改寫為內部教材（手冊＋投影片）。
