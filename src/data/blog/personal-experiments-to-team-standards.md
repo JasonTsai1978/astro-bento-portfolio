@@ -53,29 +53,17 @@ My test: the same task keeps coming up, I keep re-explaining the background, or 
 
 For a team, a skill is a prompt you can share. What works no longer lives only in one person's chat history.
 
-## 4. Tier your reviews, with criteria anyone can apply
+## 4. Tier your reviews, and let multiple agents check the complex ones
 
-Not every change deserves the same review cost. For regular changes, AI simplifies the code, then looks for bugs, and I read it before committing. For complex changes, like anything touching SQL or transactions, I add a cross-model review. Text edits on this blog skip it.
+Not every change deserves the same review cost. My approach follows the official code review guidance, along with advice from experts I've read online. For regular changes, AI simplifies the code, then looks for bugs, and I read it before committing. For complex projects or code, like anything touching SQL or transactions, several agents review it separately and I cross-check what they find. Text edits on this blog skip all that.
 
-The point is that the criteria can be checked directly. "Important changes get more review" can't be applied consistently. "Touches a SQL transaction" can.
+The criteria need to be checkable. "Important changes get more review" can't be applied consistently. "Touches a SQL transaction" can.
 
-## 5. Test the rules
-
-The cross-model review sends the same diff to two different models, each reviewing on its own, then combines the results. But why those two models? I didn't want to pick on gut feel, so I ran two rounds of tests: I planted bugs in code (8 in the first round, 6 in the second) and counted what each model caught.
-
-| Observation | Result |
-|---|---|
-| Larger models (Opus, Sonnet, Fable) | Caught every bug in both rounds |
-| Smaller model (Haiku) | In round two, missed a state-transition bug that only shows up when you compare two methods, and confidently said the code was fine |
-| Integer multiplication overflow | Only Opus and Haiku caught it |
-
-So my pair is Opus plus Sonnet. The two larger models still cover for each other. Haiku was confident when it was wrong, which is the last thing you want in a reviewer. Fable overlapped too much with the other two to add much.
-
-To be clear, the sample is small, I designed the bugs myself, and each test was a single file. Treat the results as a reference point, not a verdict. But it beats "model A feels smarter," and it can be rerun.
+As for which models to use, I didn't want to pick on gut feel either, so I ran a small test: I planted bugs in code and counted what each model caught. Two larger models worked best together, each catching things the other missed. The smaller model missed a bug and confidently said the code was fine, which is the last thing you want in a reviewer. The sample is small, so treat it as a reference point. But it beats "model A feels smarter," and it can be rerun.
 
 Teams can do the same. Instead of arguing over which tool is better, build a set of problems with known answers and let everyone run them with their own tools.
 
-## 6. A checklist before scaling to the team
+## 5. A checklist before scaling to the team
 
 Going from one person to a team, I'd confirm at least these:
 
@@ -86,7 +74,7 @@ Going from one person to a team, I'd confirm at least these:
 - [ ] The rules have an owner, and there's a clear way to propose changes
 - [ ] There's a regular review, and rules that don't help get removed
 
-The last one is easy to skip. If rules only ever get added, eventually nobody reads them. My review pair only dropped Haiku and Fable after testing, and when the models change, I'll rerun the tests.
+The last one is easy to skip. If rules only ever get added, eventually nobody reads them. I only decided which models to drop from my review setup after testing, and when the models change, I'll rerun the tests.
 
 ## Last thought
 
