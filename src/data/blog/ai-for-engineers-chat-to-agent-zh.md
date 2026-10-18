@@ -1,7 +1,7 @@
 ---
 title: "給工程師的 AI 入門：從網頁問答到 agent"
 description: "多數工程師用 AI 還停在貼 code 問問題。這篇整理四個層次：個人網頁版、企業版、IDE 內嵌、agent，每層配一個 C# 或 T-SQL 的日常例子，最後講心態怎麼從「問答」換成「交辦」。"
-pubDate: 2026-10-25
+pubDate: 2026-10-18
 category: "AI Engineering & Governance"
 ---
 

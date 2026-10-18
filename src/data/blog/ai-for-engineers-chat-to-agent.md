@@ -1,7 +1,7 @@
 ---
 title: "AI for Engineers: From Web Chat to Agents"
 description: "Most engineers still use AI by pasting code into a chat window. This post lays out four levels (personal web chat, enterprise chat, in-IDE assistants and agents) with an everyday C# or T-SQL example for each, then covers the shift from asking questions to handing off work."
-pubDate: 2026-10-25
+pubDate: 2026-10-18
 category: "AI Engineering & Governance"
 ---
 
