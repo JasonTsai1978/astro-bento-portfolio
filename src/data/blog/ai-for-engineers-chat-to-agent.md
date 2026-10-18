@@ -36,7 +36,26 @@ Each level down gives the AI more context and more room to act on its own, and g
 
 **3. In the IDE: adding unit tests.** Put the cursor on a C# method and ask for a few edge-case tests in the style of the existing ones. The scope is the file in front of you, which is exactly right.
 
-**4. Agents: understanding legacy code, then refactoring in small steps.** You inherit an old service nobody remembers. First have the agent read the whole project and explain how data flows and where it hits the database. Once you're sure you understand it, have it pull out a piece of duplicated logic, then run the build and tests itself. This is the level I use most at home; my last post describes the setup.
+**4. Agents: understand the whole project before touching it.** This is the level I use most at home, and the one that differs most from the other three ([my last post](/blog/personal-experiments-to-team-standards/) describes the setup).
+
+When a new requirement comes in, I don't tell it to start writing. I go in three steps:
+
+1. Have the agent read the whole repo and explain the architecture: how data flows, how the modules are split, where it touches the database.
+2. While it's there, have it do a code review, so I know where the existing code is fragile or already broken.
+3. Only then give it the new requirement and ask what it would change and what that would affect. Once I've read the plan and agreed, it makes the changes, then runs the build and tests itself.
+
+That way a new feature or a new piece of logic doesn't quietly break something I can't see. In a web chat, the AI only sees the snippets I paste, so working out the blast radius is on me. And copying the relevant files over one by one eats up most of the time anyway.
+
+## What else an agent did for me these past few weeks
+
+Beyond writing code, what I've handed to agents lately has been more varied than I expected. A few that apply to everyday engineering work:
+
+- **Reading logs to find the cause.** When I [turned an old MacBook into a Linux box](/blog/macbook-claude-code-agent/), the install failed several times. The agent read the installer logs and system messages and traced the real cause to the SSD controller dropping out, not the write errors that showed up on the surface. One of those failures was caused by a boot option it had suggested a step earlier, and it only corrected that after reading the log. It's very good at chasing logs, and its suggestions still need checking.
+- **Measuring after the fix, then fixing again.** During a performance check of this site, it ran the audit tool, found issues, fixed them and ran the audit again. One fix actually made things worse the first time, and only the rerun caught it. In a web chat, I'd probably have assumed it was done.
+- **Problems that aren't code.** My PC at home shut off without warning. It read the system event log, ruled out a few possibilities, then wrote a small script that records hardware status on a timer, so there's data to compare if it happens again.
+- **Small tools, tested at the edges.** For a few scripts I use myself (saving videos, pulling subtitles), it ran each one against a normal URL, a missing one and a duplicate after writing it. I just read the results.
+
+What these have in common: it can run things, look at the results and fix what's wrong. A web chat can't take that step, and it's what I meant at the top by letting AI check its own work.
 
 ## The mindset shift: from asking to handing off
 
