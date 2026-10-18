@@ -82,7 +82,7 @@ What separates a personal experiment from a team standard is writing it down. Wr
 
 None of this is finished, either. When the official docs publish something new, I read it, ask AI to explain the parts I don't follow, and decide whether the setup I'm using should change.
 
-Next post takes the engineer's side: from web chat to agents, and how AI fits into everyday development.
+[Next post](/blog/ai-for-engineers-chat-to-agent/) takes the engineer's side: from web chat to agents, and how AI fits into everyday development.
 
 ## Appendix: official docs
 

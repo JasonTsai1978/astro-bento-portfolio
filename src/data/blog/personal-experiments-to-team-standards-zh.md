@@ -82,7 +82,7 @@ category: "AI Engineering & Governance"
 
 這套設定也還沒定型。官方有新文章我會去看，看不太懂的就請 AI 幫忙解釋，再判斷我正在用的設定要不要跟著改。
 
-下一篇換個角度，寫給工程師：從網頁問答到 agent，AI 可以怎麼用在日常開發。
+[下一篇](/blog/ai-for-engineers-chat-to-agent-zh/)換個角度，寫給工程師：從網頁問答到 agent，AI 可以怎麼用在日常開發。
 
 ## 附錄：官方文件
 
