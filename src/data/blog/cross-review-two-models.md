@@ -1,7 +1,7 @@
 ---
 title: "Two AIs, Two Independent Reviews: My Cross-Review Workflow"
 description: "One AI reviewing code will miss things, and sometimes says it's fine with full confidence. Inspired by others' experiments, I built a workflow: two models review the same change independently, I verify, then sort the findings into four buckets. Includes a 30-second video."
-pubDate: 2026-10-25
+pubDate: 2026-10-23
 category: "AI Engineering & Governance"
 ---
 

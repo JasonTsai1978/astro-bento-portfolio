@@ -1,7 +1,7 @@
 ---
 title: "請兩個 AI 各自挑毛病：我的 cross-review 流程"
 description: "一個 AI 審 code 會漏，而且漏了還很有把握。我參考別人的實驗，做了一個流程：同一份改動派兩個模型獨立審查，我自己驗證後再歸成四類。附 30 秒流程影片。"
-pubDate: 2026-10-25
+pubDate: 2026-10-23
 category: "AI Engineering & Governance"
 ---
 

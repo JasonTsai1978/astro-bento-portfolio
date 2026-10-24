@@ -78,3 +78,4 @@
 2026-10-18（文章 C 呼應 mbook）：依 Jason 意見，「這幾週」段落改以 mbook 改裝為主例（交代目標與限制 → 規劃與 script → 四次安裝讀 log 追到 SSD 控制器 → 它自己的參數建議出錯 → 一個 agent 裝好另一個 agent），連到 mbook 文章；其餘三項（重測、PC 斷電、小工具）保留為短清單。中英同步，本機 build 通過。分支 blog/ai-for-engineers，未合併。
 2026-10-18（上線）：Jason 定稿，文章 C pubDate 改為 10/18，blog/ai-for-engineers fast-forward 合併 master 並推送；文章 B 結尾連到 C 的連結同時生效。分支本機與遠端皆刪除。下次從：文章 C 改寫為團隊內部教材（手冊＋投影片），動工前先問 Jason 以實際導入的工具或假設情境撰寫。
 2026-10-24（文章 D 草稿）：分支 blog/cross-review——新增 cross-review-two-models（英）與 -zh（中），AI Engineering & Governance，pubDate 10/25。流程故事：為什麼不只問一個模型、五步流程、四類歸檔、AI 找人判斷、做成影片。內嵌 30 秒流程影片（public/blog/cross-review.mp4，3.7MB，左下角 jasontsai.dev 浮水印）與封面圖；畫面為示意資料、配樂原創合成。本機 build 通過（22 頁）。未合併，等 Jason 看預覽；pubDate 10/25，早於該日合併會顯示未來日期。
+2026-10-24（文章 D 日期）：依 Jason 指示 pubDate 改為 10/23（中英兩篇）。
