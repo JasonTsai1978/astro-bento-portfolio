@@ -80,3 +80,4 @@
 2026-10-24（文章 D 草稿）：分支 blog/cross-review——新增 cross-review-two-models（英）與 -zh（中），AI Engineering & Governance，pubDate 10/25。流程故事：為什麼不只問一個模型、五步流程、四類歸檔、AI 找人判斷、做成影片。內嵌 30 秒流程影片（public/blog/cross-review.mp4，3.7MB，左下角 jasontsai.dev 浮水印）與封面圖；畫面為示意資料、配樂原創合成。本機 build 通過（22 頁）。未合併，等 Jason 看預覽；pubDate 10/25，早於該日合併會顯示未來日期。
 2026-10-24（文章 D 日期）：依 Jason 指示 pubDate 改為 10/23（中英兩篇）。
 2026-11-07（文章 E 草稿）：分支 blog/eudamed-consultant——新增 eudamed-ai-consultant（英）與 -zh（中），Enterprise IT，pubDate 11/07。以第三方技術顧問角色寫歐盟醫材資料庫註冊專案：AI 先讀官方規格（問題從「怎麼改」重新定義為「第一次就填對」）、盤點上傳方式、官方範例陷阱、依規格做 Excel 範本、C# 轉檔→離線單檔網頁、四道驗證關卡（Excel Check／轉檔前檢查／官方 XSD／官方回應檔），最後一道以官方回應 SUCCESS 為準。配圖：Gemini 生成封面（無文字）、兩張自製動畫 SVG 流程圖（public/blog/eudamed-*-zh|en.svg，支援 prefers-reduced-motion）、Excel 範本與網頁工具截圖（全部為示意資料，代碼／SRN／品名皆替換）。不提公司名與實際筆數。本機 build 通過（24 頁），手機／桌機截圖確認無破圖、無水平捲動。未合併，等 Jason 看預覽。
+2026-11-07（上線）：Jason 確認後，blog/eudamed-consultant fast-forward 合併 master 並推送，文章 E（eudamed-ai-consultant 中英）上線；分支本機與遠端皆刪除。
