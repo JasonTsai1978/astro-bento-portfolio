@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 914" width="440" height="914" role="img" aria-label="The user's upload flow: four validation gates"><title>The user's upload flow: four validation gates</title><style>
+text{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif}
+.t{fill:#f5f5f5;font-size:15px;font-weight:600}
+.s{fill:#a3a3a3;font-size:12.5px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.06em}
+.cap{fill:#a3a3a3;font-size:11px;letter-spacing:.12em;font-weight:700}
+.g{fill:#fda4af;font-size:12.5px;font-weight:600}
+@media (prefers-reduced-motion: reduce){.anim{display:none}}
+</style><defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#71717a"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#EC7981"/></marker>
+<marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#4ade80"/></marker>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><rect width="440" height="914" rx="16" fill="#171717"/><rect x="16" y="18" width="10" height="10" rx="3" fill="#7dd3fc"/><text x="32" y="27.5" class="s" style="font-size:12px">User</text>
+<rect x="80" y="18" width="10" height="10" rx="3" fill="#EC7981"/><text x="96" y="27.5" class="s" style="font-size:12px">Web tool</text>
+<rect x="172" y="18" width="10" height="10" rx="3" fill="#fbbf24"/><text x="188" y="27.5" class="s" style="font-size:12px">EUDAMED</text>
+<text x="16" y="58" class="cap">EVERY UPLOAD · RUN BY THE USER</text>
+<rect x="16" y="70" width="360" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="80" width="3.5" height="50" rx="1.75" fill="#7dd3fc"/>
+<text x="34" y="91" class="tag" fill="#7dd3fc">USER</text>
+<text x="34" y="112" class="t">Fill in the Excel template</text>
+<text x="34" y="132" class="s">Columns mirror the official data dictionary</text>
+<line x1="196.0" y1="140" x2="196.0" y2="156" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="30" y="158" width="332" height="36" rx="18" fill="rgba(236,121,129,.07)" stroke="#EC7981" stroke-dasharray="5 4"/><path transform="translate(44,166)" d="M10 1 L18 4 V10 C18 15 14.5 18.5 10 20 C5.5 18.5 2 15 2 10 V4 Z" fill="rgba(236,121,129,.15)" stroke="#EC7981" stroke-width="1.4"/><path transform="translate(44,166)" d="M6.5 10.5 L9 13 L13.5 7.5" fill="none" stroke="#fda4af" stroke-width="1.6" stroke-linecap="round"/><text x="72" y="181" class="g">Gate 1　Check column flags errors live</text>
+<line x1="196.0" y1="194" x2="196.0" y2="210" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="212" width="360" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="222" width="3.5" height="50" rx="1.75" fill="#EC7981"/>
+<text x="34" y="233" class="tag" fill="#EC7981">WEB TOOL</text>
+<text x="34" y="254" class="t">Upload Excel, pre-check</text>
+<text x="34" y="274" class="s">Required, Y/N, check digits, duplicates, packaging</text>
+<line x1="196.0" y1="282" x2="196.0" y2="298" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="332" height="36" rx="18" fill="rgba(236,121,129,.07)" stroke="#EC7981" stroke-dasharray="5 4"/><path transform="translate(44,308)" d="M10 1 L18 4 V10 C18 15 14.5 18.5 10 20 C5.5 18.5 2 15 2 10 V4 Z" fill="rgba(236,121,129,.15)" stroke="#EC7981" stroke-width="1.4"/><path transform="translate(44,308)" d="M6.5 10.5 L9 13 L13.5 7.5" fill="none" stroke="#fda4af" stroke-width="1.6" stroke-linecap="round"/><text x="72" y="323" class="g">Gate 2　Any error: no XML, row shown</text>
+<line x1="196.0" y1="336" x2="196.0" y2="352" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="354" width="360" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="364" width="3.5" height="50" rx="1.75" fill="#EC7981"/>
+<text x="34" y="375" class="tag" fill="#EC7981">WEB TOOL</text>
+<text x="34" y="396" class="t">Generate XML</text>
+<text x="34" y="416" class="s">Split into 'new device' and 'add-on' files</text>
+<line x1="196.0" y1="424" x2="196.0" y2="440" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="30" y="442" width="332" height="36" rx="18" fill="rgba(236,121,129,.07)" stroke="#EC7981" stroke-dasharray="5 4"/><path transform="translate(44,450)" d="M10 1 L18 4 V10 C18 15 14.5 18.5 10 20 C5.5 18.5 2 15 2 10 V4 Z" fill="rgba(236,121,129,.15)" stroke="#EC7981" stroke-width="1.4"/><path transform="translate(44,450)" d="M6.5 10.5 L9 13 L13.5 7.5" fill="none" stroke="#fda4af" stroke-width="1.6" stroke-linecap="round"/><text x="72" y="465" class="g">Gate 3　Official XSD check, or no download</text>
+<line x1="196.0" y1="478" x2="196.0" y2="494" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="496" width="360" height="88" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="506" width="3.5" height="68" rx="1.75" fill="#fbbf24"/>
+<text x="34" y="517" class="tag" fill="#fbbf24">EUDAMED</text>
+<text x="34" y="538" class="t">Bulk-upload the XML</text>
+<text x="34" y="558" class="s">File type 1 first; type 2 only after all succeed</text>
+<text x="34" y="576" class="s">'Received' on screen ≠ registered</text>
+<line x1="196.0" y1="584" x2="196.0" y2="600" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="602" width="360" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="612" width="3.5" height="50" rx="1.75" fill="#fbbf24"/>
+<text x="34" y="623" class="tag" fill="#fbbf24">EUDAMED</text>
+<text x="34" y="644" class="t">Download the response file</text>
+<text x="34" y="664" class="s">Ready in about a minute, one result per item</text>
+<line x1="196.0" y1="672" x2="196.0" y2="688" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="30" y="690" width="332" height="36" rx="18" fill="rgba(236,121,129,.07)" stroke="#EC7981" stroke-dasharray="5 4"/><path transform="translate(44,698)" d="M10 1 L18 4 V10 C18 15 14.5 18.5 10 20 C5.5 18.5 2 15 2 10 V4 Z" fill="rgba(236,121,129,.15)" stroke="#EC7981" stroke-width="1.4"/><path transform="translate(44,698)" d="M6.5 10.5 L9 13 L13.5 7.5" fill="none" stroke="#fda4af" stroke-width="1.6" stroke-linecap="round"/><text x="72" y="713" class="g">Gate 4　Tool reads SUCCESS / ERROR per item</text>
+<line x1="196.0" y1="726" x2="196.0" y2="742" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M196.0,744 L291.0,779.0 L196.0,814 L101.0,779.0 Z" fill="#232323" stroke="#4ade80" stroke-opacity=".7"/>
+<text x="196.0" y="784.0" text-anchor="middle" class="t">All SUCCESS?</text>
+<line x1="196.0" y1="814" x2="196.0" y2="838" stroke="#4ade80" stroke-width="1.5" marker-end="url(#ahg)"/>
+<text x="204.0" y="831" class="s" style="fill:#4ade80">Yes</text>
+<rect x="16" y="840" width="360" height="56" rx="10" fill="rgba(74,222,128,.08)" stroke="#4ade80"/>
+<text x="196.0" y="864" text-anchor="middle" class="t" style="fill:#bbf7d0">✓ Registered</text>
+<text x="196.0" y="883" text-anchor="middle" class="s">Counts only once the lookup shows it</text>
+<path d="M291.0,779.0 H406 V105.0 H378" fill="none" stroke="#EC7981" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ahr)"/>
+<text x="400" y="795.0" text-anchor="end" class="s" style="fill:#fda4af;font-size:11.5px">No: resend ERRORs</text>
+<line x1="362" y1="176.0" x2="406" y2="176.0" stroke="#EC7981" stroke-width="1.4" stroke-dasharray="3 4"/><circle cx="406" cy="176.0" r="3" fill="#EC7981"/>
+<line x1="362" y1="318.0" x2="406" y2="318.0" stroke="#EC7981" stroke-width="1.4" stroke-dasharray="3 4"/><circle cx="406" cy="318.0" r="3" fill="#EC7981"/>
+<line x1="362" y1="460.0" x2="406" y2="460.0" stroke="#EC7981" stroke-width="1.4" stroke-dasharray="3 4"/><circle cx="406" cy="460.0" r="3" fill="#EC7981"/>
+<text transform="translate(422,442.0) rotate(-90)" text-anchor="middle" class="g" style="font-size:12px">Back to Excel to fix</text>
+<path id="ok" d="M196.0,105.0 V868.0" fill="none"/><path id="bad" d="M196.0,105.0 V318.0 H406 V105.0 H376" fill="none"/>
+<g class="anim"><circle r="7" fill="#4ade80" filter="url(#glow)" opacity=".9"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#ok"/></animateMotion></circle><circle r="2.8" fill="#fff"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#ok"/></animateMotion></circle><circle r="7" fill="#EC7981" filter="url(#glow)" opacity="0"><set attributeName="opacity" to=".9" begin="3s"/><animateMotion dur="10s" begin="3s" repeatCount="indefinite"><mpath href="#bad"/></animateMotion></circle><circle r="2.8" fill="#fff" opacity="0"><set attributeName="opacity" to="1" begin="3s"/><animateMotion dur="10s" begin="3s" repeatCount="indefinite"><mpath href="#bad"/></animateMotion></circle></g></svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 808" width="440" height="808" role="img" aria-label="準備期：AI 讀規格、我做判斷，打造範本與工具"><title>準備期：AI 讀規格、我做判斷，打造範本與工具</title><style>
+text{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif}
+.t{fill:#f5f5f5;font-size:15px;font-weight:600}
+.s{fill:#a3a3a3;font-size:12.5px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.06em}
+.cap{fill:#a3a3a3;font-size:11px;letter-spacing:.12em;font-weight:700}
+.g{fill:#fda4af;font-size:12.5px;font-weight:600}
+@media (prefers-reduced-motion: reduce){.anim{display:none}}
+</style><defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#71717a"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#EC7981"/></marker>
+<marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#4ade80"/></marker>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><rect width="440" height="808" rx="16" fill="#171717"/><rect x="16" y="18" width="10" height="10" rx="3" fill="#7dd3fc"/><text x="32" y="27.5" class="s" style="font-size:12px">使用者</text>
+<rect x="88" y="18" width="10" height="10" rx="3" fill="#c4b5fd"/><text x="104" y="27.5" class="s" style="font-size:12px">AI</text>
+<rect x="138" y="18" width="10" height="10" rx="3" fill="#5eead4"/><text x="154" y="27.5" class="s" style="font-size:12px">我</text>
+<rect x="186" y="18" width="10" height="10" rx="3" fill="#fbbf24"/><text x="202" y="27.5" class="s" style="font-size:12px">官方 EUDAMED</text>
+<text x="16" y="58" class="cap">準備期 · 做一次</text>
+<rect x="16" y="70" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="80" width="3.5" height="50" rx="1.75" fill="#7dd3fc"/>
+<text x="34" y="91" class="tag" fill="#7dd3fc">起點</text>
+<text x="34" y="112" class="t">資料上傳過了，現在要改</text>
+<text x="34" y="132" class="s">官方介面不直覺，找不到怎麼更新</text>
+<line x1="220.0" y1="140" x2="220.0" y2="156" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="158" width="408" height="88" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="168" width="3.5" height="68" rx="1.75" fill="#c4b5fd"/>
+<circle cx="402" cy="180" r="11" fill="none" stroke="#c4b5fd" stroke-opacity=".6"/><text x="402" y="184" text-anchor="middle" class="tag" fill="#c4b5fd">1</text>
+<text x="34" y="179" class="tag" fill="#c4b5fd">AI 讀</text>
+<text x="34" y="200" class="t">讀官方說明與規則</text>
+<text x="34" y="220" class="s">data dictionary、business rules、上傳手冊</text>
+<text x="34" y="238" class="s">第一個結論：多數欄位註冊後不能改</text>
+<line x1="220.0" y1="246" x2="220.0" y2="262" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="264" width="408" height="88" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="274" width="3.5" height="68" rx="1.75" fill="#c4b5fd"/>
+<circle cx="402" cy="286" r="11" fill="none" stroke="#c4b5fd" stroke-opacity=".6"/><text x="402" y="290" text-anchor="middle" class="tag" fill="#c4b5fd">2</text>
+<text x="34" y="285" class="tag" fill="#c4b5fd">AI 盤點</text>
+<text x="34" y="306" class="t">整理可用的上傳方式</text>
+<text x="34" y="326" class="s">畫面逐筆、Bulk upload（XML）、系統對接</text>
+<text x="34" y="344" class="s">官方只收 XML，沒有 Excel 範本</text>
+<line x1="220.0" y1="352" x2="220.0" y2="368" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="370" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="380" width="3.5" height="50" rx="1.75" fill="#5eead4"/>
+<circle cx="402" cy="392" r="11" fill="none" stroke="#5eead4" stroke-opacity=".6"/><text x="402" y="396" text-anchor="middle" class="tag" fill="#5eead4">3</text>
+<text x="34" y="391" class="tag" fill="#5eead4">我決定</text>
+<text x="34" y="412" class="t">用 Bulk upload，自建範本與轉檔</text>
+<text x="34" y="432" class="s">市售工具做法相同，留作備案與交叉比對</text>
+<line x1="220.0" y1="440" x2="220.0" y2="456" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="458" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="468" width="3.5" height="50" rx="1.75" fill="#c4b5fd"/>
+<circle cx="402" cy="480" r="11" fill="none" stroke="#c4b5fd" stroke-opacity=".6"/><text x="402" y="484" text-anchor="middle" class="tag" fill="#c4b5fd">4</text>
+<text x="34" y="479" class="tag" fill="#c4b5fd">AI 下載</text>
+<text x="34" y="500" class="t">官方 XSD 與範例 XML</text>
+<text x="34" y="520" class="s">發現有個範例是故意寫錯的反例，不能照抄</text>
+<line x1="220.0" y1="528" x2="220.0" y2="544" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="546" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="556" width="3.5" height="50" rx="1.75" fill="#5eead4"/>
+<circle cx="402" cy="568" r="11" fill="none" stroke="#5eead4" stroke-opacity=".6"/><text x="402" y="572" text-anchor="middle" class="tag" fill="#5eead4">5</text>
+<text x="34" y="567" class="tag" fill="#5eead4">我＋AI</text>
+<text x="34" y="588" class="t">依官方 spec 設計 Excel 範本</text>
+<text x="34" y="608" class="s">必填標紅、下拉選單、每列自動 Check 欄</text>
+<line x1="220.0" y1="616" x2="220.0" y2="632" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="634" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="644" width="3.5" height="50" rx="1.75" fill="#5eead4"/>
+<circle cx="402" cy="656" r="11" fill="none" stroke="#5eead4" stroke-opacity=".6"/><text x="402" y="660" text-anchor="middle" class="tag" fill="#5eead4">6</text>
+<text x="34" y="655" class="tag" fill="#5eead4">我＋AI</text>
+<text x="34" y="676" class="t">轉檔程式 → 離線單檔網頁</text>
+<text x="34" y="696" class="s">先寫 C# 版，再做成不必安裝的 HTML</text>
+<line x1="220.0" y1="704" x2="220.0" y2="720" stroke="#71717a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="16" y="722" width="408" height="70" rx="10" fill="#232323" stroke="#3f3f46"/>
+<rect x="16" y="732" width="3.5" height="50" rx="1.75" fill="#fbbf24"/>
+<circle cx="402" cy="744" r="11" fill="none" stroke="#fbbf24" stroke-opacity=".6"/><text x="402" y="748" text-anchor="middle" class="tag" fill="#fbbf24">7</text>
+<text x="34" y="743" class="tag" fill="#fbbf24">實證</text>
+<text x="34" y="764" class="t">首批正式上傳，官方回 SUCCESS</text>
+<text x="34" y="784" class="s">官方查詢頁也查得到，才交給使用者</text>
+<path id="p1" d="M406,105.0 V757.0" fill="none" stroke="none"/>
+<g class="anim"><circle r="6" fill="#c4b5fd" filter="url(#glow)" opacity=".9"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle><circle r="2.6" fill="#fff"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle></g></svg>
