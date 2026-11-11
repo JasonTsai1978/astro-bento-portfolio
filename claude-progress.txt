@@ -81,3 +81,5 @@
 2026-10-24（文章 D 日期）：依 Jason 指示 pubDate 改為 10/23（中英兩篇）。
 2026-11-07（文章 E 草稿）：分支 blog/eudamed-consultant——新增 eudamed-ai-consultant（英）與 -zh（中），Enterprise IT，pubDate 11/07。以第三方技術顧問角色寫歐盟醫材資料庫註冊專案：AI 先讀官方規格（問題從「怎麼改」重新定義為「第一次就填對」）、盤點上傳方式、官方範例陷阱、依規格做 Excel 範本、C# 轉檔→離線單檔網頁、四道驗證關卡（Excel Check／轉檔前檢查／官方 XSD／官方回應檔），最後一道以官方回應 SUCCESS 為準。配圖：Gemini 生成封面（無文字）、兩張自製動畫 SVG 流程圖（public/blog/eudamed-*-zh|en.svg，支援 prefers-reduced-motion）、Excel 範本與網頁工具截圖（全部為示意資料，代碼／SRN／品名皆替換）。不提公司名與實際筆數。本機 build 通過（24 頁），手機／桌機截圖確認無破圖、無水平捲動。未合併，等 Jason 看預覽。
 2026-11-07（上線）：Jason 確認後，blog/eudamed-consultant fast-forward 合併 master 並推送，文章 E（eudamed-ai-consultant 中英）上線；分支本機與遠端皆刪除。
+2026-11-11（全站改版規劃）：分支 site/redesign-fable（從 master 開）——新增 docs/redesign-plan.md：現況盤點（13 個問題）、三個設計方向（A Field Notes 編輯式單欄／B Day Shift・Night Shift／C Bento 2.0，各附配色色碼與對比度、字型、互動、效能、工作量）、推薦 B、六階段實作計畫（首頁優先）。只有文件，沒有改程式；未跑 build 與 Lighthouse。未合併，master 不動。
+下次從：Jason 選方向並回答規劃文件第 5 節的四個問題 → 階段 0（設計 token、主題 script、字型 woff2、共用 Header／Footer、移除 loader）→ 階段 1 首頁，push 後給預覽網址。動工前先在本機量一次 master 的 Lighthouse 當基準。
