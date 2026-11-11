@@ -91,3 +91,5 @@
   未合併，master 不動。新寫的文案（By night 段落、Lab to team 三張卡的 Tried／What survived）待 Jason 審。
 下次從：Jason 看預覽回饋 → 修首頁 → 階段 2（/blog 中英合併、分類篩選）。尚未做：移除沒用到的相依套件（gsap、lenis、svelte、rive、netlify）、OG 圖、地球配色跟主題、/travel 手機版地球被裁切。
 2026-11-11（改版：弦月）：Jason 回饋晚上版照片後面的黃色圓形看不出是月亮。晚上主題改成月白色弦月（src/components/home/Hero.astro，--moon 控制大小），白天維持太陽。主題切換方式維持「預設跟隨系統＋手動切換」，不做依當地時間自動切換（Jason 決定）。本機 build 通過，三種寬度截圖確認。分支 site/redesign-fable，未合併。
+2026-11-11（改版：首頁收緊）：Jason 回饋首頁太長。四項調整——區塊間距上限 112px 降到 60px、手機內文字級 16px；What I do 改四欄一排（手機只留標題與技術標籤）；Latest posts 改密集列表、顯示 4 篇；Now 與 Contact 併成左右兩欄（src/components/home/NowContact.astro，取代 Now.astro、Contact.astro），旅遊地球縮成一條矮卡片。首頁高度：桌機 1440 寬 5,747 → 4,219px，手機 375 寬 7,976 → 6,311px（改版前正式站約 1,540／3,500px）。本機 build 通過（24 頁），兩種主題三種寬度截圖無水平捲動。分支 site/redesign-fable，未合併。
+下次從：Jason 看預覽回饋；若還要更短，得拿掉 Lab to team 或 What I do 其中一塊，由 Jason 決定。之後是階段 2（/blog）。

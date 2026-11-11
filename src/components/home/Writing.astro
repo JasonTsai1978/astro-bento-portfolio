@@ -12,14 +12,14 @@ const posts = all
     zh: p.id.endsWith("-zh") ? undefined : byId.get(`${p.id}-zh`),
   }))
   .sort((a, b) => (b.post.data.pubDate || new Date()).getTime() - (a.post.data.pubDate || new Date()).getTime())
-  .slice(0, 5);
+  .slice(0, 4);
 
 const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 ---
 
 <section class="section wrap" id="writing">
   <SectionHead
-    intro="Notes on enterprise IT, bringing AI into a dev team, and what I build in my personal lab. Every post is in English and 中文."
+    intro="Enterprise IT, bringing AI into a dev team, and what I build in my personal lab. Every post is in English and 中文."
     label="Writing"
     no="04"
     title="Latest posts."
@@ -29,11 +29,12 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", 
     {
       posts.map(({ post, zh }) => (
         <li>
-          <p class="meta label">
-            {post.data.pubDate && <time datetime={post.data.pubDate.toISOString()}>{shortDate(post.data.pubDate)}</time>}
-            <span class="cat">{post.data.category}</span>
-          </p>
-          <div>
+          {post.data.pubDate && (
+            <time class="label date" datetime={post.data.pubDate.toISOString()}>
+              {shortDate(post.data.pubDate)}
+            </time>
+          )}
+          <div class="titles">
             <h3>
               <a href={`/blog/${post.id}/`}>{post.data.title}</a>
             </h3>
@@ -45,6 +46,7 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", 
               </p>
             )}
           </div>
+          <span class="label cat">{post.data.category}</span>
         </li>
       ))
     }
@@ -62,26 +64,25 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", 
   }
   .posts li {
     display: grid;
-    gap: 8px;
-    padding-block: 22px;
+    grid-template-columns: auto 1fr;
+    gap: 6px 12px;
+    padding-block: 14px;
     border-top: 1px solid var(--line);
   }
   .posts li:last-child {
     border-bottom: 1px solid var(--line);
   }
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 12px;
-    margin: 0;
+  .titles {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
-  .cat::before {
-    content: "· ";
+  .cat {
+    text-align: right;
   }
   h3 {
     font-weight: 700;
-    font-size: clamp(1.1875rem, 1.1rem + 0.5vw, 1.4375rem);
-    line-height: 1.25;
+    font-size: 1.125rem;
+    line-height: 1.3;
     letter-spacing: -0.01em;
     text-wrap: pretty;
   }
@@ -94,15 +95,16 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", 
     color: var(--accent);
   }
   .zh {
-    margin: 6px 0 0;
+    margin: 2px 0 0;
+    font-size: 0.9375rem;
     color: var(--muted);
   }
   .zh a {
     display: inline-block;
-    padding-block: 4px;
+    padding-block: 3px;
   }
   .more {
-    margin: 28px 0 0;
+    margin: 12px 0 0;
     font-weight: 600;
   }
   .more a {
@@ -118,15 +120,17 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", 
   }
   @media (min-width: 900px) {
     .posts li {
-      grid-template-columns: 300px minmax(0, 1fr);
+      grid-template-columns: 120px minmax(0, 1fr) auto;
       gap: 24px;
       align-items: baseline;
+      padding-block: 16px;
     }
-    .meta {
-      flex-direction: column;
+    .titles {
+      grid-column: auto;
+      grid-row: auto;
     }
-    .cat::before {
-      content: none;
+    h3 {
+      font-size: 1.1875rem;
     }
   }
 </style>

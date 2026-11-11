@@ -35,17 +35,15 @@ const EXPERTISE = [
           <span aria-hidden="true" class="label">
             {String(i + 1).padStart(2, "0")}
           </span>
-          <div>
-            <h3>{area}</h3>
-            <p>{summary}</p>
-            {stack.length > 0 && (
-              <ul class="stack">
-                {stack.map((s) => (
-                  <li>{s}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <h3>{area}</h3>
+          <p>{summary}</p>
+          {stack.length > 0 && (
+            <ul class="stack">
+              {stack.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          )}
         </li>
       ))
     }
@@ -53,37 +51,40 @@ const EXPERTISE = [
 </section>
 
 <style>
+  /* 手機一欄（只留標題與技術標籤）、平板兩欄、桌機四欄一排 */
   .grid {
     display: grid;
+    gap: 0 32px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
   .grid > li {
-    display: grid;
-    grid-template-columns: 2.5rem minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 8px;
-    padding-block: 24px;
+    padding-block: 16px;
     border-top: 1px solid var(--line);
-  }
-  .grid > li > .label {
-    padding-top: 6px;
   }
   h3 {
     font-weight: 700;
-    font-size: 1.3125rem;
+    font-size: 1.1875rem;
     line-height: 1.25;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
   p {
-    margin: 8px 0 0;
+    display: none;
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--muted);
   }
   .stack {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin: 14px 0 0;
+    margin: 2px 0 0;
     padding: 0;
     list-style: none;
   }
@@ -95,13 +96,24 @@ const EXPERTISE = [
     font-size: 0.75rem;
     color: var(--muted);
   }
-  @media (min-width: 900px) {
+  @media (min-width: 640px) {
     .grid {
-      grid-template-columns: 1fr 1fr;
-      column-gap: 56px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .grid > li {
-      padding-block: 32px;
+      padding-block: 20px;
+    }
+    p {
+      display: block;
+    }
+  }
+  @media (min-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .stack {
+      margin-top: auto;
+      padding-top: 6px;
     }
   }
 </style>

@@ -1,0 +1,257 @@
+---
+import SectionHead from "./SectionHead.astro";
+import Globe from "../Globe";
+import { LINKS } from "../../lib/constants";
+
+const TOPICS = ["Manufacturing systems integration", "Bringing AI into a dev team", "Modernizing legacy systems"];
+---
+
+<!-- Now 與 Contact 併成同一個區塊：桌機左右兩欄，手機上下排 -->
+<section class="section wrap">
+  <div class="cols">
+    <div id="now">
+      <SectionHead label="Now" no="05" title="What I'm up to." />
+      <dl class="now">
+        <div>
+          <dt class="label">At work</dt>
+          <dd>
+            Getting my dev team comfortable using AI on real tasks, within the guardrails a semiconductor fab requires.
+          </dd>
+        </div>
+        <div>
+          <dt class="label">On the side</dt>
+          <dd>
+            My personal lab. A 2016 MacBook now runs as an always-on Claude Code agent and briefs me on the chip
+            industry every weekday at 7:30. My notes live in a personal knowledge system on Obsidian.
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Off the clock</dt>
+          <dd>Strength training and eating clean. Stay strong, stay healthy.</dd>
+        </div>
+      </dl>
+      <p class="updated">
+        <span aria-hidden="true" class="pulse"></span>
+        Updated October 2026 ·
+        <a href="https://sive.rs/now" rel="noopener" target="_blank">what's a now page?</a>
+      </p>
+    </div>
+
+    <div id="contact">
+      <SectionHead label="Contact" no="06" title="Let's connect." />
+      <p class="where">
+        Hsinchu, Taiwan · <time class="local-time" datetime="">--:--</time> local time
+      </p>
+      <h3 class="label">Always happy to chat about</h3>
+      <ul class="topics">
+        {TOPICS.map((t) => <li>{t}</li>)}
+      </ul>
+      <ul class="links">
+        <li>
+          <a class="primary" href={LINKS.linkedin} rel="noopener" target="_blank">
+            Say hi on LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${LINKS.email}`}>Email</a>
+        </li>
+        <li>
+          <a href={LINKS.github} rel="noopener" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="travel" href="/travel/">
+    <span class="text">
+      <span class="label">Off the map</span>
+      <span class="title">Countries I visited <span aria-hidden="true">→</span></span>
+    </span>
+    <span aria-hidden="true" class="globe">
+      <Globe client:visible />
+    </span>
+  </a>
+</section>
+
+<script>
+  // 新竹當地時間（hero 與聯絡區共用），每 20 秒更新一次
+  const els = document.querySelectorAll<HTMLTimeElement>(".local-time");
+  function tick() {
+    const now = new Date();
+    const text = now.toLocaleTimeString("en-US", { timeZone: "Asia/Taipei", hour: "numeric", minute: "2-digit" });
+    els.forEach((el) => {
+      el.textContent = text;
+      el.dateTime = now.toISOString();
+    });
+  }
+  if (els.length) {
+    tick();
+    setInterval(tick, 20000);
+  }
+</script>
+
+<style>
+  .cols {
+    display: grid;
+    gap: 48px;
+  }
+  .now {
+    display: grid;
+    margin: 0;
+  }
+  .now div {
+    display: grid;
+    gap: 4px;
+    padding-block: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .now dd {
+    margin: 0;
+  }
+  .updated {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+  .updated a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sun);
+    box-shadow: 0 0 0 1px var(--line);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--sun) 70%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 12px transparent;
+    }
+  }
+  .where {
+    margin: 0 0 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  h3.label {
+    margin-bottom: 6px;
+  }
+  .topics {
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+  }
+  .topics li {
+    padding-block: 3px;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 600;
+    transition:
+      border-color 0.15s,
+      transform 0.15s;
+  }
+  .links a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .links a.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  /* 旅遊入口：一條矮卡片，地球固定 500px 高，往上移到只露出赤道附近那一帶。
+     容器要有明確高度，client:visible 才偵測得到它進入畫面 */
+  .travel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 116px;
+    margin-top: 40px;
+    padding: 0 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--surface);
+    transition: border-color 0.2s;
+  }
+  .travel:hover {
+    border-color: var(--accent);
+  }
+  .text {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 4px;
+    max-width: 9.5em;
+  }
+  .title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.375rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .globe {
+    position: absolute;
+    top: -97px;
+    right: -180px;
+    display: block;
+    width: 500px;
+    height: 500px;
+    max-width: none;
+    pointer-events: none;
+    transform: scale(0.62);
+    transform-origin: top right;
+  }
+  @media (min-width: 900px) {
+    .cols {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 72px;
+    }
+    .now div {
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+    }
+    .travel {
+      padding: 0 32px;
+    }
+    .text {
+      max-width: none;
+    }
+    .globe {
+      top: -192px;
+      right: 8%;
+      transform: none;
+    }
+  }
+</style>
