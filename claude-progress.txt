@@ -90,3 +90,4 @@
   驗證：本機 build 通過（24 頁）；375／820／1440 兩種主題截圖無水平捲動；sitemap（23 筆）、RSS（21 筆）、文章 hreflang／canonical 與正式站逐筆相同；主題切換、記憶、跟隨系統、reduced-motion 實測正常。Lighthouse 首頁（Cloudflare 預覽網址）手機 Performance 100／Accessibility 100／Best Practices 100、桌機同為 100／100／100；SEO 69 是預覽網址帶 noindex 的關係，本機 build 量為 100。同一台機器量正式站：手機 Performance 95（LCP 2.2 秒）、桌機 98。首頁傳輸量由約 273 KiB 降到約 115 KiB。
   未合併，master 不動。新寫的文案（By night 段落、Lab to team 三張卡的 Tried／What survived）待 Jason 審。
 下次從：Jason 看預覽回饋 → 修首頁 → 階段 2（/blog 中英合併、分類篩選）。尚未做：移除沒用到的相依套件（gsap、lenis、svelte、rive、netlify）、OG 圖、地球配色跟主題、/travel 手機版地球被裁切。
+2026-11-11（改版：弦月）：Jason 回饋晚上版照片後面的黃色圓形看不出是月亮。晚上主題改成月白色弦月（src/components/home/Hero.astro，--moon 控制大小），白天維持太陽。主題切換方式維持「預設跟隨系統＋手動切換」，不做依當地時間自動切換（Jason 決定）。本機 build 通過，三種寬度截圖確認。分支 site/redesign-fable，未合併。

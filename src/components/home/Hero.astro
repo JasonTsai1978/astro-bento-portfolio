@@ -118,8 +118,9 @@ import { LINKS } from "../../lib/constants";
     order: -1;
     width: 116px;
     isolation: isolate;
+    --moon: 48px;
   }
-  /* 照片後面的太陽（晚上就是月亮） */
+  /* 照片後面：白天是太陽，晚上是一彎弦月（見下方 night 規則） */
   .portrait::before {
     content: "";
     position: absolute;
@@ -130,6 +131,14 @@ import { LINKS } from "../../lib/constants";
     aspect-ratio: 1;
     border-radius: 50%;
     background: var(--sun);
+  }
+  /* 弦月：透明圓形加上往右上偏移的內陰影，只留右上那一彎；位置比太陽更外露，才看得出形狀 */
+  :global([data-theme="night"]) .portrait::before {
+    top: calc(var(--moon) / -3.2);
+    right: calc(var(--moon) / -3.2);
+    width: var(--moon);
+    background: transparent;
+    box-shadow: inset calc(var(--moon) * -0.2) calc(var(--moon) * 0.2) 0 0 #dce4f7;
   }
   .portrait :global(img) {
     display: block;
@@ -171,6 +180,7 @@ import { LINKS } from "../../lib/constants";
   @media (min-width: 640px) {
     .portrait {
       width: 168px;
+      --moon: 68px;
     }
   }
   @media (min-width: 900px) {
@@ -184,6 +194,7 @@ import { LINKS } from "../../lib/constants";
     .portrait {
       order: 0;
       width: 100%;
+      --moon: 128px;
     }
     .portrait::before {
       top: -28px;
