@@ -1,0 +1,134 @@
+---
+import { LINKS } from "../../lib/constants";
+
+const TOPICS = ["Manufacturing systems integration", "Bringing AI into a dev team", "Modernizing legacy systems"];
+---
+
+<section class="section wrap contact" id="contact">
+  <div>
+    <p class="label"><span class="no">06</span> Contact</p>
+    <h2>Let's connect.</h2>
+    <p class="where">
+      Hsinchu, Taiwan · <time class="local-time" datetime="">--:--</time> local time
+    </p>
+  </div>
+  <div class="side">
+    <div>
+      <h3 class="label">Always happy to chat about</h3>
+      <ul class="topics">
+        {TOPICS.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+    <ul class="links">
+      <li>
+        <a class="primary" href={LINKS.linkedin} rel="noopener" target="_blank">
+          Say hi on LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${LINKS.email}`}>Email</a>
+      </li>
+      <li>
+        <a href={LINKS.github} rel="noopener" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  // 新竹當地時間（hero 與聯絡區共用），每 20 秒更新一次
+  const els = document.querySelectorAll<HTMLTimeElement>(".local-time");
+  function tick() {
+    const now = new Date();
+    const text = now.toLocaleTimeString("en-US", { timeZone: "Asia/Taipei", hour: "numeric", minute: "2-digit" });
+    els.forEach((el) => {
+      el.textContent = text;
+      el.dateTime = now.toISOString();
+    });
+  }
+  if (els.length) {
+    tick();
+    setInterval(tick, 20000);
+  }
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    gap: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .label {
+    margin: 0 0 12px;
+  }
+  .no {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--sun-ink);
+  }
+  h2 {
+    font-weight: 800;
+    font-size: clamp(2.75rem, 1.6rem + 6vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+  .where {
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .side {
+    display: grid;
+    gap: 28px;
+    align-content: end;
+  }
+  .topics {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .topics li {
+    padding-block: 10px;
+    border-top: 1px solid var(--line);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 600;
+    transition:
+      border-color 0.15s,
+      transform 0.15s;
+  }
+  .links a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .links a.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  @media (min-width: 900px) {
+    .contact {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+    }
+  }
+</style>

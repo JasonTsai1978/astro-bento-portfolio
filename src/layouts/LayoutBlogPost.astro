@@ -27,14 +27,11 @@ const { title, description, pubDate, category, minutesRead, url, lang, alternate
   slug={url}
   title={`${title} | Jason Tsai`}
 >
-  <main class="mx-auto max-w-3xl w-full min-h-screen p-8 pb-24 text-neutral-100">
-    <a
-      class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"       href="/blog"
-      >Back</a
-    >
-    <div class="my-10">
-      <h1 class="text-3xl md:text-5xl font-semibold">{title}</h1>
-      <div class="flex justify-between pt-4 text-gray-400 text-sm">
+  <main class="mx-auto max-w-3xl w-full px-5 pt-10 pb-24 md:px-8 md:pt-16 text-ink" id="main">
+    <a class="text-sm font-semibold text-accent hover:underline" href="/blog/">← All posts</a>
+    <div class="mt-6 mb-10">
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">{title}</h1>
+      <div class="flex justify-between pt-4 text-muted text-sm">
         <div class="flex items-start gap-2">
           <p>{formatDate(pubDate)}</p>
           <CategoryTag category={category} />
@@ -42,7 +39,7 @@ const { title, description, pubDate, category, minutesRead, url, lang, alternate
         <p>{minutesRead}</p>
       </div>
     </div>
-    <article class="prose prose-p:text-red-500 prose-slate prose-invert">
+    <article class="post">
       <slot />
     </article>
   </main>

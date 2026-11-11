@@ -13,10 +13,10 @@ const { title, date, id, category } = Astro.props;
 ---
 
 <li
-  class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-2"
+  class="list-none w-full text-ink hover:text-accent ease-in-out transition-colors border-b-line border-solid border-b-1"
 >
   <a
-    class="text-sm md:text-base decoration-none flex justify-between gap-4"
+    class="text-base decoration-none flex justify-between gap-4 py-3"
     href={`/blog/${id}`}
   >
     <p class="m-0">
@@ -24,7 +24,7 @@ const { title, date, id, category } = Astro.props;
       <CategoryTag category={category} class="ml-1" />
     </p>
     <time
-      class="text-right tabular-nums shrink-0 text-gray-400"
+      class="text-right text-sm tabular-nums shrink-0 text-muted"
       data-date={date.toISOString()}       datetime={date.toISOString()}
     >
       {formatDate(date)}

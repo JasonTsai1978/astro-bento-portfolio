@@ -1,0 +1,182 @@
+---
+import SectionHead from "./SectionHead.astro";
+---
+
+<section class="section wrap" id="about">
+  <SectionHead label="About" no="01" title="By day, by night." />
+  <div class="panels">
+    <article class="panel day">
+      <p class="label tag">
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+          ></path>
+        </svg>
+        By day
+        <span class="here">you are here</span>
+      </p>
+      <h3>IT Manager keeping Tier‑1 semiconductor operations online.</h3>
+      <p>
+        Two decades in semiconductor manufacturing, from developing C# solutions on the factory floor to directing the
+        enterprise systems a Tier‑1 operation runs on. I've seen what happens when integration fails at scale, and I've
+        built the infrastructure to make sure it doesn't.
+      </p>
+      <p>
+        Today I lead a team of <b>10 developers</b>, and I'm bringing AI into how we work. Where security and compliance
+        come first, that means starting with approved tools, proving value on real tasks, and building habits the team
+        can keep — not chasing every new model.
+      </p>
+    </article>
+
+    <p class="bridge"><span aria-hidden="true" class="arrow"></span> what survives</p>
+
+    <article class="panel night">
+      <p class="label tag">
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+        >
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>
+        </svg>
+        By night
+        <span class="here">you are here</span>
+      </p>
+      <h3>Building with Claude Code, Claude, Gemini and ChatGPT.</h3>
+      <p>
+        Automating my own work first, then bringing what works to my team. My personal lab is where things get tried
+        before anyone else has to live with them: agents, review workflows, a knowledge system.
+      </p>
+      <p>
+        And one AI lobster I eventually let go.
+        <a href="/blog/lobster-ep1-week-one/">Read the lobster series <span aria-hidden="true">→</span></a>
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .panels {
+    position: relative;
+    display: grid;
+    gap: 16px;
+  }
+  .panel {
+    padding: clamp(24px, 4vw, 40px);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+  }
+  /* 兩塊的顏色固定：白天永遠是淺色、晚上永遠是深色，不跟著主題反轉 */
+  .day {
+    --p-ink: #14213d;
+    --p-muted: #55607a;
+    --p-accent: #2447d8;
+    background: var(--day-bg);
+    color: var(--p-ink);
+  }
+  .night {
+    --p-ink: #eef1f8;
+    --p-muted: #a3aec6;
+    --p-accent: #8fb0ff;
+    background: var(--night-bg);
+    color: var(--p-ink);
+  }
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px;
+    color: var(--p-muted);
+  }
+  .here {
+    display: none;
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #ffc53d;
+    color: #14213d;
+  }
+  :global([data-theme="day"]) .day .here,
+  :global([data-theme="night"]) .night .here {
+    display: inline-block;
+  }
+  h3 {
+    margin-bottom: 16px;
+    font-weight: 800;
+    font-size: clamp(1.375rem, 1.1rem + 1.2vw, 1.875rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .panel p:not(.tag) {
+    margin: 0 0 12px;
+    color: var(--p-muted);
+  }
+  .panel p:last-child {
+    margin-bottom: 0;
+  }
+  .panel b {
+    color: var(--p-ink);
+  }
+  .panel a {
+    color: var(--p-accent);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .panel a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  /* 晚上試過、活下來的，帶到白天：箭頭從晚上指向白天 */
+  .bridge {
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: -6px 0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--sun-ink);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .arrow::before {
+    content: "↑";
+  }
+  @media (min-width: 900px) {
+    .panels {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .bridge {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 50%;
+      margin: 0;
+      transform: translate(-50%, -50%);
+    }
+    .arrow::before {
+      content: "←";
+    }
+  }
+</style>

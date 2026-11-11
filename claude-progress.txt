@@ -83,3 +83,10 @@
 2026-11-07（上線）：Jason 確認後，blog/eudamed-consultant fast-forward 合併 master 並推送，文章 E（eudamed-ai-consultant 中英）上線；分支本機與遠端皆刪除。
 2026-11-11（全站改版規劃）：分支 site/redesign-fable（從 master 開）——新增 docs/redesign-plan.md：現況盤點（13 個問題）、三個設計方向（A Field Notes 編輯式單欄／B Day Shift・Night Shift／C Bento 2.0，各附配色色碼與對比度、字型、互動、效能、工作量）、推薦 B、六階段實作計畫（首頁優先）。只有文件，沒有改程式；未跑 build 與 Lighthouse。未合併，master 不動。
 下次從：Jason 選方向並回答規劃文件第 5 節的四個問題 → 階段 0（設計 token、主題 script、字型 woff2、共用 Header／Footer、移除 loader）→ 階段 1 首頁，push 後給預覽網址。動工前先在本機量一次 master 的 Lighthouse 當基準。
+2026-11-11（全站改版階段 0＋1）：Jason 選方向 B（Day Shift / Night Shift），其餘照規劃建議。分支 site/redesign-fable：
+  階段 0——設計 token 在 src/styles/global.css（白天／晚上兩套，晚上的變數有兩處要一起改）、uno.config.ts 接上 token 顏色（bg／surface／ink／muted／accent／line）；head 內 inline script 決定主題（手動選過優先，否則跟隨系統）；字型改官方 woff2（移除 ttf 與 fontshare 重複載入）；共用 Header（含主題切換，View Transitions 圓形擴散）與 Footer；移除 loader 遮罩與舊 bento 元件。
+  階段 1——首頁改為 Hero（主軸句當 h1）→ 01 By day, by night → 02 What I do → 03 Lab to team（三篇案例）→ 04 Latest posts → 05 Now＋旅遊地球（client:visible）→ 06 Contact。元件在 src/components/home/。
+  /blog、文章頁、/travel、404 這次只換成 token 配色與共用導覽（文章內文樣式改為只作用在 article.post 內），版面尚未重新設計。文章內文沒有改。
+  驗證：本機 build 通過（24 頁）；375／820／1440 兩種主題截圖無水平捲動；sitemap（23 筆）、RSS（21 筆）、文章 hreflang／canonical 與正式站逐筆相同；主題切換、記憶、跟隨系統、reduced-motion 實測正常。Lighthouse 首頁（本機 preview）手機 100／100／100／100、桌機 100／100／100／100；同一台機器量正式站為手機 Performance 66（LCP 5.6 秒）、桌機 98，但正式站走網路、本機不走，兩者不能直接比。
+  未合併，master 不動。新寫的文案（By night 段落、Lab to team 三張卡的 Tried／What survived）待 Jason 審。
+下次從：Jason 看預覽回饋 → 修首頁 → 階段 2（/blog 中英合併、分類篩選）。尚未做：移除沒用到的相依套件（gsap、lenis、svelte、rive、netlify）、OG 圖、地球配色跟主題、/travel 手機版地球被裁切。

@@ -1,62 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card/index.astro";
-import IntroCard from "../components/IntroCard.astro";
-import ContactsCard from "../components/ContactsCard.astro";
-import AboutMe from "../components/AboutMe.astro";
-import Now from "../components/Now.astro";
-import Globe from "../components/Globe";
-import BlogCard from "../components/BlogCard.astro";
+import Hero from "../components/home/Hero.astro";
+import DayNight from "../components/home/DayNight.astro";
+import Work from "../components/home/Work.astro";
+import LabToTeam from "../components/home/LabToTeam.astro";
+import Writing from "../components/home/Writing.astro";
+import Now from "../components/home/Now.astro";
+import Contact from "../components/home/Contact.astro";
 ---
 
-<script>
-  import { stagger, animate, type AnimationSequence } from "motion";
-  import { loaderAnimation } from "../lib/constants";
-  const cards = document.querySelectorAll(".card");
-
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      { y: ["40%", "0%"], opacity: [0, 1] },
-      {
-        type: "spring",
-        at: "-0.1",
-        delay: stagger(0.3),
-      },
-    ],
-  ];
-
-  animate(sequence as AnimationSequence);
-</script>
-
 <Layout
-description="IT Manager with 20 years in semiconductor manufacturing, leading a 10-person dev team and bringing AI into how we work."
+  description="IT Manager with 20 years in semiconductor manufacturing, leading a 10-person dev team and bringing AI into how we work."
   title="Jason Tsai - IT Manager & AI Builder"
 >
-  <main
-    class="text-white m-auto p-3 grid gap-3 max-w-7xl overflow-hidden relative w-full sm:p-6 sm:gap-3 md:grid-cols-2 md:gap-4 md:p-8 lg:grid-cols-4 lg:gap-5 lg:p-10"
-  >
-    <IntroCard />    
-    <AboutMe />
-    <ContactsCard />        
+  <main id="main">
+    <Hero />
+    <DayNight />
+    <Work />
+    <LabToTeam />
+    <Writing />
     <Now />
-    <BlogCard />
-    <Card
-      colorText="text-neutral-900"
-      colSpan="md:col-span-1"
-      href="travel"
-      rowSpan="min-h-80 lg:min-h-56 lg:order-6"
-      title="Countries I visited"
-    >
-      <div class="h-full w-full absolute inset-0 -z-10">
-        <Globe client:load />
-      </div>
-    </Card>
+    <Contact />
   </main>
-  <footer class="text-center text-xs font-light text-gray-400 pb-6">
-    © <span id="copyright-year">{new Date().getFullYear()}</span> · Crafted with ♥️ using <a class="text-red-500 underline" href="https://astro.build/" target="_blank">Astro</a> by Jason Tsai.
-    <!-- build 時已帶入年份；瀏覽器端再更新一次，跨年沒重新部署也正確 -->
-    <script is:inline>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
-  </footer>
 </Layout>

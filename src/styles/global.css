@@ -1,0 +1,172 @@
+/* 設計 token：白天（淺色）是預設，晚上（深色）跟隨系統或手動切換。
+   晚上的變數出現兩次：一次給沒有 JS 的情況（media query），一次給 data-theme。改色要兩處一起改。 */
+:root {
+  --bg: #fffdf8;
+  --surface: #f3eee4;
+  --ink: #14213d;
+  --muted: #55607a;
+  --accent: #2447d8;
+  --accent-ink: #ffffff;
+  --sun: #ffc53d;
+  --sun-ink: #14213d;
+  --line: rgba(20, 33, 61, 0.16);
+  --day-bg: #f3eee4;
+  --night-bg: #0e1528;
+  --mark-bg: linear-gradient(transparent 60%, var(--sun) 60%);
+  --mark-ink: inherit;
+  color-scheme: light;
+
+  --font-display: "Cabinet Grotesk", "Satoshi", system-ui, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --font-body: "Satoshi", system-ui, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  --wrap: 1120px;
+  --gutter: clamp(20px, 5vw, 48px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="day"]) {
+    --bg: #0e1528;
+    --surface: #18213a;
+    --ink: #eef1f8;
+    --muted: #a3aec6;
+    --accent: #8fb0ff;
+    --accent-ink: #0e1528;
+    --line: rgba(238, 241, 248, 0.18);
+    --day-bg: #fffdf8;
+    --night-bg: #18213a;
+    --mark-bg: none;
+    --mark-ink: var(--sun);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="night"] {
+  --bg: #0e1528;
+  --surface: #18213a;
+  --ink: #eef1f8;
+  --muted: #a3aec6;
+  --accent: #8fb0ff;
+  --accent-ink: #0e1528;
+  --line: rgba(238, 241, 248, 0.18);
+  --day-bg: #fffdf8;
+  --night-bg: #18213a;
+  --mark-bg: none;
+  --mark-ink: var(--sun);
+  color-scheme: dark;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-VariableItalic.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--wrap) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* 等寬小標籤：章節編號、日期、分類 */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 主題切換：新主題從按鈕位置以圓形擴散（動畫由 Header 的 script 指定） */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.section {
+  padding-block: clamp(48px, 8vw, 112px);
+}

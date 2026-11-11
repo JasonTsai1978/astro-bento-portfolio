@@ -1,0 +1,44 @@
+---
+interface Props {
+  no: string;
+  label: string;
+  title: string;
+  intro?: string;
+}
+const { no, label, title, intro } = Astro.props;
+---
+
+<header class="head">
+  <p class="label"><span class="no">{no}</span> {label}</p>
+  <h2>{title}</h2>
+  {intro && <p class="intro">{intro}</p>}
+</header>
+
+<style>
+  .head {
+    margin-bottom: clamp(28px, 4vw, 48px);
+  }
+  .label {
+    margin: 0 0 12px;
+  }
+  .no {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--sun-ink);
+  }
+  h2 {
+    font-weight: 800;
+    font-size: clamp(1.875rem, 1.3rem + 2.6vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .intro {
+    max-width: 40em;
+    margin: 16px 0 0;
+    color: var(--muted);
+  }
+</style>

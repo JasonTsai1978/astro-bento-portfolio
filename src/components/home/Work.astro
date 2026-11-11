@@ -1,0 +1,107 @@
+---
+import SectionHead from "./SectionHead.astro";
+
+// 技術名稱只列主要幾項；細項留給 LinkedIn
+const EXPERTISE = [
+  {
+    area: "Enterprise Integration & Data Exchange",
+    summary: "Connecting ERP, factory and partner systems so data moves reliably at scale.",
+    stack: ["webMethods", "SAP", "B2B / EDI"],
+  },
+  {
+    area: "Semiconductor Manufacturing IT",
+    summary: "Keeping shop-floor systems and the business systems around them in step.",
+    stack: ["MES"],
+  },
+  {
+    area: "Software Engineering & IT Governance",
+    summary: "Building and running in-house systems with the discipline production demands.",
+    stack: ["C# / .NET", "MS SQL / T-SQL"],
+  },
+  {
+    area: "Enterprise AI & Engineering Productivity",
+    summary: "Turning AI coding tools into real gains for a dev team, within security and compliance limits.",
+    stack: [],
+  },
+];
+---
+
+<section class="section wrap" id="work">
+  <SectionHead label="Work" no="02" title="What I do." />
+  <ol class="grid">
+    {
+      EXPERTISE.map(({ area, summary, stack }, i) => (
+        <li>
+          <span aria-hidden="true" class="label">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div>
+            <h3>{area}</h3>
+            <p>{summary}</p>
+            {stack.length > 0 && (
+              <ul class="stack">
+                {stack.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .grid > li {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 8px;
+    padding-block: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .grid > li > .label {
+    padding-top: 6px;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 1.3125rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  p {
+    margin: 8px 0 0;
+    color: var(--muted);
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .stack li {
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  @media (min-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 56px;
+    }
+    .grid > li {
+      padding-block: 32px;
+    }
+  }
+</style>

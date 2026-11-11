@@ -8,12 +8,13 @@ import BasicLayout from "../layouts/BasicLayout.astro";
   noindex
   title="Page not found | Jason Tsai"
 >
-  <main class="flex flex-col items-center justify-center gap-6 min-h-screen p-8 text-center text-neutral-100">
-    <p class="text-6xl font-bold m-0">404</p>
-    <p class="text-lg text-gray-400 m-0">This page doesn't exist, or it moved.</p>
+  <main class="flex flex-col flex-1 items-center justify-center gap-6 px-5 py-24 text-center text-ink"
+    id="main">
+    <p class="text-7xl font-extrabold tracking-tight m-0">404</p>
+    <p class="text-lg text-muted m-0">This page doesn't exist, or it moved.</p>
     <div class="flex gap-4">
-      <a class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg" href="/">Home</a>
-      <a class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg" href="/blog/">Blog</a>
+      <a class="text-ink hover:border-ink px-5 py-3 border-1 border-solid border-line rounded-full font-semibold" href="/">Home</a>
+      <a class="text-ink hover:border-ink px-5 py-3 border-1 border-solid border-line rounded-full font-semibold" href="/blog/">Blog</a>
     </div>
   </main>
 </BasicLayout>

@@ -10,9 +10,3 @@ export const BLOG_CATEGORIES = [
   "AI Engineering & Governance",
   "Personal Lab",
 ] as const;
-
-export const loaderAnimation = [
-  ".loader",
-  { opacity: [1, 0], pointerEvents: "none" },
-  { easing: "ease-out" },
-];

@@ -1,0 +1,149 @@
+---
+import SectionHead from "./SectionHead.astro";
+
+// 三個「晚上試過、留下來」的案例，各連到一篇文章（英文為主，附中文版）
+const CASES = [
+  {
+    id: "cross-review-two-models",
+    title: "Two models, two independent reviews",
+    tried: "Planted bugs in code on purpose to see which model catches what. No single model caught everything.",
+    survived: "Two models review the same change without seeing each other. I verify every finding before anything gets fixed.",
+  },
+  {
+    id: "personal-experiments-to-team-standards",
+    title: "Lessons written down as rules",
+    tried: "Kept running into the same AI mistakes on my own projects, session after session.",
+    survived: "Each lesson becomes a version-controlled rule the AI reads every time it starts work. Rules that don't help get removed.",
+  },
+  {
+    id: "macbook-claude-code-agent",
+    title: "An always-on agent on a 2016 MacBook",
+    tried: "Four Ubuntu installs and one flaky SSD controller to turn an idle laptop into a 24/7 Claude Code agent.",
+    survived: "A chip-industry brief on my phone at 7:30 every weekday, from an agent kept on a short leash.",
+  },
+];
+---
+
+<section class="section band" id="lab">
+  <div class="wrap">
+    <SectionHead
+      intro="My own projects are the test bench. Here are three things that held up."
+      label="Lab to team"
+      no="03"
+      title="Tried at night. Kept by day."
+    />
+    <ul class="cards">
+      {
+        CASES.map(({ id, title, tried, survived }) => (
+          <li class="card">
+            <h3>
+              <a href={`/blog/${id}/`}>{title}</a>
+            </h3>
+            <dl>
+              <div>
+                <dt class="label">Tried</dt>
+                <dd>{tried}</dd>
+              </div>
+              <div>
+                <dt class="label">
+                  <span class="kept">What survived</span>
+                </dt>
+                <dd class="strong">{survived}</dd>
+              </div>
+            </dl>
+            <p class="links">
+              <a href={`/blog/${id}/`}>
+                Read the post <span aria-hidden="true">→</span>
+              </a>
+              <a href={`/blog/${id}-zh/`} hreflang="zh-Hant" lang="zh-Hant">
+                中文版
+              </a>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .band {
+    background: var(--surface);
+  }
+  .cards {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--bg);
+    transition:
+      transform 0.2s,
+      border-color 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+  h3 {
+    font-weight: 800;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  dl {
+    display: grid;
+    gap: 18px;
+    margin: 20px 0 24px;
+  }
+  dt {
+    margin-bottom: 6px;
+  }
+  dd {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  dd.strong {
+    color: var(--ink);
+  }
+  .kept {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--sun-ink);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: auto 0 0;
+    font-weight: 600;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    color: var(--accent);
+  }
+  .links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (min-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+  }
+</style>

@@ -3,29 +3,14 @@ import Globe from "../components/Globe";
 import BasicLayout from "../layouts/BasicLayout.astro";
 ---
 
-<script>
-  import { animate, type AnimationSequence } from "motion";
-
-  const sequence = [
-    [
-      ".loaderRef",
-      { opacity: [1, 0], pointerEvents: "none" },
-      { type: "spring", easing: "ease-out" },
-    ],
-  ];
-
-  animate(sequence as AnimationSequence);
-</script>
-
 <BasicLayout
   description="Countries Jason Tsai has visited, on an interactive 3D globe."
   page="travel"
   title="Jason Tsai - Visited Countries"
 >
-  <a
-    class="text-white absolute bg-neutral-900 hover:bg-neutral-800 top-4 left-4 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg"
-    href="/">Back</a
-  >
-
-  <Globe client:load />
+  <main class="w-full max-w-3xl mx-auto px-5 py-10 md:px-8 md:py-16 text-ink" id="main">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Countries I visited</h1>
+    <p class="text-muted mb-6">Highlighted in red. The globe keeps turning.</p>
+    <Globe client:load />
+  </main>
 </BasicLayout>

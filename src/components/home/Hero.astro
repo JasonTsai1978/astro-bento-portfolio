@@ -1,0 +1,199 @@
+---
+import { Image } from "astro:assets";
+import photo from "../../assets/JasonTsai.webp";
+import { LINKS } from "../../lib/constants";
+---
+
+<section class="hero wrap">
+  <div class="copy">
+    <h1>
+      <span class="label who">Jason Tsai · IT Manager · Semiconductor manufacturing</span>
+      <span class="statement">
+        I try everything on my own work first. <span class="mark">What survives</span> gets brought to the team.
+      </span>
+    </h1>
+    <p class="lede">
+      I run enterprise systems for semiconductor manufacturing, and I'm bringing AI into how my team builds software —
+      inside the guardrails a fab requires.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="/blog/">Read the writing</a>
+      <a class="btn" href={LINKS.linkedin} rel="noopener" target="_blank">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a class="btn" href={LINKS.github} rel="noopener" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="portrait">
+    <Image
+      alt="Portrait of Jason Tsai"
+      fetchpriority="high"
+      height={853}
+      loading="eager"
+      sizes="(min-width: 900px) 320px, (min-width: 640px) 168px, 116px"
+      src={photo}
+      width={640}
+      widths={[232, 480, 640]}
+    />
+  </div>
+  <dl class="facts">
+    <div>
+      <dt>years in semiconductor manufacturing IT</dt>
+      <dd>20+</dd>
+    </div>
+    <div>
+      <dt>developers on my team</dt>
+      <dd>10</dd>
+    </div>
+    <div>
+      <dt>writing C# since</dt>
+      <dd>2003</dd>
+    </div>
+    <div>
+      <dt>Hsinchu, Taiwan · UTC+8</dt>
+      <dd><time class="local-time" datetime="">--:--</time></dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 28px;
+    padding-block: 36px 8px;
+  }
+  .who {
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .statement {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(2.125rem, 1.1rem + 4.6vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .mark {
+    background: var(--mark-bg);
+    color: var(--mark-ink);
+  }
+  .lede {
+    max-width: 38em;
+    margin: 24px 0 0;
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+    color: var(--muted);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      transform 0.15s;
+  }
+  .btn:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .btn.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .portrait {
+    position: relative;
+    order: -1;
+    width: 116px;
+    isolation: isolate;
+  }
+  /* 照片後面的太陽（晚上就是月亮） */
+  .portrait::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -10px;
+    right: -10px;
+    width: 64%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--sun);
+  }
+  .portrait :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 16px;
+    background: var(--surface);
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+    margin: 12px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .facts div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .facts dt {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .facts dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (min-width: 640px) {
+    .portrait {
+      width: 168px;
+    }
+  }
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) 320px;
+      column-gap: 64px;
+      row-gap: 56px;
+      align-items: end;
+      padding-block: 80px 16px;
+    }
+    .portrait {
+      order: 0;
+      width: 100%;
+    }
+    .portrait::before {
+      top: -28px;
+      right: -28px;
+    }
+    .facts {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 0;
+      padding-top: 32px;
+    }
+  }
+</style>

@@ -1,5 +1,5 @@
 // uno.config.ts
-import { defineConfig, presetWind3, presetWebFonts } from "unocss";
+import { defineConfig, presetWind3 } from "unocss";
 
 export default defineConfig({
   content: {
@@ -16,7 +16,7 @@ export default defineConfig({
       "custom-hover": `1px 1px 0`,
     },
     fontFamily: {
-      sans: ["CabinetGrotesk", "Satoshi"],
+      sans: ["Cabinet Grotesk", "Satoshi"],
     },
     gridTemplateRows: {
       "auto-250": "repeat(auto-fill, 250px)",
@@ -25,6 +25,13 @@ export default defineConfig({
       "4-minmax": "repeat(4, minmax(150px, 1fr))",
     },
     colors: {
+      // 設計 token（定義在 src/styles/global.css，會跟著主題切換）
+      bg: "var(--bg)",
+      surface: "var(--surface)",
+      ink: "var(--ink)",
+      muted: "var(--muted)",
+      accent: "var(--accent)",
+      line: "var(--line)",
       gray: {
         50: "#FAFAFA",
         100: "#F5F5F5",
@@ -64,12 +71,5 @@ export default defineConfig({
   },
   presets: [
     presetWind3(),
-    presetWebFonts({
-      provider: "fontshare",
-      fonts: {
-        sans: ["Cabinet Grotesk", "Satoshi"],
-        serif: "Zodiak",
-      },
-    }),
   ],
 });

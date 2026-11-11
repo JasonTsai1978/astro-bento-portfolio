@@ -48,124 +48,138 @@ const alternates =
 </LayoutBlogPost>
 
 <style is:global>
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
+  article.post {
+    font-size: 1.0625rem;
+    line-height: 1.75;
   }
 
-  h1 {
+  article.post :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  article.post h1 {
     font-size: 32px;
   }
 
-  h2 {
+  article.post h2 {
     font-size: 28px;
   }
 
-  h3 {
+  article.post h3 {
     font-size: 24px;
   }
 
-  h4 {
+  article.post h4 {
     font-size: 20px;
   }
 
-  h5 {
+  article.post h5 {
     font-size: 18px;
   }
 
-  h6 {
+  article.post h6 {
     font-size: 16px;
   }
 
-  p {
-    margin: 0 0 10px 0;
+  article.post p {
+    margin: 0 0 1em 0;
   }
 
-  a {
-    color: #ec7981;
-    text-decoration: none;
-  }
-
-  a:hover {
+  article.post a {
+    color: var(--accent);
     text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-underline-offset: 3px;
   }
 
-  ul,
-  ol {
+  article.post a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  article.post :is(ul, ol) {
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
     padding-left: 4px;
   }
 
-  ul {
+  article.post ul {
     list-style: disc;
   }
 
-  ol {
+  article.post ol {
     list-style: decimal;
   }
 
-  li {
+  article.post li {
     margin-bottom: 6px;
   }
 
-  blockquote {
+  article.post blockquote {
     margin: 20px 0;
     padding-left: 15px;
-    border-left: 5px solid #525252;
+    border-left: 4px solid var(--sun);
+    color: var(--muted);
   }
 
-  pre,
-  code {
-    font-family: "Courier New", monospace;
-    background-color: #262626;
-    border-radius: 5px;
+  article.post :is(pre, code) {
+    font-family: var(--font-mono);
+    background-color: var(--surface);
+    border-radius: 6px;
   }
 
-  pre {
-    padding: 10px;
+  article.post pre {
+    padding: 14px 16px;
     overflow-x: auto;
+    border: 1px solid var(--line);
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 
-  code {
-    padding: 2px 4px;
+  article.post code {
+    padding: 2px 5px;
     font-size: 90%;
-    color: #f3a3aa;
+    color: var(--ink);
   }
 
-  img {
+  article.post pre code {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+  }
+
+  article.post img {
     max-width: 100%;
     height: auto;
   }
 
   /* 文章內經 Astro 處理的照片：置中、圓角（不影響手寫 HTML 的 SVG 小圖）。
      不設 width:auto，讓 width/height 屬性在載入前就預留空間，避免版面跳動 */
-  article img[src^="/_astro/"] {
+  article.post img[src^="/_astro/"] {
     display: block;
     margin: 0 auto;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 
   /* 直式照片：Markdown 中用 <div class="portrait"> 包住，寬度上限 390px（3:4 照片高度約 520px） */
-  article .portrait img {
+  article.post .portrait img {
     max-width: min(100%, 390px);
   }
 
-  table {
+  article.post table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 1em;
+    font-size: 0.9375rem;
   }
 
-  th,
-  td {
+  article.post :is(th, td) {
     text-align: left;
     padding: 8px;
-    border-bottom: 1px solid #404040;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
   }
 </style>

@@ -1,0 +1,169 @@
+---
+// 全站共用導覽。手機只留 Writing、Contact 與主題切換，其餘區塊用捲動到達。
+const NAV = [
+  { href: "/#about", label: "About", wide: true },
+  { href: "/#work", label: "Work", wide: true },
+  { href: "/blog/", label: "Writing", wide: false },
+  { href: "/#now", label: "Now", wide: true },
+  { href: "/#contact", label: "Contact", wide: false },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a aria-label="Jason Tsai, home" class="brand" href="/">
+      <span aria-hidden="true" class="dot"></span>
+      Jason Tsai
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {
+          NAV.map(({ href, label, wide }) => (
+            <li class:list={{ wide }}>
+              <a href={href}>{label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <button aria-label="Switch between day and night theme" class="theme-toggle" id="theme-toggle" type="button">
+      <svg aria-hidden="true" class="sun" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="20">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+      <svg aria-hidden="true" class="moon" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20">
+        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  // 主題切換：新主題從按鈕位置以圓形擴散。不支援 View Transitions 或使用者要求減少動態時直接換色。
+  const button = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  function apply(theme: string) {
+    (window as any).__setTheme(theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // 無法寫入（例如隱私模式）時，只在這一頁生效
+    }
+    button?.setAttribute("aria-pressed", String(theme === "night"));
+  }
+
+  button?.setAttribute("aria-pressed", String(root.dataset.theme === "night"));
+
+  button?.addEventListener("click", () => {
+    const next = root.dataset.theme === "night" ? "day" : "night";
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const doc = document as any;
+    if (!doc.startViewTransition || reduced) {
+      apply(next);
+      return;
+    }
+    const rect = button.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    doc.startViewTransition(() => apply(next)).ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 520, easing: "cubic-bezier(0.4, 0, 0.2, 1)", pseudoElement: "::view-transition-new(root)" }
+      );
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 64px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--sun);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li.wide {
+    display: none;
+  }
+  nav a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: color 0.15s, background-color 0.15s;
+  }
+  nav a:hover {
+    color: var(--ink);
+    background: var(--surface);
+  }
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.3s;
+  }
+  .theme-toggle:hover {
+    background: var(--surface);
+    transform: rotate(20deg);
+  }
+  /* 顯示「按下去會變成什麼」：白天顯示月亮，晚上顯示太陽 */
+  .sun {
+    display: none;
+  }
+  :global([data-theme="night"]) .sun {
+    display: block;
+  }
+  :global([data-theme="night"]) .moon {
+    display: none;
+  }
+  @media (min-width: 720px) {
+    li.wide {
+      display: block;
+    }
+  }
+</style>

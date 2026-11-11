@@ -1,5 +1,8 @@
 ---
 import { LINKS } from "../lib/constants";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -90,7 +93,36 @@ nationality: {
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width" name="viewport" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="light dark" name="color-scheme" />
+    <meta content="#FFFDF8" name="theme-color" />
+    <!-- 在畫面出現前決定主題：手動選過的優先，否則跟隨系統設定 -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var mq = window.matchMedia("(prefers-color-scheme: dark)");
+        function saved() {
+          try {
+            var v = localStorage.getItem("theme");
+            return v === "day" || v === "night" ? v : null;
+          } catch (e) {
+            return null;
+          }
+        }
+        function set(theme) {
+          root.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.content = theme === "night" ? "#0E1528" : "#FFFDF8";
+        }
+        set(saved() || (mq.matches ? "night" : "day"));
+        mq.addEventListener("change", function (e) {
+          if (!saved()) set(e.matches ? "night" : "day");
+        });
+        window.__setTheme = set;
+      })();
+    </script>
+    <link as="font" crossorigin href="/fonts/CabinetGrotesk-Variable.woff2" rel="preload" type="font/woff2" />
+    <link as="font" crossorigin href="/fonts/Satoshi-Variable.woff2" rel="preload" type="font/woff2" />
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <meta content={Astro.generator} name="generator" />
     <title>{title}</title>
@@ -121,7 +153,6 @@ nationality: {
       name="twitter:image"
     />
 
-    <link href="https://cdn.fontshare.com" rel="preconnect" />
     <link href={Astro.url.href} rel="canonical" />
     <link href="/rss.xml" rel="alternate" title="Jason Tsai's Blog" type="application/rss+xml" />
     {alternates.map((a) => <link href={a.href} hreflang={a.lang} rel="alternate" />)}
@@ -136,51 +167,10 @@ nationality: {
       type="application/ld+json"
     />
   </head>
-  <body
-    class="bg-slate-900 md:min-h-screen flex flex-col justify-center items-center"
-  >
-    <slot name="loader" />
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: "CabinetGrotesk";
-    src: url("/fonts/CabinetGrotesk-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-  }
-  @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-  }
-
-  body {
-    margin: 0;
-    font-family: "Satoshi", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Cabinet Grotesk", sans-serif;
-  }
-  p {
-    font-family: "Satoshi";
-  }
-
-  b {
-    font-weight: 700 !important;
-  }
-</style>

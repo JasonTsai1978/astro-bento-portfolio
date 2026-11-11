@@ -10,27 +10,15 @@ const posts = (await getCollection("blog"))?.sort(
 );
 ---
 
-<script>
-  import { animate, type AnimationSequence } from "motion";
-  import { loaderAnimation } from "../../lib/constants";
-
-  const sequence = [loaderAnimation];
-
-  animate(sequence as AnimationSequence);
-</script>
-
 <Layout
   description="Notes from Jason Tsai on semiconductor IT, system integration and personal AI workflows."   title="Jason Tsai - Blog"
 >
   <main
-    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
+    class="w-full flex flex-col justify-start items-start max-w-3xl mx-auto px-5 py-10 md:px-8 md:py-16"
+    id="main"
   >
-    <a
-      class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"       href="/"
-      >Back</a
-    >
-    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
-    {!posts?.length && <p class="text-neutral-400">First posts coming soon.</p>}
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-ink">Posts</h1>
+    {!posts?.length && <p class="text-muted">First posts coming soon.</p>}
     <ul class="w-full">
       {
         posts?.map((post) => (
