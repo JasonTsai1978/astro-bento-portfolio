@@ -2,7 +2,7 @@
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
-import { seriesEpisode } from "../../lib/posts";
+import { comparePosts, seriesEpisode } from "../../lib/posts";
 
 export const prerender = true;
 
@@ -41,13 +41,8 @@ const alternates = paired
     ]
   : [];
 
-// 上下篇：只在同一種語言裡依發佈日期排（舊 → 新），日期相同時依 id 排，結果才固定
-const sameLang = all
-  .filter((p) => p.id.endsWith("-zh") === isZh)
-  .sort(
-    (a, b) =>
-      (a.data.pubDate || new Date()).getTime() - (b.data.pubDate || new Date()).getTime() || a.id.localeCompare(b.id),
-  );
+// 上下篇：只在同一種語言裡排（舊 → 新），排序規則與 /blog 列表共用
+const sameLang = all.filter((p) => p.id.endsWith("-zh") === isZh).sort(comparePosts);
 const at = sameLang.findIndex((p) => p.id === id);
 const link = (p?: (typeof sameLang)[number]) => (p ? { href: `/blog/${p.id}/`, title: p.data.title || "" } : undefined);
 ---

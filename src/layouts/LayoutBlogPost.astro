@@ -29,6 +29,12 @@ const { title, description, pubDate, category, minutesRead, url, lang, alternate
   Astro.props;
 
 const zh = lang === "zh-Hant";
+// 系列標籤跟著文章語言："Ep 1" → 「養龍蝦 · 第 1 集」，"Extra" → 「養龍蝦 · 番外」
+const seriesText = !series
+  ? undefined
+  : zh
+    ? `養龍蝦 · ${series === "Extra" ? "番外" : series.replace(/^Ep (\d+)$/, "第 $1 集")}`
+    : `Lobster · ${series}`;
 const hasSwitch = Boolean(enHref && zhHref);
 
 // 介面文字跟著文章語言走；文章內文不在這裡
@@ -76,7 +82,7 @@ const t = zh
         <p class="top">
           <a class="back" href="/blog/"><span aria-hidden="true">←</span> {t.back}</a>
           <span class="tags">
-            {series && <span class="label series">Lobster · {series}</span>}
+            {seriesText && <span class="label series">{seriesText}</span>}
             <a class="label cat" href={`/blog/#${categorySlug(category)}`}>{category}</a>
           </span>
         </p>
@@ -109,15 +115,13 @@ const t = zh
       {
         (older || newer) && (
           <nav aria-label={t.nav} class="pager">
-            {older ? (
+            {older && (
               <a class="older" href={older.href} rel="prev">
                 <span class="label">
                   <span aria-hidden="true">←</span> {t.older}
                 </span>
                 <span class="ttl">{older.title}</span>
               </a>
-            ) : (
-              <span />
             )}
             {newer && (
               <a class="newer" href={newer.href} rel="next">
@@ -338,6 +342,10 @@ const t = zh
   @media (min-width: 640px) {
     .pager {
       grid-template-columns: 1fr 1fr;
+    }
+    /* 沒有上一篇時，下一篇仍靠右欄 */
+    .pager .newer {
+      grid-column: 2;
     }
     .author {
       gap: 20px;

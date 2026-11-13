@@ -105,13 +105,15 @@ const filters = BLOG_CATEGORIES.map((name) => ({
 
   function fromHash() {
     const h = location.hash.slice(1);
-    apply(known.has(h) ? h : "all");
+    // 不認得的 hash（例如「Skip to content」的 #main）不動作，保留目前選的分類
+    if (!h) apply("all");
+    else if (known.has(h)) apply(h);
   }
 
   chips.forEach((c) =>
     c.addEventListener("click", () => {
       const f = c.dataset.filter || "all";
-      history.replaceState(null, "", f === "all" ? location.pathname : `#${f}`);
+      history.replaceState(null, "", f === "all" ? location.pathname + location.search : `#${f}`);
       apply(f);
     }),
   );

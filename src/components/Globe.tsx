@@ -1,5 +1,5 @@
 import { createSignal, For, onCleanup, onMount } from "solid-js";
-import { drag, geoCentroid, geoOrthographic, geoPath, interpolate, select, timer } from "d3";
+import { geoCentroid, geoOrthographic, geoPath, interpolate, select, timer } from "d3";
 import worldData from "../lib/world.json";
 
 // 去過的地方。地圖資料（world.json）裡有形狀的國家整塊上色；
@@ -42,7 +42,7 @@ const GlobeComponent = () => {
     const projection = geoOrthographic().rotate(START).clipAngle(90);
     const path = geoPath(projection);
 
-    const svg = select(box).append("svg").attr("role", "img").attr("aria-label", "Globe with visited countries highlighted");
+    const svg = select(box).append("svg").attr("role", "img").attr("aria-label", "Globe with the places I have been highlighted");
     const ocean = svg.append("circle").attr("class", "ocean");
     const land = svg
       .append("g")
@@ -84,36 +84,75 @@ const GlobeComponent = () => {
     observer.observe(box);
     resize();
 
-    // 自動慢轉；拖曳或點選地名後先停一下再繼續
+    // 自動慢轉；拖曳或點選地名後先停一下再繼續。
+    // 「減少動態效果」時完全不建立計時器；地球捲出畫面時停掉，回到畫面再開。
     let pausedUntil = 0;
-    let last = 0;
-    const spin = timer((elapsed) => {
-      const dt = elapsed - last;
-      last = elapsed;
-      if (reduced || elapsed < pausedUntil) return;
-      const r = projection.rotate();
-      projection.rotate([r[0] - dt * 0.012, r[1], r[2]]);
-      draw();
-    });
+    let spin: ReturnType<typeof timer> | undefined;
+    let turning: ReturnType<typeof timer> | undefined;
     const pause = (ms: number) => {
-      pausedUntil = last + ms;
+      pausedUntil = performance.now() + ms;
+    };
+    const startSpin = () => {
+      if (reduced || spin) return;
+      let last = performance.now();
+      spin = timer(() => {
+        const now = performance.now();
+        // 分頁切回來時 dt 會很大，設上限避免地球跳一大步
+        const dt = Math.min(now - last, 100);
+        last = now;
+        if (now < pausedUntil) return;
+        const r = projection.rotate();
+        projection.rotate([r[0] - dt * 0.012, r[1], r[2]]);
+        draw();
+      });
+    };
+    const stopSpin = () => {
+      spin?.stop();
+      spin = undefined;
+    };
+    const visibility = new IntersectionObserver(([entry]) => (entry.isIntersecting ? startSpin() : stopSpin()));
+    visibility.observe(box);
+
+    const clearActive = () => {
+      setActive(undefined);
+      svg.selectAll(".land, .dot").classed("active", false);
     };
 
-    // 拖曳轉動
-    svg.call(
-      drag<SVGSVGElement, unknown>()
-        .on("start", () => svg.classed("dragging", true))
-        .on("drag", (event) => {
-          const k = 90 / projection.scale();
-          const r = projection.rotate();
-          projection.rotate([r[0] + event.dx * k, Math.max(-60, Math.min(60, r[1] - event.dy * k)), r[2]]);
-          pause(4000);
-          draw();
-        })
-        .on("end", () => svg.classed("dragging", false)),
-    );
+    // 拖曳轉動：自己處理 pointer events（不用 d3-drag，它會把觸控全部攔下來，手機上手指放在地球上就捲不動頁面）。
+    // 樣式表設了 touch-action: pan-y，所以觸控時上下滑交給瀏覽器捲頁面，這裡只處理左右；滑鼠與觸控筆兩個方向都能轉。
+    const node = svg.node()!;
+    let dragging: { id: number; x: number; y: number } | undefined;
+    const endDrag = (event: PointerEvent) => {
+      if (dragging?.id !== event.pointerId) return;
+      dragging = undefined;
+      svg.classed("dragging", false);
+    };
+    node.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+      dragging = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      // 正在轉向某個地名時，拖曳優先
+      turning?.stop();
+      node.setPointerCapture(event.pointerId);
+      svg.classed("dragging", true);
+    });
+    node.addEventListener("pointermove", (event) => {
+      if (dragging?.id !== event.pointerId) return;
+      const dx = event.clientX - dragging.x;
+      const dy = event.pointerType === "touch" ? 0 : event.clientY - dragging.y;
+      if (!dx && !dy) return;
+      dragging.x = event.clientX;
+      dragging.y = event.clientY;
+      const k = 90 / projection.scale();
+      const r = projection.rotate();
+      projection.rotate([r[0] + dx * k, Math.max(-60, Math.min(60, r[1] - dy * k)), r[2]]);
+      // 轉走之後，剛才選的地名已不在正中央
+      if (active()) clearActive();
+      pause(4000);
+      draw();
+    });
+    node.addEventListener("pointerup", endDrag);
+    node.addEventListener("pointercancel", endDrag);
 
-    let turning: ReturnType<typeof timer> | undefined;
     focus = (place) => {
       const feature = features.find((f) => f.properties.name === place.name);
       const centre = place.point ?? (feature ? geoCentroid(feature as never) : undefined);
@@ -145,9 +184,10 @@ const GlobeComponent = () => {
     };
 
     onCleanup(() => {
-      spin.stop();
+      stopSpin();
       turning?.stop();
       observer.disconnect();
+      visibility.disconnect();
     });
   });
 
@@ -157,7 +197,7 @@ const GlobeComponent = () => {
         <div class="globe-box" ref={box}></div>
       </div>
       <div class="globe-side">
-        <p class="label">{VISITED.length} places · tap one to spin the globe there</p>
+        <p class="label">{VISITED.length} places</p>
         <ul class="places">
           <For each={VISITED}>
             {(place) => (

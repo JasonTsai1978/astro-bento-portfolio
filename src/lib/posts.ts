@@ -12,11 +12,16 @@ export interface PostPair {
 export async function getPostPairs(): Promise<PostPair[]> {
   const all = await getCollection("blog");
   const byId = new Map(all.map((p) => [p.id, p]));
-  const time = (p: Post) => (p.data.pubDate || new Date()).getTime();
   return all
     .filter((p) => !p.id.endsWith("-zh") || !byId.has(p.id.slice(0, -3)))
     .map((p) => ({ post: p, zh: p.id.endsWith("-zh") ? undefined : byId.get(`${p.id}-zh`) }))
-    .sort((a, b) => time(b.post) - time(a.post));
+    .sort((a, b) => comparePosts(b.post, a.post));
+}
+
+// 文章先後（舊 → 新）：依發佈日期，同一天再依 id。列表與文章頁的上下篇都用這一支，順序才不會互相矛盾
+export function comparePosts(a: Post, b: Post) {
+  const time = (p: Post) => (p.data.pubDate || new Date()).getTime();
+  return time(a) - time(b) || a.id.localeCompare(b.id);
 }
 
 export const shortDate = (d: Date) =>
