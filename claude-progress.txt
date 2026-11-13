@@ -100,4 +100,10 @@
 2026-11-13（改版：By night 手機版換段）：Jason 決定手機版晚上那塊改留「Automating my own work first…」一段、收起龍蝦那行（class long 從第一段換到龍蝦那行）。手機首頁因此沒有龍蝦系列入口，640px 以上照舊。首頁高度：手機 375 寬 4,871px（當天開工前 6,311px），桌機 1440 寬 3,735px 不變。本機 build 通過（24 頁），兩種主題手機整頁截圖確認，375／820／1440 無水平捲動。分支 site/redesign-fable，未合併。
 2026-11-13（改版階段 2：/blog 列表）：src/pages/blog/index.astro 重寫——中英文版合併成一列（英文標題連英文版、下一行中文標題連中文版），20 列變 10 列；上方分類篩選鈕（All＋三個分類，附篇數），點選只隱藏不符合的列，網址帶 #enterprise-it／#ai-engineering-governance／#personal-lab，沒有 JS 時是完整列表；養龍蝦系列加集數標籤（桌機「Lobster · Ep 1」，手機只顯示「Ep 1」）。年份分組不做（10 篇都在 2026，跨年後再加）；不放封面圖與摘要。合併邏輯抽到 src/lib/posts.ts（getPostPairs、shortDate、categorySlug），首頁 Latest posts 改用同一支；刪除沒人用的 components/Blog/PostRow.astro。順手修：320px 寬時導覽列的主題切換鈕超出畫面（Header.astro 加 max-width 359px 規則），全站原本就有。
   驗證：本機 build 通過（24 頁）；/blog 高度桌機 1440 寬 1,441px、手機 375 寬 1,930px；兩種主題 320／375／820／1440 截圖無水平捲動、無 console 錯誤；三個分類篩選各顯示 1／4／5 篇、All 回到 10 篇、#personal-lab 直接開啟顯示 5 篇、亂填的 # 顯示全部；列表 20 個連結全部回 200；sitemap 與正式站逐筆相同，RSS 20 筆。文章頁本身沒有動。分支 site/redesign-fable，未合併。
-下次從：Jason 看 /blog 預覽回饋 → 階段 3 文章頁（閱讀排版、語言切換鈕、上下篇、作者卡、深色素材圖框）。
+2026-11-13（改版階段 3：文章頁）：src/layouts/LayoutBlogPost.astro 重寫、src/pages/blog/[id].astro 更新內文樣式。文章 .md 一個字都沒改。
+  版面——閱讀欄 720px；頁首：← All posts、系列標籤、分類（連到 /blog/#分類）→ 標題 → 日期・閱讀時間＋語言切換鈕（EN｜中文，兩個版本都存在才出現）。內文第一行原本的「中文版／English version」連結用 CSS 收起來（:has 選擇器，舊瀏覽器不支援時只是多顯示那一行）。文末：上一篇／下一篇（同語言、依日期）＋作者卡（照片、一句介紹、About／LinkedIn／RSS）。中文版的介面文字、日期（2026年10月23日）、閱讀時間（約 N 分鐘）用中文。
+  排版——內文桌機 18px、手機 17px；英文行高 1.75、中文 1.9 且字距微開；h2／h3 字級與間距重調。深色素材加圖框：EUDAMED 流程圖 SVG、影片、仿 Telegram 對話框加圓角外框與陰影。手機表格縮字級與內距，放不下時表格自己左右捲（修掉 ai-for-engineers 英文版在 375px 寬 4px 的水平溢出）。
+  整理——seriesEpisode 移到 src/lib/posts.ts 共用；刪除沒人用的 components/Blog/CategoryTag.astro。
+  驗證：本機 build 通過（24 頁）；20 篇 × 320／375／820／1440 無水平捲動、無 JS 錯誤、語言連結那行都有收起；截圖抽看英文桌機、中文手機（白天／晚上）、流程圖、表格、作者卡；語言切換、下一篇、分類連結實際點擊正常。20 篇的 canonical、hreflang、JSON-LD、title、description、og 標籤與正式站逐篇比對完全相同；sitemap、RSS 連結與正式站相同。分支 site/redesign-fable，未合併。
+  新寫的文案待 Jason 審：作者卡介紹（英：IT Manager in semiconductor manufacturing. I try everything on my own work first. What survives gets brought to the team.／中：半導體製造業 IT Manager。新東西先在自己的工作上試，留得下來的才帶進團隊。）
+下次從：Jason 看 /blog 與文章頁預覽回饋 → 階段 4（/travel、404 套新版型，地球配色跟主題）→ 階段 5 收尾（OG 圖、移除沒用到的相依套件、全站 Lighthouse）。

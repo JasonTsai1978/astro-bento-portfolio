@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { BLOG_CATEGORIES } from "../../lib/constants";
-import { categorySlug, getPostPairs, shortDate } from "../../lib/posts";
+import { categorySlug, getPostPairs, seriesEpisode, shortDate } from "../../lib/posts";
 
 // 中英文版合併成一列，新到舊
 const posts = await getPostPairs();
@@ -11,14 +11,6 @@ const filters = BLOG_CATEGORIES.map((name) => ({
   slug: categorySlug(name),
   count: posts.filter(({ post }) => post.data.category === name).length,
 })).filter((f) => f.count > 0);
-
-// 連載標記：目前只有養龍蝦系列，從檔名判斷集數
-function seriesEpisode(id: string) {
-  const ep = id.match(/^lobster-ep(\d+)/);
-  if (ep) return `Ep ${ep[1]}`;
-  if (id.startsWith("lobster-extra")) return "Extra";
-  return undefined;
-}
 ---
 
 <Layout

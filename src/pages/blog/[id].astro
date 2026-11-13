@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
+import { seriesEpisode } from "../../lib/posts";
 
 export const prerender = true;
 
@@ -25,24 +26,46 @@ if (!entry) {
 
 const { Content, remarkPluginFrontmatter } = await render(entry);
 
-// 中英文版互指：英文 id 為 x，中文為 x-zh；兩篇都存在才輸出 hreflang
-const enId = id.endsWith("-zh") ? id.slice(0, -3) : id;
+// 中英文版互指：英文 id 為 x，中文為 x-zh；兩篇都存在才輸出 hreflang 與語言切換
+const isZh = id.endsWith("-zh");
+const enId = isZh ? id.slice(0, -3) : id;
 const zhId = `${enId}-zh`;
-const ids = new Set((await getCollection("blog")).map((p) => p.id));
+const all = await getCollection("blog");
+const ids = new Set(all.map((p) => p.id));
 const postUrl = (postId: string) => new URL(`/blog/${postId}/`, Astro.site).href;
-const alternates =
-  ids.has(enId) && ids.has(zhId)
-    ? [
-        { lang: "en", href: postUrl(enId) },
-        { lang: "zh-Hant", href: postUrl(zhId) },
-      ]
-    : [];
+const paired = ids.has(enId) && ids.has(zhId);
+const alternates = paired
+  ? [
+      { lang: "en", href: postUrl(enId) },
+      { lang: "zh-Hant", href: postUrl(zhId) },
+    ]
+  : [];
+
+// 上下篇：只在同一種語言裡依發佈日期排（舊 → 新），日期相同時依 id 排，結果才固定
+const sameLang = all
+  .filter((p) => p.id.endsWith("-zh") === isZh)
+  .sort(
+    (a, b) =>
+      (a.data.pubDate || new Date()).getTime() - (b.data.pubDate || new Date()).getTime() || a.id.localeCompare(b.id),
+  );
+const at = sameLang.findIndex((p) => p.id === id);
+const link = (p?: (typeof sameLang)[number]) => (p ? { href: `/blog/${p.id}/`, title: p.data.title || "" } : undefined);
 ---
 
 <LayoutBlogPost
   alternates={alternates}
   category={entry.data.category}
-  description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   lang={entry.id.endsWith("-zh") ? "zh-Hant" : "en"}   title={entry.data.title}   url={`blog/${entry.id}`}
+  description={entry.data.description!}
+  enHref={paired ? `/blog/${enId}/` : undefined}
+  lang={isZh ? "zh-Hant" : "en"}
+  minutesRead={remarkPluginFrontmatter.minutesRead}
+  newer={link(sameLang[at + 1])}
+  older={link(sameLang[at - 1])}
+  pubDate={entry.data.pubDate!}
+  series={seriesEpisode(entry.id)}
+  title={entry.data.title}
+  url={`blog/${entry.id}`}
+  zhHref={paired ? `/blog/${zhId}/` : undefined}
 >
   <Content />
 </LayoutBlogPost>
@@ -51,26 +74,64 @@ const alternates =
   article.post {
     font-size: 1.0625rem;
     line-height: 1.75;
+    overflow-wrap: break-word;
+  }
+
+  /* 中文：行距放寬、字距微開，標題不用負字距 */
+  article.post.zh {
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+  }
+
+  @media (min-width: 900px) {
+    article.post {
+      font-size: 1.125rem;
+    }
+  }
+
+  article.post > :first-child {
+    margin-top: 0;
+  }
+
+  /* 內文第一行原本是「中文版／English version」連結；標題下方已有語言切換鈕，這行收起來（文章檔不改） */
+  article.post.has-switch > p:first-child:has(> a:only-child[href^="/blog/"]) {
+    display: none;
+  }
+
+  article.post.has-switch > p:first-child:has(> a:only-child[href^="/blog/"]) + * {
+    margin-top: 0;
   }
 
   article.post :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: 1.6em;
-    margin-bottom: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
     font-weight: 800;
     line-height: 1.25;
     letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  article.post.zh :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 1.4;
+    letter-spacing: 0;
   }
 
   article.post h1 {
-    font-size: 32px;
+    font-size: 1.75rem;
   }
 
   article.post h2 {
-    font-size: 28px;
+    font-size: 1.625rem;
   }
 
   article.post h3 {
-    font-size: 24px;
+    font-size: 1.3125rem;
+  }
+
+  article.post hr {
+    margin: 2.5em 0;
+    border: 0;
+    border-top: 1px solid var(--line);
   }
 
   article.post h4 {
@@ -160,8 +221,32 @@ const alternates =
      不設 width:auto，讓 width/height 屬性在載入前就預留空間，避免版面跳動 */
   article.post img[src^="/_astro/"] {
     display: block;
-    margin: 0 auto;
-    border-radius: 8px;
+    margin: 1.75em auto;
+    border-radius: 12px;
+  }
+
+  /* 深色素材（流程圖 SVG、影片、仿 Telegram 對話框）在淺色頁面上加圖框，才不會像破了一個洞 */
+  article.post img[src^="/blog/"][src$=".svg"][width="440"] {
+    display: block;
+    margin: 1.75em auto;
+    border-radius: 16px;
+    box-shadow:
+      0 0 0 1px var(--line),
+      0 12px 32px -16px rgba(14, 21, 40, 0.45);
+  }
+
+  article.post video {
+    display: block;
+    margin: 1.75em 0;
+    background: #0e1528;
+    box-shadow:
+      0 0 0 1px var(--line),
+      0 12px 32px -16px rgba(14, 21, 40, 0.45);
+  }
+
+  article.post > div[style*="background:#0e1621"] {
+    box-shadow: 0 12px 32px -16px rgba(14, 21, 40, 0.45);
+    letter-spacing: 0;
   }
 
   /* 直式照片：Markdown 中用 <div class="portrait"> 包住，寬度上限 390px（3:4 照片高度約 520px） */
@@ -181,5 +266,23 @@ const alternates =
     padding: 8px;
     border-bottom: 1px solid var(--line);
     vertical-align: top;
+  }
+
+  /* 手機：表格字級與內距縮小；還是放不下時表格自己左右捲，不撐寬整頁 */
+  @media (max-width: 639px) {
+    article.post table {
+      display: block;
+      overflow-x: auto;
+      font-size: 0.875rem;
+      line-height: 1.55;
+    }
+
+    article.post :is(th, td) {
+      padding: 8px 6px;
+    }
+
+    article.post :is(th, td):first-child {
+      padding-left: 0;
+    }
   }
 </style>

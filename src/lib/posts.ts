@@ -28,3 +28,11 @@ export const categorySlug = (name: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+
+// 連載標記：目前只有養龍蝦系列，從檔名判斷集數（"Ep 1"、"Extra"），不是連載回傳 undefined
+export function seriesEpisode(id: string) {
+  const ep = id.match(/^lobster-ep(\d+)/);
+  if (ep) return `Ep ${ep[1]}`;
+  if (id.startsWith("lobster-extra")) return "Extra";
+  return undefined;
+}
