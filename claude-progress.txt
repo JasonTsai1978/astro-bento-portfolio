@@ -95,4 +95,5 @@
 下次從：Jason 看預覽回饋；若還要更短，得拿掉 Lab to team 或 What I do 其中一塊，由 Jason 決定。之後是階段 2（/blog）。
 2026-11-13（改版：首頁拿掉旅遊卡片）：Jason 回饋首頁不放「Countries I visited」。移除 NowContact.astro 的旅遊入口卡片與地球（首頁不再載入 Globe），/travel 頁面保留，入口剩頁尾的 Travel 連結。首頁高度：桌機 1440 寬 4,219 → 4,063px，手機 375 寬 6,311 → 6,155px。本機 build 通過（24 頁），兩種寬度截圖無水平捲動。分支 site/redesign-fable，未合併。
 2026-11-13（改版：首頁壓間距）：Jason 選先壓間距、不刪內容。區塊上下留白 clamp(32px,4.5vw,60px) → clamp(20px,2.6vw,36px)（src/styles/global.css 的 .section）、區塊標題下方 20–32px → 16–24px（SectionHead.astro）、Hero 上下留白與 row-gap 縮小（桌機 56/16/56 → 36/8/36，手機 28/8 → 20/4）、Now／Contact 手機欄距 48 → 40px。首頁高度：桌機 1440 寬 4,063 → 3,735px，手機 375 寬 6,155 → 5,991px。本機 build 通過（24 頁），白天／晚上兩種主題、兩種寬度整頁截圖無水平捲動。分支 site/redesign-fable，未合併。
-下次從：Jason 看預覽回饋；手機版仍長（約 6,000px），主要是 By day／by night 與 Lab to team 三張卡直排，再縮得動內容。之後是階段 2（/blog）。
+2026-11-13（改版：Lab to team 手機版精簡）：Jason 決定手機版只留標題與連結。LabToTeam.astro 加 max-width 639px 規則：Tried／What survived 兩段隱藏、卡片內距與間距縮小、標題字級 22 → 19px；640px 以上不變（平板 820 寬仍顯示全文、單欄）。首頁高度：手機 375 寬 5,991 → 5,178px，桌機 1440 寬 3,735px 不變。本機 build 通過（24 頁），白天／晚上兩種主題手機截圖確認，375／820／1440 無水平捲動。分支 site/redesign-fable，未合併。
+下次從：Jason 看預覽回饋。手機版剩下最長的是 By day／by night 兩張卡。之後是階段 2（/blog）。

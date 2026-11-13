@@ -140,6 +140,24 @@ const CASES = [
     text-decoration: underline;
     text-underline-offset: 3px;
   }
+  /* 手機只留標題與連結：Tried／What survived 兩段收起來，卡片變矮 */
+  @media (max-width: 639px) {
+    .cards {
+      gap: 10px;
+    }
+    .card {
+      padding: 16px 20px 6px;
+    }
+    h3 {
+      font-size: 1.1875rem;
+    }
+    dl {
+      display: none;
+    }
+    .links {
+      margin-top: 2px;
+    }
+  }
   @media (min-width: 900px) {
     .cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
