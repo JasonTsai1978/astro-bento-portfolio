@@ -174,5 +174,5 @@ strong {
 }
 
 .section {
-  padding-block: clamp(32px, 4.5vw, 60px);
+  padding-block: clamp(20px, 2.6vw, 36px);
 }
