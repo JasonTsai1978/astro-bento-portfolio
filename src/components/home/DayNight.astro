@@ -25,7 +25,7 @@ import SectionHead from "./SectionHead.astro";
         <span class="here">you are here</span>
       </p>
       <h3>IT Manager keeping Tier‑1 semiconductor operations online.</h3>
-      <p>
+      <p class="long">
         Two decades in semiconductor manufacturing, from developing C# solutions on the factory floor to directing the
         enterprise systems a Tier‑1 operation runs on. I've seen what happens when integration fails at scale, and I've
         built the infrastructure to make sure it doesn't.
@@ -58,7 +58,7 @@ import SectionHead from "./SectionHead.astro";
         <span class="here">you are here</span>
       </p>
       <h3>Building with Claude Code, Claude, Gemini and ChatGPT.</h3>
-      <p>
+      <p class="long">
         Automating my own work first, then bringing what works to my team. My personal lab is where things get tried
         before anyone else has to live with them: agents, review workflows, a knowledge system.
       </p>
@@ -161,6 +161,24 @@ import SectionHead from "./SectionHead.astro";
   }
   .arrow::before {
     content: "↑";
+  }
+  /* 手機精簡：每塊只留標題與一段，背景介紹（.long）收起來 */
+  @media (max-width: 639px) {
+    .panels {
+      gap: 12px;
+    }
+    .panel {
+      padding: 20px;
+    }
+    .tag {
+      margin-bottom: 12px;
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+    .panel p.long {
+      display: none;
+    }
   }
   @media (min-width: 900px) {
     .panels {
