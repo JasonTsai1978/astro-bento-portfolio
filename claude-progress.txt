@@ -107,4 +107,9 @@
   驗證：本機 build 通過（24 頁）；20 篇 × 320／375／820／1440 無水平捲動、無 JS 錯誤、語言連結那行都有收起；截圖抽看英文桌機、中文手機（白天／晚上）、流程圖、表格、作者卡；語言切換、下一篇、分類連結實際點擊正常。20 篇的 canonical、hreflang、JSON-LD、title、description、og 標籤與正式站逐篇比對完全相同；sitemap、RSS 連結與正式站相同。分支 site/redesign-fable，未合併。
   新寫的文案待 Jason 審：作者卡介紹（英：IT Manager in semiconductor manufacturing. I try everything on my own work first. What survives gets brought to the team.／中：半導體製造業 IT Manager。新東西先在自己的工作上試，留得下來的才帶進團隊。）
   Lighthouse（Cloudflare 預覽網址、手機）：文章頁 cross-review-two-models-zh Performance 97／Accessibility 100／Best Practices 100；/blog 99／100／100。SEO 因預覽網址帶 noindex 未量。
-下次從：Jason 看 /blog 與文章頁預覽回饋 → 階段 4（/travel、404 套新版型，地球配色跟主題）→ 階段 5 收尾（OG 圖、移除沒用到的相依套件、全站 Lighthouse）。
+2026-11-13（改版階段 4：/travel 與 404）：
+  /travel——版面改成新版型（標題區＋左地球右地名，手機上下排）。src/components/Globe.tsx 重寫：地球直徑跟著容器寬度（修掉手機版被裁切），顏色全用主題 token（白天／晚上自動跟著變）；可拖曳轉動；12 個地名做成按鈕，點了地球轉到那裡並標示；新加坡、香港、澳門在地圖資料裡沒有形狀，原本根本沒畫出來，改用座標畫圓點；加一個新竹的出發點標記與圖例；prefers-reduced-motion 時不自動轉。地名清單沒有增減。
+  404——改用 token 與新版型：標題「This one didn't survive.」、Back home／All posts 兩顆按鈕、最新三篇文章（中英）。仍是 noindex，Cloudflare 對不存在的網址仍回 404。
+  驗證：本機 build 通過（24 頁）；兩頁在兩種主題 320／375／820／1440 無水平捲動、無 JS 錯誤；地球實測自動旋轉、點 Egypt 後埃及落在地球中心（偏差 4px）、點 Singapore 圓點有標示、拖曳會轉、縮小視窗地球跟著縮、reduced-motion 時靜止；本機預覽對不存在的網址回 404；sitemap 與正式站相同。分支 site/redesign-fable，未合併。
+  已知：Globe 的 JS 約 319 KB（gzip 125 KB），大部分是世界地圖資料 world.json（447 KB 原始檔），只在 /travel 載入；留到階段 5 處理。新寫的文案待 Jason 審：/travel 的副標「Away from the keyboard. Drag the globe, or pick a place and it turns there.」與 404 的標題、說明。
+下次從：Jason 看 /travel 與 404 預覽回饋 → 階段 5 收尾（OG 圖、移除沒用到的相依套件、地圖資料瘦身、全站 Lighthouse、sitemap／RSS 最終核對）。

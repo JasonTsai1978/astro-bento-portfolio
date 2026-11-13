@@ -8,9 +8,161 @@ import BasicLayout from "../layouts/BasicLayout.astro";
   page="travel"
   title="Jason Tsai - Visited Countries"
 >
-  <main class="w-full max-w-3xl mx-auto px-5 py-10 md:px-8 md:py-16 text-ink" id="main">
-    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Countries I visited</h1>
-    <p class="text-muted mb-6">Highlighted in red. The globe keeps turning.</p>
+  <main class="wrap page" id="main">
+    <header class="head">
+      <p class="label">Off the map</p>
+      <h1>Countries I visited.</h1>
+      <p class="intro">Away from the keyboard. Drag the globe, or pick a place and it turns there.</p>
+    </header>
     <Globe client:load />
   </main>
 </BasicLayout>
+
+<style>
+  .page {
+    padding-block: clamp(28px, 4vw, 48px) clamp(40px, 6vw, 72px);
+  }
+  .head {
+    margin-bottom: clamp(20px, 3vw, 32px);
+  }
+  .head .label {
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .intro {
+    max-width: 40em;
+    margin: 16px 0 0;
+    color: var(--muted);
+  }
+</style>
+
+<!-- 地球由 Solid 元件畫出來，樣式放全域才套得到；顏色全部用主題 token，切換白天／晚上會跟著變 -->
+<style is:global>
+  .globe-wrap {
+    display: grid;
+    gap: 24px;
+  }
+  .globe-wrap > * {
+    min-width: 0;
+  }
+  .globe-stage {
+    padding: clamp(12px, 3vw, 28px);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--surface);
+  }
+  /* 先用 aspect-ratio 佔好正方形的位置，地球畫出來時版面不會跳 */
+  .globe-box {
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  .globe-box svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .globe-box svg.dragging {
+    cursor: grabbing;
+  }
+  .globe-box .ocean {
+    fill: var(--bg);
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .globe-box .land {
+    fill: color-mix(in srgb, var(--muted) 30%, var(--bg));
+    stroke: var(--bg);
+    stroke-width: 0.5;
+  }
+  .globe-box .land.visited,
+  .globe-box .dot {
+    fill: var(--accent);
+  }
+  .globe-box .dot {
+    stroke: var(--bg);
+    stroke-width: 1;
+  }
+  .globe-box .land.active,
+  .globe-box .dot.active {
+    fill: var(--ink);
+  }
+  .globe-box .home {
+    fill: var(--sun);
+    stroke: var(--sun-ink);
+    stroke-width: 1;
+  }
+  .globe-side .label {
+    margin: 0 0 12px;
+  }
+  .places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .places button {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .places button:hover {
+    border-color: var(--ink);
+  }
+  .places button[aria-pressed="true"] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    margin: 20px 0 0;
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+  .legend .key {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .legend .key.visited {
+    background: var(--accent);
+  }
+  .legend .key.home {
+    margin-left: 12px;
+    background: var(--sun);
+    box-shadow: 0 0 0 1px var(--sun-ink);
+  }
+  @media (min-width: 900px) {
+    .globe-wrap {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+  }
+</style>
