@@ -166,4 +166,13 @@ const NAV = [
       display: block;
     }
   }
+  /* 320px 寬的小手機：縮小間距，避免主題切換鈕被擠出畫面 */
+  @media (max-width: 359px) {
+    .bar {
+      gap: 6px;
+    }
+    nav a {
+      padding-inline: 7px;
+    }
+  }
 </style>

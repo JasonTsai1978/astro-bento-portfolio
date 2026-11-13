@@ -1,20 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import SectionHead from "./SectionHead.astro";
+import { getPostPairs, shortDate } from "../../lib/posts";
 
-// 同一篇文章的中英文版合併成一列：英文為主，中文標題放副標
-const all = await getCollection("blog");
-const byId = new Map(all.map((p) => [p.id, p]));
-const posts = all
-  .filter((p) => !p.id.endsWith("-zh") || !byId.has(p.id.slice(0, -3)))
-  .map((p) => ({
-    post: p,
-    zh: p.id.endsWith("-zh") ? undefined : byId.get(`${p.id}-zh`),
-  }))
-  .sort((a, b) => (b.post.data.pubDate || new Date()).getTime() - (a.post.data.pubDate || new Date()).getTime())
-  .slice(0, 4);
-
-const shortDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+// 首頁只列最新 4 篇（中英文版已合併成一列）
+const posts = (await getPostPairs()).slice(0, 4);
 ---
 
 <section class="section wrap" id="writing">

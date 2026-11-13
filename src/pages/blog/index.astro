@@ -1,33 +1,292 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import PostRow from "../../components/Blog/PostRow.astro";
+import { BLOG_CATEGORIES } from "../../lib/constants";
+import { categorySlug, getPostPairs, shortDate } from "../../lib/posts";
 
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
-);
+// 中英文版合併成一列，新到舊
+const posts = await getPostPairs();
+
+const filters = BLOG_CATEGORIES.map((name) => ({
+  name,
+  slug: categorySlug(name),
+  count: posts.filter(({ post }) => post.data.category === name).length,
+})).filter((f) => f.count > 0);
+
+// 連載標記：目前只有養龍蝦系列，從檔名判斷集數
+function seriesEpisode(id: string) {
+  const ep = id.match(/^lobster-ep(\d+)/);
+  if (ep) return `Ep ${ep[1]}`;
+  if (id.startsWith("lobster-extra")) return "Extra";
+  return undefined;
+}
 ---
 
 <Layout
-  description="Notes from Jason Tsai on semiconductor IT, system integration and personal AI workflows."   title="Jason Tsai - Blog"
+  description="Notes from Jason Tsai on semiconductor IT, system integration and personal AI workflows."
+  title="Jason Tsai - Blog"
 >
-  <main
-    class="w-full flex flex-col justify-start items-start max-w-3xl mx-auto px-5 py-10 md:px-8 md:py-16"
-    id="main"
-  >
-    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-ink">Posts</h1>
-    {!posts?.length && <p class="text-muted">First posts coming soon.</p>}
-    <ul class="w-full">
+  <main class="wrap page" id="main">
+    <header class="head">
+      <p class="label">Writing</p>
+      <h1>All posts.</h1>
+      <p class="intro">
+        Enterprise IT, bringing AI into a dev team, and what I build in my personal lab. Every post is in English and
+        <span lang="zh-Hant">中文</span>.
+      </p>
+    </header>
+
+    {!posts.length && <p>First posts coming soon.</p>}
+
+    {
+      posts.length > 0 && (
+        <div aria-label="Filter posts by category" class="filters" role="group">
+          <button aria-pressed="true" class="chip" data-filter="all" type="button">
+            All <span class="n">{posts.length}</span>
+          </button>
+          {filters.map(({ name, slug, count }) => (
+            <button aria-pressed="false" class="chip" data-filter={slug} type="button">
+              {name} <span class="n">{count}</span>
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    <ul class="posts">
       {
-        posts?.map((post) => (
-          <PostRow
-            category={post.data.category}
-            date={post.data.pubDate || new Date()}             id={post.id}             title={post.data.title || "No title"}
-          />
-        ))
+        posts.map(({ post, zh }) => {
+          const episode = seriesEpisode(post.id);
+          return (
+            <li data-cat={categorySlug(post.data.category)}>
+              {post.data.pubDate && (
+                <time class="label date" datetime={post.data.pubDate.toISOString()}>
+                  {shortDate(post.data.pubDate)}
+                </time>
+              )}
+              <div class="titles">
+                <h2>
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                </h2>
+                {zh && (
+                  <p class="zh">
+                    <a href={`/blog/${zh.id}/`} hreflang="zh-Hant" lang="zh-Hant">
+                      {zh.data.title}
+                    </a>
+                  </p>
+                )}
+              </div>
+              <p class="meta">
+                {episode && (
+                  <span class="label series">
+                    <span class="pre">Lobster · </span>
+                    {episode}
+                  </span>
+                )}
+                <span class="label cat">{post.data.category}</span>
+              </p>
+            </li>
+          );
+        })
       }
     </ul>
+    <p aria-live="polite" class="status label" id="filter-status"></p>
   </main>
 </Layout>
+
+<script>
+  // 分類篩選：只隱藏不符合的列。網址帶 #分類，方便分享；沒有 JS 時就是完整列表
+  const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
+  const rows = document.querySelectorAll<HTMLLIElement>(".posts li");
+  const status = document.getElementById("filter-status");
+  const known = new Set(Array.from(chips, (c) => c.dataset.filter));
+
+  function apply(filter: string) {
+    let shown = 0;
+    rows.forEach((row) => {
+      const hide = filter !== "all" && row.dataset.cat !== filter;
+      row.hidden = hide;
+      if (!hide) shown++;
+    });
+    chips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.filter === filter)));
+    if (status) status.textContent = filter === "all" ? "" : `Showing ${shown} of ${rows.length} posts`;
+  }
+
+  function fromHash() {
+    const h = location.hash.slice(1);
+    apply(known.has(h) ? h : "all");
+  }
+
+  chips.forEach((c) =>
+    c.addEventListener("click", () => {
+      const f = c.dataset.filter || "all";
+      history.replaceState(null, "", f === "all" ? location.pathname : `#${f}`);
+      apply(f);
+    }),
+  );
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+</script>
+
+<style>
+  .page {
+    padding-block: clamp(28px, 4vw, 48px) clamp(40px, 6vw, 72px);
+  }
+  .head {
+    margin-bottom: clamp(20px, 3vw, 28px);
+  }
+  .head .label {
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .intro {
+    max-width: 40em;
+    margin: 16px 0 0;
+    color: var(--muted);
+  }
+
+  /* 篩選鈕：手機上可左右滑，不換行、不撐寬頁面 */
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin: 0 calc(var(--gutter) * -1) 12px;
+    padding: 4px var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+  .chip {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      border-color 0.15s,
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .chip:hover {
+    border-color: var(--ink);
+  }
+  .chip[aria-pressed="true"] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .n {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .posts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .posts li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 12px;
+    padding-block: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .posts li[hidden] {
+    display: none;
+  }
+  .titles {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .meta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px 8px;
+    margin: 0;
+    text-align: right;
+    white-space: nowrap;
+  }
+  /* 手機寬度放不下完整的系列名，只顯示集數（標題本身已寫明是養龍蝦系列） */
+  .pre {
+    display: none;
+  }
+  .series {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--sun);
+    color: var(--sun-ink);
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  h2 a,
+  .zh a {
+    transition: color 0.15s;
+  }
+  h2 a:hover,
+  .zh a:hover {
+    color: var(--accent);
+  }
+  .zh {
+    margin: 2px 0 0;
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+  .zh a {
+    display: inline-block;
+    padding-block: 3px;
+  }
+  .status {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+  }
+  @media (min-width: 900px) {
+    .filters {
+      margin-bottom: 16px;
+    }
+    .posts li {
+      grid-template-columns: 120px minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: baseline;
+      padding-block: 16px;
+    }
+    .titles {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .meta {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .pre {
+      display: inline;
+    }
+    h2 {
+      font-size: 1.1875rem;
+    }
+  }
+</style>
