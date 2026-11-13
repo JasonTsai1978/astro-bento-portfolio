@@ -249,6 +249,11 @@ const link = (p?: (typeof sameLang)[number]) => (p ? { href: `/blog/${p.id}/`, t
     letter-spacing: 0;
   }
 
+  /* 仿 Telegram 對話框裡的灰色小字（bot、時間）原色 #6c7883 對比不足，調亮到 AA；文章檔不改所以用 !important 蓋過 inline style */
+  article.post [style*="color:#6c7883"] {
+    color: #93a0ad !important;
+  }
+
   /* 直式照片：Markdown 中用 <div class="portrait"> 包住，寬度上限 390px（3:4 照片高度約 520px） */
   article.post .portrait img {
     max-width: min(100%, 390px);

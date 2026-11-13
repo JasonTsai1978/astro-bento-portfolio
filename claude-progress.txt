@@ -112,4 +112,12 @@
   404——改用 token 與新版型：標題「This one didn't survive.」、Back home／All posts 兩顆按鈕、最新三篇文章（中英）。仍是 noindex，Cloudflare 對不存在的網址仍回 404。
   驗證：本機 build 通過（24 頁）；兩頁在兩種主題 320／375／820／1440 無水平捲動、無 JS 錯誤；地球實測自動旋轉、點 Egypt 後埃及落在地球中心（偏差 4px）、點 Singapore 圓點有標示、拖曳會轉、縮小視窗地球跟著縮、reduced-motion 時靜止；本機預覽對不存在的網址回 404；sitemap 與正式站相同。分支 site/redesign-fable，未合併。
   已知：Globe 的 JS 約 319 KB（gzip 125 KB），大部分是世界地圖資料 world.json（447 KB 原始檔），只在 /travel 載入；留到階段 5 處理。新寫的文案待 Jason 審：/travel 的副標「Away from the keyboard. Drag the globe, or pick a place and it turns there.」與 404 的標題、說明。
-下次從：Jason 看 /travel 與 404 預覽回饋 → 階段 5 收尾（OG 圖、移除沒用到的相依套件、地圖資料瘦身、全站 Lighthouse、sitemap／RSS 最終核對）。
+2026-11-13（改版階段 5：收尾）：
+  相依套件——移除沒用到的 @astrojs/netlify、@astrojs/svelte、svelte、@rive-app/canvas、gsap、lenis、motion、astro-icon、@iconify-json/ri；astro.config.mjs 拿掉 icon()、svelte() 與 .riv 設定，刪 svelte.config.js。pnpm-lock.yaml 用 pnpm 9.15.9 重算（lockfileVersion 9.0，12,173 → 8,500 行，其餘套件版本沒有變）。注意：本機 node_modules 是 pnpm 12 建的，pnpm 9 在專案目錄下 install 會要求整個砍掉重裝；這次是把 package.json 與 lockfile 複製到暫存資料夾跑 install --lockfile-only 再搬回來，本機 node_modules 沒動（還留著被移除的套件，不影響 build）。Cloudflare 已用新 lockfile 建置成功。
+  地圖資料——src/lib/world.json 座標四捨五入到小數兩位（約 1 公里）、去掉沒用到的 id 欄位：447 KB → 171 KB；Globe 的 JS 319 KB → 237 KB（gzip 125 → 80 KB），只在 /travel 載入。
+  OG 圖——public/og-image.png 換成新版型（主軸句＋照片＋太陽，1200×630，356 KB → 268 KB）；檔名與網址不變。產生用的 HTML 留在當次 session 的暫存資料夾，沒有進 repo。
+  無障礙——養龍蝦第 1、2 集仿 Telegram 對話框的灰色小字對比不足（Lighthouse Accessibility 96），用 CSS 把 #6c7883 蓋成 #93a0ad（對比 5.8～6.1），文章檔沒改。
+  最終核對：本機 build 通過（24 頁）；sitemap 網址與 lastmod、RSS 20 筆的連結／標題／日期、robots.txt 與正式站完全相同；sitemap 全部 23 頁＋404 在兩種主題 × 320／375／820／1440（共 192 次）無水平捲動、無 JS 錯誤、無載入失敗的資源。
+  Lighthouse（Cloudflare 預覽網址，Performance／Accessibility／Best Practices；SEO 因預覽帶 noindex 未量）：首頁 手機 100／100／100、桌機 100／100／100；/blog 手機 100／100／100、桌機 100／100／100；文章 eudamed-ai-consultant 手機 99／100／100、桌機 100／100／100；文章 lobster-ep2-march-zh 手機 100／96／100（修對比前）；/travel 手機 98／100／100、桌機 100／100／100。
+  改版五個階段都已完成，全部在分支 site/redesign-fable，未合併，master 與正式站沒動。
+下次從：Jason 用手機與桌機看完預覽 → 待審文案定稿（By night 段落、Lab to team 三張卡、作者卡介紹、/travel 副標、404 標題）→ Jason 同意後 ff 合併 master → 上線後量一次正式站 Lighthouse（含 SEO）、同步 Obsidian 網站筆記。沒做：每篇文章各自的 OG 圖（目前全站共用一張）、UnoCSS 仍保留（只用到它的 reset）。
