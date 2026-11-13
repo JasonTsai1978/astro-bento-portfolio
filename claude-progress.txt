@@ -121,4 +121,5 @@
   Lighthouse（Cloudflare 預覽網址，Performance／Accessibility／Best Practices；SEO 因預覽帶 noindex 未量）：首頁 手機 100／100／100、桌機 100／100／100；/blog 手機 100／100／100、桌機 100／100／100；文章 eudamed-ai-consultant 手機 99／100／100、桌機 100／100／100；文章 lobster-ep2-march-zh 手機 100／96／100（修對比前）；/travel 手機 98／100／100、桌機 100／100／100。
   改版五個階段都已完成，全部在分支 site/redesign-fable，未合併，master 與正式站沒動。
   部署狀態（2026-11-13 深夜）：預覽站目前停在 2787eb3（階段 5 主體）。之後的對比修正 d3b6c94 在 Cloudflare 顯示 Deploy failed，推空 commit 71b49e0 重觸發後卡在 Building 超過 20 分鐘；同時 Cloudflare 狀態頁顯示 Partially Degraded Service，本機 build 正常，判斷是 Cloudflare 端的問題（未看到建置 log，無法完全確認）。下次開工先用 gh api repos/<owner>/<repo>/commits/<sha>/check-runs 看最新一筆是否成功，沒有就再推一次；成功後補量 lobster-ep2-march-zh 的 Accessibility（預期 96 → 100，尚未在預覽站驗證）。
+2026-11-13（首頁 Now 區塊）：依 Jason 指示拿掉「what's a now page?」外部連結（sive.rs/now），日期改為 Updated November 2026（NowContact.astro）。本機 build 通過（24 頁）。分支 site/redesign-fable，未合併。
 下次從：Jason 用手機與桌機看完預覽 → 待審文案定稿（By night 段落、Lab to team 三張卡、作者卡介紹、/travel 副標、404 標題）→ Jason 同意後 ff 合併 master → 上線後量一次正式站 Lighthouse（含 SEO）、同步 Obsidian 網站筆記。沒做：每篇文章各自的 OG 圖（目前全站共用一張）、UnoCSS 仍保留（只用到它的 reset）。
