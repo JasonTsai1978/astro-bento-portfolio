@@ -106,4 +106,5 @@
   整理——seriesEpisode 移到 src/lib/posts.ts 共用；刪除沒人用的 components/Blog/CategoryTag.astro。
   驗證：本機 build 通過（24 頁）；20 篇 × 320／375／820／1440 無水平捲動、無 JS 錯誤、語言連結那行都有收起；截圖抽看英文桌機、中文手機（白天／晚上）、流程圖、表格、作者卡；語言切換、下一篇、分類連結實際點擊正常。20 篇的 canonical、hreflang、JSON-LD、title、description、og 標籤與正式站逐篇比對完全相同；sitemap、RSS 連結與正式站相同。分支 site/redesign-fable，未合併。
   新寫的文案待 Jason 審：作者卡介紹（英：IT Manager in semiconductor manufacturing. I try everything on my own work first. What survives gets brought to the team.／中：半導體製造業 IT Manager。新東西先在自己的工作上試，留得下來的才帶進團隊。）
+  Lighthouse（Cloudflare 預覽網址、手機）：文章頁 cross-review-two-models-zh Performance 97／Accessibility 100／Best Practices 100；/blog 99／100／100。SEO 因預覽網址帶 noindex 未量。
 下次從：Jason 看 /blog 與文章頁預覽回饋 → 階段 4（/travel、404 套新版型，地球配色跟主題）→ 階段 5 收尾（OG 圖、移除沒用到的相依套件、全站 Lighthouse）。
