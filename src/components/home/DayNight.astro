@@ -58,11 +58,11 @@ import SectionHead from "./SectionHead.astro";
         <span class="here">you are here</span>
       </p>
       <h3>Building with Claude Code, Claude, Gemini and ChatGPT.</h3>
-      <p class="long">
+      <p>
         Automating my own work first, then bringing what works to my team. My personal lab is where things get tried
         before anyone else has to live with them: agents, review workflows, a knowledge system.
       </p>
-      <p>
+      <p class="long">
         And one AI lobster I eventually let go.
         <a href="/blog/lobster-ep1-week-one/">Read the lobster series <span aria-hidden="true">→</span></a>
       </p>
@@ -162,7 +162,7 @@ import SectionHead from "./SectionHead.astro";
   .arrow::before {
     content: "↑";
   }
-  /* 手機精簡：每塊只留標題與一段，背景介紹（.long）收起來 */
+  /* 手機精簡：每塊只留標題與一段，其餘（.long）收起來 */
   @media (max-width: 639px) {
     .panels {
       gap: 12px;
@@ -178,6 +178,9 @@ import SectionHead from "./SectionHead.astro";
     }
     .panel p.long {
       display: none;
+    }
+    .panel p:nth-last-child(2) {
+      margin-bottom: 0;
     }
   }
   @media (min-width: 900px) {
