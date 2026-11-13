@@ -2,10 +2,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import UnoCSS from "@unocss/astro";
-import icon from "astro-icon";
 import solidJs from "@astrojs/solid-js";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
-import svelte from "@astrojs/svelte";
 import { readdirSync, readFileSync } from "node:fs";
 
 // sitemap 的 lastmod：文章用 frontmatter 的 pubDate，/blog/ 用最新一篇的日期
@@ -39,14 +37,9 @@ export default defineConfig({
     }),
     solidJs(),
     UnoCSS({ injectReset: true }),
-    icon(),
-    svelte(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
   output: "static",
-  vite: {
-    assetsInclude: "**/*.riv",
-  },
 });
