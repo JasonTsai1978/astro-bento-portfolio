@@ -134,3 +134,5 @@
   正式站驗證：sitemap 23 頁全部 200；/、/blog/、/travel/、rss.xml、robots.txt、og-image.png 200；不存在的網址回 404；首頁 canonical、robots index,follow、HSTS 正常。
   未做：正式站 Lighthouse（npx 被權限擋，待 Jason 放行或手動跑）；LinkedIn Post Inspector 重新抓 OG 圖（Jason 手動）；site/redesign-fable 分支保留未刪。
 下次從：Jason 實體手機看正式站（特別是 /travel 觸控）→ 量正式站 Lighthouse（含 SEO）→ LinkedIn 重新抓 OG → 刪 site/redesign-fable 分支 → 處理「審查提到但沒做」清單。
+2026-11-14（收尾）：Jason 實體手機看過正式站沒問題；site/redesign-fable 已確認併入 master 後刪除（本機＋GitHub）。保留 archive/pre-redesign 分支與 backup tag 當舊版備份。
+下次從：正式站 Lighthouse（含 SEO）→ LinkedIn Post Inspector 重抓 OG → 「審查提到但沒做」清單。
