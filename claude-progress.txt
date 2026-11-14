@@ -138,3 +138,5 @@
 下次從：正式站 Lighthouse（含 SEO）→ LinkedIn Post Inspector 重抓 OG → 「審查提到但沒做」清單。
 2026-11-14（正式站 Lighthouse，本機 Edge＋lighthouse 12.8.2，Performance／Accessibility／Best Practices／SEO）：首頁 手機 98/100/100/100、桌機 91/100/100/100；/blog 95/100/100/100、92/100/100/100；/travel 98/100/100/100、99/100/100/100；eudamed-ai-consultant 94/100/100/100、100/100/100/100；lobster-ep2-march-zh 92/100/100/100、85/100/100/100。SEO 全 100（預覽站量不到的這次補齊）；lobster-ep2 的 Accessibility 確認 96→100。Performance 波動是網路／CDN 冷快取：桌機重跑首頁 100、94，lobster-ep2 84、99，TBT 都 0 ms、CLS ≤0.008，差異全在 FCP／LCP 0.6～1.8 秒，不是程式問題。
 下次從：LinkedIn Post Inspector 重抓 OG（Jason 手動）→ 「審查提到但沒做」清單。
+2026-11-14（LinkedIn）：Jason 用 LinkedIn Post Inspector 重抓 https://jasontsai.dev/ ，確認顯示新 OG 圖。改版上線的收尾待辦全部完成。
+下次從：「審查提到但沒做」清單（不急）；Search Console 提交 sitemap-index.xml。
