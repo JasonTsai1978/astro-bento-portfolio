@@ -140,3 +140,5 @@
 下次從：LinkedIn Post Inspector 重抓 OG（Jason 手動）→ 「審查提到但沒做」清單。
 2026-11-14（LinkedIn）：Jason 用 LinkedIn Post Inspector 重抓 https://jasontsai.dev/ ，確認顯示新 OG 圖。改版上線的收尾待辦全部完成。
 下次從：「審查提到但沒做」清單（不急）；Search Console 提交 sitemap-index.xml。
+2026-11-14（Search Console）：Jason 在 Search Console（網域資源 jasontsai.dev）提交 sitemap-index.xml，狀態成功、找到 23 頁。
+下次從：「審查提到但沒做」清單（不急）；過幾天看 Search Console 的搜尋詞與曝光。
