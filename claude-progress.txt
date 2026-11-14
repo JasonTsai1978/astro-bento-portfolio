@@ -129,3 +129,8 @@
   審查提到但這次沒做（不急）：uno.config.ts 的模板殘留與是否整個移除 UnoCSS；autoprefixer、@unocss/preset-uno、@unocss/postcss 沒用到；文章圖框的選擇器依賴 inline style 字串，日後改用 class；content schema 的 pubDate 改必填；用 /blog/#分類 直接開頁可能先閃一下完整列表（待實機確認）；語言切換鈕高 38px、低於其他按鈕的 44px；上線後要到 LinkedIn Post Inspector 重新抓 OG 圖。
   分支 site/redesign-fable，未合併。
 下次從：先確認 Cloudflare 預覽是否已部署最新一筆（gh api repos/<owner>/<repo>/commits/<sha>/check-runs），沒有就再推一次 → Jason 用實體手機看 /travel 的捲動與拖曳、看完整預覽 → 待審文案定稿（By night 段落、Lab to team 三張卡、作者卡介紹）→ Jason 同意後 ff 合併 master → 上線後量正式站 Lighthouse（含 SEO）、LinkedIn 重新抓 OG 圖、同步 Obsidian 網站筆記。
+2026-11-14（改版上線）：Cloudflare 預覽確認最新一筆 9490eee 部署成功、本機 build 通過（24 頁）後，site/redesign-fable fast-forward 合併 master（3d7aa27 → 9490eee）並 push，正式站約 1 分鐘後換成新版。
+  備份舊版——tag backup/pre-redesign-2026-11-14 與分支 archive/pre-redesign（都指向 3d7aa27）已推 GitHub；原始碼 zip 存 H:\我的雲端硬碟\ClaudeCode\backups\jasontsai.dev\site-pre-redesign-2026-11-14-3d7aa27.zip；Cloudflare 部署紀錄也可直接 rollback。要回舊版：Cloudflare Pages → Deployments 選 3d7aa27 那次 Rollback，或 git revert／reset master 到該 tag 再 push。
+  正式站驗證：sitemap 23 頁全部 200；/、/blog/、/travel/、rss.xml、robots.txt、og-image.png 200；不存在的網址回 404；首頁 canonical、robots index,follow、HSTS 正常。
+  未做：正式站 Lighthouse（npx 被權限擋，待 Jason 放行或手動跑）；LinkedIn Post Inspector 重新抓 OG 圖（Jason 手動）；site/redesign-fable 分支保留未刪。
+下次從：Jason 實體手機看正式站（特別是 /travel 觸控）→ 量正式站 Lighthouse（含 SEO）→ LinkedIn 重新抓 OG → 刪 site/redesign-fable 分支 → 處理「審查提到但沒做」清單。
